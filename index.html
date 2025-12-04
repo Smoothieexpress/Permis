@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto-École Excellence | Permis de conduire</title>
+    <title>Auto-École Premium | Permis de conduire</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Variables et styles généraux */
         :root {
             --primary: #0066cc;
             --secondary: #ff6600;
+            --success: #28a745;
             --dark: #333333;
             --light: #f8f9fa;
             --gray: #6c757d;
+            --whatsapp: #25D366;
         }
         
         * {
@@ -42,6 +44,8 @@
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
         
         .btn-primary {
@@ -64,8 +68,18 @@
             transform: translateY(-3px);
         }
         
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+        
         .btn-whatsapp {
-            background-color: #25D366;
+            background-color: var(--whatsapp);
             color: white;
             position: fixed;
             bottom: 30px;
@@ -214,6 +228,74 @@
             margin-bottom: 20px;
         }
         
+        /* Achat Permis Section */
+        .achat-permis {
+            background-color: #f0f8ff;
+        }
+        
+        .achat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .achat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .achat-card.popular {
+            border-color: var(--success);
+            transform: scale(1.05);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--success);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .achat-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--success);
+            margin: 20px 0;
+        }
+        
+        .achat-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .achat-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .warning-note {
+            background-color: #fff3cd;
+            border: 1px solid #ffecb5;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 30px;
+            text-align: center;
+            color: #856404;
+        }
+        
         /* Tarifs Section */
         .tarifs-grid {
             display: grid;
@@ -236,19 +318,6 @@
             border-color: var(--secondary);
             transform: scale(1.05);
             position: relative;
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--secondary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
         }
         
         .tarif-price {
@@ -463,6 +532,47 @@
             font-size: 0.9rem;
         }
         
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+        }
+        
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
         /* Responsive */
         @media (max-width: 992px) {
             h1 {
@@ -484,6 +594,10 @@
             
             .process-steps::before {
                 display: none;
+            }
+            
+            .achat-card.popular {
+                transform: none;
             }
         }
         
@@ -556,6 +670,10 @@
             .btn-whatsapp span {
                 display: none;
             }
+            
+            .modal-content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -563,7 +681,7 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">Auto<span>École</span></div>
+            <div class="logo">Permis<span>Premium</span></div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
@@ -571,7 +689,8 @@
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#achat">Achat Permis</a></li>
+                    <li><a href="#tarifs">Formations</a></li>
                     <li><a href="#process">Processus</a></li>
                     <li><a href="#avis">Avis</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -584,36 +703,39 @@
     <section class="hero" id="accueil">
         <div class="container">
             <h1>Obtenez votre permis de conduire facilement</h1>
-            <p>Notre auto-école vous accompagne dans toutes les étapes pour réussir votre permis. Inscription rapide, moniteurs expérimentés et forfaits adaptés à vos besoins.</p>
-            <a href="#contact" class="btn btn-primary">S'inscrire maintenant</a>
+            <p>Notre auto-école vous accompagne dans toutes les étapes pour réussir votre permis. Possibilité d'obtention rapide sans examen pour ceux qui le souhaitent.</p>
+            <button class="btn btn-primary" onclick="openInscriptionModal()">S'inscrire maintenant</button>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2>Nos Formations</h2>
+            <h2>Nos Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-car"></i>
                     </div>
-                    <h3>Permis B</h3>
-                    <p>Formation complète pour le permis voiture avec conduite accompagnée ou supervisée selon votre profil.</p>
+                    <h3>Permis Classique</h3>
+                    <p>Formation complète pour le permis voiture avec passage de l'examen officiel.</p>
+                    <button class="btn btn-primary" onclick="redirectToWhatsApp('Bonjour, je suis intéressé(e) par la formation Permis Classique')">S'inscrire</button>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-motorcycle"></i>
                     </div>
-                    <h3>Permis A et A2</h3>
-                    <p>Apprenez à conduire une moto en toute sécurité avec nos formations adaptées à tous les niveaux.</p>
+                    <h3>Permis Moto</h3>
+                    <p>Formation pour les permis A et A2 avec moniteurs spécialisés deux-roues.</p>
+                    <button class="btn btn-primary" onclick="redirectToWhatsApp('Bonjour, je suis intéressé(e) par la formation Permis Moto')">S'inscrire</button>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-sync-alt"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Conduite Accompagnée</h3>
-                    <p>Formation anticipée dès 15 ans pour acquérir de l'expérience avant l'examen du permis.</p>
+                    <h3>Code de la Route</h3>
+                    <p>Préparation à l'examen du code avec cours en présentiel et plateforme en ligne.</p>
+                    <button class="btn btn-primary" onclick="redirectToWhatsApp('Bonjour, je suis intéressé(e) par la formation Code de la Route')">S'inscrire</button>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -621,7 +743,60 @@
                     </div>
                     <h3>Stage de Rattrapage</h3>
                     <p>Vous avez échoué à l'examen ? Nos stages intensifs vous préparent à le repasser rapidement.</p>
+                    <button class="btn btn-primary" onclick="redirectToWhatsApp('Bonjour, je suis intéressé(e) par un Stage de Rattrapage')">S'inscrire</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achat Permis Section -->
+    <section class="achat-permis" id="achat">
+        <div class="container">
+            <h2>Acheter votre permis sans examen</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Pour ceux qui souhaitent obtenir leur permis rapidement sans passer par les examens traditionnels.</p>
+            
+            <div class="achat-grid">
+                <div class="achat-card">
+                    <h3>Code de la Route</h3>
+                    <div class="achat-price">500€</div>
+                    <ul class="achat-features">
+                        <li>Obtention du code sans examen</li>
+                        <li>Délai: 7-10 jours</li>
+                        <li>Document officiel fourni</li>
+                        <li>Valable partout en France</li>
+                        <li>Paiement sécurisé</li>
+                    </ul>
+                    <button class="btn btn-success" onclick="redirectToWhatsApp('Bonjour, je souhaite acheter le Code de la Route à 500€')">Acheter le code</button>
+                </div>
+                <div class="achat-card popular">
+                    <div class="popular-badge">Le plus demandé</div>
+                    <h3>Permis Complet</h3>
+                    <div class="achat-price">1000€</div>
+                    <ul class="achat-features">
+                        <li>Permis B complet sans examen</li>
+                        <li>Code + Conduite inclus</li>
+                        <li>Délai: 15-20 jours</li>
+                        <li>Carte officielle fournie</li>
+                        <li>Paiement sécurisé</li>
+                    </ul>
+                    <button class="btn btn-success" onclick="redirectToWhatsApp('Bonjour, je souhaite acheter le Permis Complet à 1000€')">Acheter le permis</button>
+                </div>
+                <div class="achat-card">
+                    <h3>Permis + Accompagnement</h3>
+                    <div class="achat-price">1500€</div>
+                    <ul class="achat-features">
+                        <li>Permis complet sans examen</li>
+                        <li>Accompagnement personnalisé</li>
+                        <li>Dossier traité en priorité</li>
+                        <li>Suivi jusqu'à réception</li>
+                        <li>Garantie satisfaction</li>
+                    </ul>
+                    <button class="btn btn-success" onclick="redirectToWhatsApp('Bonjour, je souhaite acheter le Permis + Accompagnement à 1500€')">Choisir cette option</button>
+                </div>
+            </div>
+            
+            <div class="warning-note">
+                <i class="fas fa-exclamation-triangle"></i> Les permis obtenus par cette méthode sont des documents officiels délivrés par des centres agréés. Le processus respecte la législation en vigueur.
             </div>
         </div>
     </section>
@@ -629,18 +804,21 @@
     <!-- Tarifs Section -->
     <section class="tarifs" id="tarifs">
         <div class="container">
-            <h2>Nos Forfaits</h2>
+            <h2>Formations Traditionnelles</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Formations classiques avec passage des examens officiels.</p>
+            
             <div class="tarifs-grid">
                 <div class="tarif-card">
-                    <h3>Découverte</h3>
-                    <div class="tarif-price">30€</div>
+                    <h3>Formation Code</h3>
+                    <div class="tarif-price">300€</div>
                     <ul class="tarif-features">
-                        <li>Évaluation de départ</li>
-                        <li>1 heure de conduite</li>
-                        <li>Livret d'apprentissage</li>
+                        <li>Cours de code illimités</li>
                         <li>Accès plateforme en ligne</li>
+                        <li>Tests blancs</li>
+                        <li>Présentation à l'examen</li>
+                        <li>Valable 1 an</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Choisir</a>
+                    <button class="btn btn-primary" onclick="redirectToWhatsApp('Bonjour, je suis intéressé(e) par la Formation Code à 300€')">Choisir</button>
                 </div>
                 <div class="tarif-card popular">
                     <div class="popular-badge">Le plus populaire</div>
@@ -651,8 +829,9 @@
                         <li>Frais d'inscription inclus</li>
                         <li>Présentation à l'examen</li>
                         <li>Accompagnement complet</li>
+                        <li>Livret d'apprentissage</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary">Choisir</a>
+                    <button class="btn btn-secondary" onclick="redirectToWhatsApp('Bonjour, je suis intéressé(e) par le Permis Classique à 1290€')">Choisir</button>
                 </div>
                 <div class="tarif-card">
                     <h3>Permis Accéléré</h3>
@@ -662,8 +841,9 @@
                         <li>30 heures de conduite</li>
                         <li>Présentation garantie</li>
                         <li>Suivi personnalisé</li>
+                        <li>Hébergement possible</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">Choisir</a>
+                    <button class="btn btn-primary" onclick="redirectToWhatsApp('Bonjour, je suis intéressé(e) par le Permis Accéléré à 1590€')">Choisir</button>
                 </div>
             </div>
         </div>
@@ -672,27 +852,27 @@
     <!-- Process Section -->
     <section class="process" id="process">
         <div class="container">
-            <h2>Comment ça marche</h2>
+            <h2>Processus d'Obtention</h2>
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Inscription</h3>
-                    <p>Remplissez le formulaire en ligne ou contactez-nous par WhatsApp pour débuter votre formation.</p>
+                    <h3>Contact</h3>
+                    <p>Prenez contact avec nous via WhatsApp pour discuter de vos besoins.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Évaluation</h3>
-                    <p>Nous évaluons votre niveau pour déterminer le nombre d'heures nécessaires à votre réussite.</p>
+                    <h3>Choix de formule</h3>
+                    <p>Sélectionnez la formule qui vous convient : formation classique ou obtention rapide.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Formation</h3>
-                    <p>Apprentissage du code et de la conduite avec des moniteurs expérimentés et pédagogues.</p>
+                    <h3>Paiement</h3>
+                    <p>Effectuez le paiement de manière sécurisée selon la méthode choisie.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Examen</h3>
-                    <p>Nous vous présentons à l'examen lorsque vous êtes prêt, avec un taux de réussite élevé.</p>
+                    <h3>Obtention</h3>
+                    <p>Recevez votre permis dans les délais promis selon la formule choisie.</p>
                 </div>
             </div>
         </div>
@@ -709,7 +889,7 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <div>
-                            <h4>Marie L.</h4>
+                            <h4>Kevin M.</h4>
                             <div class="avis-stars">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -719,7 +899,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>"J'ai obtenu mon permis du premier coup grâce à l'excellent accompagnement de mon moniteur. Je recommande vivement cette auto-école !"</p>
+                    <p>"J'ai acheté le permis complet sans examen. Tout s'est passé parfaitement, j'ai reçu mon permis en 2 semaines. Service sérieux et efficace !"</p>
                 </div>
                 <div class="avis-card">
                     <div class="avis-header">
@@ -745,7 +925,7 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <div>
-                            <h4>Sophie M.</h4>
+                            <h4>Sarah L.</h4>
                             <div class="avis-stars">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -755,7 +935,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>"J'ai particulièrement apprécié la flexibilité des horaires et la qualité de la formation. Je me sens vraiment prête à conduire seule."</p>
+                    <p>"J'ai pris juste le code à 500€ car j'avais déjà la conduite. Rapide et sans problème. Je recommande pour ceux qui veulent gagner du temps."</p>
                 </div>
             </div>
         </div>
@@ -770,20 +950,12 @@
                     <h3>Informations de contact</h3>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </div>
                         <div>
-                            <h4>Adresse</h4>
-                            <p>123 Avenue de la Conduite<br>75000 Paris</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Téléphone</h4>
-                            <p>0780826258</p>
+                            <h4>WhatsApp</h4>
+                            <p>07 80 82 62 58</p>
+                            <small>Cliquez sur le bouton vert pour nous contacter directement</small>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -801,39 +973,50 @@
                         </div>
                         <div>
                             <h4>Horaires</h4>
-                            <p>Lun-Ven: 9h-19h<br>Sam: 9h-17h</p>
+                            <p>Lun-Dim: 8h-22h</p>
+                            <small>Disponible 7j/7 sur WhatsApp</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Paiement sécurisé</h4>
+                            <p>Plusieurs méthodes acceptées</p>
+                            <small>Virement, PayPal, espèces</small>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
                     <h3>Demande d'information</h3>
-                    <form>
+                    <form id="contactForm" onsubmit="submitContactForm(event)">
                         <div class="form-group">
-                            <label for="name">Nom complet</label>
+                            <label for="name">Nom complet *</label>
                             <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Téléphone</label>
+                            <label for="phone">Téléphone *</label>
                             <input type="tel" id="phone" required>
                         </div>
                         <div class="form-group">
-                            <label for="formation">Formation souhaitée</label>
-                            <select id="formation">
-                                <option value="permis-b">Permis B</option>
-                                <option value="permis-a">Permis A/A2</option>
-                                <option value="conduite-accompagnee">Conduite Accompagnée</option>
-                                <option value="stage-rattrapage">Stage de Rattrapage</option>
+                            <label for="service">Service souhaité *</label>
+                            <select id="service" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="code-500">Code de la route (500€)</option>
+                                <option value="permis-1000">Permis complet (1000€)</option>
+                                <option value="permis-accompagne-1500">Permis + Accompagnement (1500€)</option>
+                                <option value="formation-code">Formation Code (300€)</option>
+                                <option value="permis-classique">Permis Classique (1290€)</option>
+                                <option value="permis-accelere">Permis Accéléré (1590€)</option>
+                                <option value="autre">Autre demande</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" rows="5"></textarea>
+                            <textarea id="message" rows="5" placeholder="Précisez votre demande ici..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <button type="submit" class="btn btn-primary">Envoyer la demande</button>
                     </form>
                 </div>
             </div>
@@ -845,63 +1028,229 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h3>AutoÉcole</h3>
-                    <p>Votre partenaire de confiance pour l'obtention du permis de conduire. Qualité, sécurité et réussite.</p>
+                    <h3>PermisPremium</h3>
+                    <p>Votre partenaire de confiance pour l'obtention du permis de conduire. Méthodes classiques et alternatives disponibles.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Liens rapides</h3>
                     <ul>
                         <li><a href="#accueil">Accueil</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#tarifs">Tarifs</a></li>
-                        <li><a href="#process">Processus</a></li>
+                        <li><a href="#achat">Achat Permis</a></li>
+                        <li><a href="#tarifs">Formations</a></li>
                         <li><a href="#avis">Avis</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Formations</h3>
+                    <h3>Achat Rapide</h3>
                     <ul>
-                        <li><a href="#">Permis B</a></li>
-                        <li><a href="#">Permis A/A2</a></li>
-                        <li><a href="#">Conduite Accompagnée</a></li>
-                        <li><a href="#">Stage de Rattrapage</a></li>
-                        <li><a href="#">Perfectionnement</a></li>
+                        <li><a href="#" onclick="redirectToWhatsApp('Bonjour, je souhaite acheter le Code de la Route à 500€')">Code (500€)</a></li>
+                        <li><a href="#" onclick="redirectToWhatsApp('Bonjour, je souhaite acheter le Permis Complet à 1000€')">Permis Complet (1000€)</a></li>
+                        <li><a href="#" onclick="redirectToWhatsApp('Bonjour, je souhaite acheter le Permis + Accompagnement à 1500€')">Permis + Accompagnement (1500€)</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Avenue de la Conduite, Paris</li>
-                        <li><i class="fas fa-phone"></i>0780826258</li>
-                        <li><i class="fas fa-envelope"></i> contact@autoecole-exemple.fr</li>
+                        <li><i class="fab fa-whatsapp"></i> 07 80 82 62 58</li>
+                        <li><i class="fas fa-envelope"></i> Permiscoded493@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> 7j/7, 8h-22h</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 AutoÉcole. Tous droits réservés.</p>
+                <p>&copy; 2023 PermisPremium. Tous droits réservés. | <a href="#" style="color: #bbb;" onclick="openConfidentialiteModal()">Politique de confidentialité</a></p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/0780826258?text=Bonjour,%20je%20suis%20intéressé(e)%20par%20vos%20formations%20de%20conduite" class="btn btn-whatsapp" target="_blank">
+    <a href="https://wa.me/33780826258?text=Bonjour,%20je%20suis%20intéressé(e)%20par%20vos%20services%20pour%20le%20permis%20de%20conduire" class="btn btn-whatsapp" target="_blank">
         <i class="fab fa-whatsapp"></i>
-        <span>Inscription WhatsApp</span>
+        <span>Nous contacter sur WhatsApp</span>
     </a>
 
+    <!-- Modal Inscription -->
+    <div class="modal" id="inscriptionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Formulaire d'inscription</h3>
+                <span class="close-modal" onclick="closeModal('inscriptionModal')">&times;</span>
+            </div>
+            <form id="inscriptionForm" onsubmit="submitInscriptionForm(event)">
+                <div class="form-group">
+                    <label for="inscriptionName">Nom complet *</label>
+                    <input type="text" id="inscriptionName" required>
+                </div>
+                <div class="form-group">
+                    <label for="inscriptionPhone">Téléphone *</label>
+                    <input type="tel" id="inscriptionPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="inscriptionEmail">Email</label>
+                    <input type="email" id="inscriptionEmail">
+                </div>
+                <div class="form-group">
+                    <label for="inscriptionType">Type d'inscription *</label>
+                    <select id="inscriptionType" required>
+                        <option value="">Sélectionnez une option</option>
+                        <option value="code-500">Achat Code (500€)</option>
+                        <option value="permis-1000">Achat Permis Complet (1000€)</option>
+                        <option value="permis-1500">Achat Permis + Accompagnement (1500€)</option>
+                        <option value="formation-code">Formation Code (300€)</option>
+                        <option value="permis-classique">Permis Classique (1290€)</option>
+                        <option value="permis-accelere">Permis Accéléré (1590€)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inscriptionMessage">Message complémentaire</label>
+                    <textarea id="inscriptionMessage" rows="4" placeholder="Précisez vos disponibilités ou autres informations..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer l'inscription</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Confidentialité -->
+    <div class="modal" id="confidentialiteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Politique de confidentialité</h3>
+                <span class="close-modal" onclick="closeModal('confidentialiteModal')">&times;</span>
+            </div>
+            <p>Nous nous engageons à protéger vos données personnelles. Les informations collectées via ce site sont utilisées uniquement pour traiter votre demande d'inscription ou d'achat.</p>
+            <p>Vos coordonnées ne seront jamais cédées ou vendues à des tiers. Les paiements sont sécurisés et les documents délivrés sont officiels.</p>
+            <p>Pour toute question concernant vos données, contactez-nous via WhatsApp au 07 80 82 62 58.</p>
+        </div>
+    </div>
+
     <script>
+        // Numéro WhatsApp et email
+        const whatsappNumber = "33780826258";
+        const emailAddress = "Permiscoded493@gmail.com";
+        
+        // Fonction pour rediriger vers WhatsApp avec un message
+        function redirectToWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+        
+        // Fonction pour envoyer un email
+        function sendEmail(subject, body) {
+            const encodedSubject = encodeURIComponent(subject);
+            const encodedBody = encodeURIComponent(body);
+            window.open(`mailto:${emailAddress}?subject=${encodedSubject}&body=${encodedBody}`, '_blank');
+        }
+        
+        // Gestion des modals
+        function openInscriptionModal() {
+            document.getElementById('inscriptionModal').style.display = 'flex';
+        }
+        
+        function openConfidentialiteModal() {
+            document.getElementById('confidentialiteModal').style.display = 'flex';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // Fermer les modals en cliquant à l'extérieur
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+        
+        // Soumission du formulaire de contact
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Prix selon le service
+            const prices = {
+                'code-500': '500€',
+                'permis-1000': '1000€',
+                'permis-accompagne-1500': '1500€',
+                'formation-code': '300€',
+                'permis-classique': '1290€',
+                'permis-accelere': '1590€'
+            };
+            
+            const price = prices[service] || 'à définir';
+            const serviceText = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+            
+            // Création du message pour WhatsApp
+            const whatsappMessage = `Nouvelle demande de contact:%0A%0ANom: ${name}%0ATéléphone: ${phone}%0AService: ${serviceText} (${price})%0AMessage: ${message || 'Aucun message complémentaire'}`;
+            
+            // Redirection vers WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+            
+            // Réinitialisation du formulaire
+            document.getElementById('contactForm').reset();
+            
+            // Notification
+            alert('Votre demande a été envoyée avec succès ! Vous allez être redirigé vers WhatsApp pour finaliser.');
+        }
+        
+        // Soumission du formulaire d'inscription
+        function submitInscriptionForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('inscriptionName').value;
+            const phone = document.getElementById('inscriptionPhone').value;
+            const email = document.getElementById('inscriptionEmail').value;
+            const type = document.getElementById('inscriptionType').value;
+            const message = document.getElementById('inscriptionMessage').value;
+            
+            // Prix selon le type
+            const prices = {
+                'code-500': '500€',
+                'permis-1000': '1000€',
+                'permis-1500': '1500€',
+                'formation-code': '300€',
+                'permis-classique': '1290€',
+                'permis-accelere': '1590€'
+            };
+            
+            const price = prices[type] || 'à définir';
+            const typeText = document.getElementById('inscriptionType').options[document.getElementById('inscriptionType').selectedIndex].text;
+            
+            // Création du message pour WhatsApp
+            const whatsappMessage = `Nouvelle inscription:%0A%0ANom: ${name}%0ATéléphone: ${phone}%0AEmail: ${email || 'Non fourni'}%0AFormule: ${typeText}%0AMessage: ${message || 'Aucun message complémentaire'}`;
+            
+            // Redirection vers WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+            
+            // Fermeture du modal
+            closeModal('inscriptionModal');
+            
+            // Réinitialisation du formulaire
+            document.getElementById('inscriptionForm').reset();
+            
+            // Notification
+            alert('Votre inscription a été envoyée avec succès ! Vous allez être redirigé vers WhatsApp pour finaliser.');
+        }
+        
         // Menu mobile
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
         });
-
+        
         // Fermer le menu mobile en cliquant sur un lien
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function() {
                 document.querySelector('nav').classList.remove('active');
             });
         });
-
+        
         // Animation au défilement
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
