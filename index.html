@@ -3,1348 +3,1764 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SchnellerFührerschein - Führerschein in Deutschland einfach machen</title>
-    <meta name="description" content="Ihr Führerschein in Deutschland – Einfach, Schnell und Passend zu Ihrer Situation. Komplette Begleitung für Ausländer, Neuzuwanderer und Arbeitnehmer.">
+    <title>FührerscheinExpress - Ihr schneller Weg zum deutschen Führerschein</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base */
+        /* Variables et styles généraux modernisés */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #00b4d8;
+            --accent: #7209b7;
+            --success: #06d6a0;
+            --warning: #ff9e00;
+            --danger: #ef476f;
+            --dark: #14213d;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --whatsapp: #25D366;
+            --gradient-primary: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            --gradient-secondary: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            --gradient-accent: linear-gradient(135deg, #7209b7 0%, #560bad 100%);
+            --gradient-success: linear-gradient(135deg, #06d6a0 0%, #04a777 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        :root {
-            --primary-blue: #2563eb;
-            --primary-green: #10b981;
-            --primary-orange: #f59e0b;
-            --primary-purple: #8b5cf6;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
-            --light-gray: #e5e7eb;
-        }
-
+        
         html {
             scroll-behavior: smooth;
         }
-
+        
         body {
+            font-family: 'Inter', sans-serif;
             color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.6;
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: #fafbfe;
         }
-
+        
         .container {
-            width: 100%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
         }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 50px;
-        }
-
+        
         .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: var(--border-radius);
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
             cursor: pointer;
             border: none;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-accent {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-success {
+            background: var(--gradient-success);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+            border: none;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #20bd5c;
+            transform: scale(1.05);
+            animation: none;
+        }
+        
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 2rem;
+        }
+        
+        h4 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
             font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-
-        .btn-blue {
-            background-color: var(--primary-blue);
-            color: white;
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            color: var(--gray);
         }
-
-        .btn-blue:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-        }
-
-        .btn-green {
-            background-color: var(--primary-green);
-            color: white;
-        }
-
-        .btn-green:hover {
-            background-color: #0ea271;
-            transform: translateY(-2px);
-        }
-
-        .btn-orange {
-            background-color: var(--primary-orange);
-            color: white;
-        }
-
-        .btn-orange:hover {
-            background-color: #d97706;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-blue);
-            color: white;
-        }
-
-        /* Header */
+        
+        /* Header moderne */
         header {
-            background-color: white;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
             position: fixed;
             width: 100%;
-            top: 0;
             z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
         }
-
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-md);
+        }
+        
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
+            gap: 12px;
             text-decoration: none;
         }
-
-        .logo i {
-            font-size: 2rem;
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
         }
-
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span:first-child {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+        }
+        
+        .logo-text span:last-child {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
         }
-
-        nav a {
+        
+        nav ul li a {
             text-decoration: none;
             color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
         }
-
-        nav a:hover {
-            color: var(--primary-blue);
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
         }
-
-        .mobile-menu-btn {
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
             display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
         }
-
-        /* Hero */
+        
+        /* Hero Section moderne */
         .hero {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding-top: 150px;
-            padding-bottom: 100px;
-        }
-
-        .hero-content {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.95) 0%, rgba(58, 12, 163, 0.95) 100%), url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 180px 0 120px;
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
-
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #fafbfe, transparent);
+        }
+        
         .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 40px;
-            max-width: 700px;
+            color: white;
+            -webkit-text-fill-color: white;
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        .cta-buttons {
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero-btns {
             display: flex;
             justify-content: center;
             gap: 20px;
+            margin-top: 30px;
             flex-wrap: wrap;
-            margin-top: 40px;
         }
-
-        /* Why Us */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .why-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .why-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .why-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .why-card h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        /* Services */
-        .services {
-            background-color: #f8fafc;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-header {
-            padding: 25px;
-            color: white;
-        }
-
-        .service-blue {
-            background-color: var(--primary-blue);
-        }
-
-        .service-green {
-            background-color: var(--primary-green);
-        }
-
-        .service-orange {
-            background-color: var(--primary-orange);
-        }
-
-        .service-body {
-            padding: 25px;
-        }
-
-        .service-body h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .service-body p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        /* Reviews */
-        .reviews-slider {
+        
+        .hero-stats {
             display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            padding: 20px 0 40px;
-            scrollbar-width: thin;
-        }
-
-        .review-card {
-            min-width: 300px;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--light-gray);
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-weight: bold;
-            color: var(--primary-blue);
+            gap: 50px;
+            margin-top: 80px;
+            flex-wrap: wrap;
         }
-
-        .review-stars {
-            color: #fbbf24;
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
             margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
         }
-
-        /* Contact */
-        .contact-section {
-            background: linear-gradient(135deg, #1e3a8a 0%, var(--primary-blue) 100%);
-            color: white;
+        
+        .hero-stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
-        .contact-section .section-title,
-        .contact-section .section-subtitle {
-            color: white;
+        
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background-color: white;
         }
-
-        .contact-section .section-subtitle {
-            opacity: 0.9;
-        }
-
-        .contact-grid {
+        
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
-
-        .contact-form input,
-        .contact-form textarea {
+        
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 50px 35px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.9);
+            height: 5px;
+            background: var(--gradient-primary);
         }
-
-        .contact-form button {
-            width: 100%;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.1);
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(58, 12, 163, 0.05) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            margin: 0 auto 30px;
+            font-size: 2rem;
+            color: var(--primary);
         }
-
-        /* Pricing */
-        .pricing-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 12px;
+        
+        /* Solutions Section */
+        .solutions {
+            background: linear-gradient(135deg, #f8fafd 0%, #f0f4f8 100%);
+            position: relative;
             overflow: hidden;
         }
-
-        .pricing-table th,
-        .pricing-table td {
-            padding: 20px;
+        
+        .solutions::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--gradient-primary);
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .solution-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .solution-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            color: white;
+            padding: 8px 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            background: var(--gradient-primary);
+        }
+        
+        .solution-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .solution-card:nth-child(1) .solution-icon {
+            background: var(--gradient-success);
+        }
+        
+        .solution-card:nth-child(2) .solution-icon {
+            background: var(--gradient-primary);
+        }
+        
+        .solution-card:nth-child(3) .solution-icon {
+            background: var(--gradient-accent);
+        }
+        
+        .solution-features {
+            list-style: none;
+            margin: 30px 0 40px;
             text-align: left;
+        }
+        
+        .solution-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+        }
+        
+        .solution-features li i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            color: var(--success);
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            background-color: white;
+        }
+        
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 10px;
+            box-shadow: var(--shadow-sm);
+            max-width: 500px;
+            margin: 0 auto 60px;
+        }
+        
+        .pricing-tab {
+            flex: 1;
+            padding: 15px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: var(--transition);
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        .pricing-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .pricing-content {
+            display: none;
+        }
+        
+        .pricing-content.active {
+            display: block;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 8px 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+        
+        .pricing-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--light-gray);
         }
-
-        .pricing-table th {
-            background-color: var(--primary-blue);
-            color: white;
+        
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .pricing-price span {
+            font-size: 1.5rem;
             font-weight: 600;
         }
-
-        .pricing-table tr:last-child td {
-            border-bottom: none;
+        
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
         }
-
-        .pricing-table tr:hover {
-            background-color: #f8fafc;
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: 40px auto 0;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 20px;
-            background-color: white;
+        
+        .pricing-features li {
+            padding: 12px 0;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            cursor: pointer;
-            font-weight: 600;
         }
-
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: #f9fafb;
+        
+        .pricing-features li i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            color: var(--success);
         }
-
-        .faq-answer.open {
-            padding: 20px;
-            max-height: 300px;
+        
+        /* Process Section */
+        .process {
+            background: linear-gradient(135deg, #f8fafd 0%, #f0f4f8 100%);
         }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
+        
+        .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            margin-top: 60px;
+            position: relative;
         }
-
-        .footer-column h3 {
-            margin-bottom: 20px;
-            color: white;
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1;
         }
-
-        .footer-column ul {
-            list-style: none;
+        
+        @media (max-width: 992px) {
+            .process-steps::before {
+                display: none;
+            }
         }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column a:hover {
-            color: white;
-        }
-
-        .copyright {
+        
+        .step {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
-            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
         }
-
-        /* Pages */
-        .page-header {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding-top: 150px;
-            padding-bottom: 80px;
-            text-align: center;
-        }
-
-        .page-content {
-            padding: 80px 0;
-        }
-
-        .price-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .price-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
-        }
-
-        .price-header {
-            padding: 25px;
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
             color: white;
-        }
-
-        .price-body {
-            padding: 30px;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 20px 0;
-            color: var(--dark);
-        }
-
-        .price-features {
-            list-style: none;
-            text-align: left;
-            margin: 25px 0;
-        }
-
-        .price-features li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--light-gray);
+            border-radius: 50%;
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 25px;
+            border: 8px solid white;
+            box-shadow: var(--shadow-md);
         }
-
-        .price-features li i {
-            color: var(--primary-green);
-            margin-right: 10px;
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: white;
         }
-
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 35px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            color: rgba(67, 97, 238, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .testimonial-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .testimonial-stars {
+            color: #ffc107;
+            margin-top: 8px;
+            font-size: 1.1rem;
+        }
+        
+        /* FAQ */
+        .faq {
+            background: linear-gradient(135deg, #f8fafd 0%, #f0f4f8 100%);
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 30px 30px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+        
+        .faq-icon {
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 80px;
+            margin-top: 60px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 50px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 100px 0 50px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: white;
+            position: relative;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
         /* Responsive */
-        @media (max-width: 992px) {
-            .hero h1 {
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
                 font-size: 2.5rem;
             }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                gap: 20px;
+            
+            .hero h1 {
+                font-size: 3.2rem;
             }
         }
-
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 100px;
+                background-attachment: scroll;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
         @media (max-width: 768px) {
-            .mobile-menu-btn {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .logo {
+                align-self: flex-start;
+            }
+            
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                top: 25px;
+                right: 20px;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+            }
+            
+            nav.active {
                 display: block;
             }
-
+            
             nav ul {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: white;
                 flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s;
-                z-index: 999;
+                gap: 20px;
+                align-items: flex-start;
             }
-
-            nav ul.active {
-                transform: translateY(0);
-                opacity: 1;
+            
+            .hero h1 {
+                font-size: 2.2rem;
             }
-
-            .cta-buttons {
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
                 flex-direction: column;
                 align-items: center;
             }
-
-            .btn {
+            
+            .hero-btns .btn {
                 width: 100%;
                 max-width: 300px;
-                text-align: center;
             }
-
-            .hero h1 {
-                font-size: 2rem;
+            
+            .btn-whatsapp span {
+                display: none;
             }
-
-            .header-container {
-                padding: 15px;
+            
+            .features-grid,
+            .solutions-grid,
+            .testimonials-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
             }
         }
-
+        
         @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
             section {
                 padding: 60px 0;
             }
-
-            .hero {
-                padding-top: 130px;
-                padding-bottom: 70px;
-            }
-
-            .services-grid,
-            .why-grid {
-                grid-template-columns: 1fr;
+            
+            .contact-form {
+                padding: 30px 25px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container header-container">
-            <a href="#" class="logo">
-                <i class="fas fa-car"></i>
-                <span>SchnellerFührerschein</span>
+            <a href="#accueil" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="logo-text">
+                    <span>FührerscheinExpress</span>
+                    <span>Schnell zum deutschen Führerschein</span>
+                </div>
             </a>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </button>
             
             <nav>
-                <ul id="mainMenu">
-                    <li><a href="#home">Startseite</a></li>
-                    <li><a href="#fast">Schneller Führerschein</a></li>
-                    <li><a href="#traditional">Traditioneller Führerschein</a></li>
-                    <li><a href="#umschreibung">Umschreibung</a></li>
-                    <li><a href="#pricing">Preise</a></li>
-                    <li><a href="#support">Support</a></li>
-                    <li><a href="#about">Über uns</a></li>
+                <ul>
+                    <li><a href="#accueil">Startseite</a></li>
+                    <li><a href="#schnellfuhrerschein">Schnellführerschein</a></li>
+                    <li><a href="#traditionell">Traditioneller Führerschein</a></li>
+                    <li><a href="#umschreibung">Führerscheinumtausch</a></li>
+                    <li><a href="#preise">Preise</a></li>
+                    <li><a href="#hilfe">Hilfe / Support</a></li>
+                    <li><a href="#uber-uns">Über uns</a></li>
                 </ul>
             </nav>
-            
-            <a href="#contact" class="btn btn-blue">Kontakt / Anmeldung</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Ihr Führerschein in Deutschland – Einfach, Schnell und Passend zu Ihrer Situation</h1>
-            <p>Komplette Begleitung für Ausländer, Neuzuwanderer, Arbeitnehmer und Residenten in Deutschland. Wir machen den Prozess stressfrei und effizient.</p>
-            
-            <div class="cta-buttons">
-                <a href="#fast" class="btn btn-blue"><i class="fas fa-bolt"></i> Schneller Führerschein Ohne Prüfung</a>
-                <a href="#umschreibung" class="btn btn-orange"><i class="fas fa-exchange-alt"></i> Ausländischen Führerschein Umschreiben</a>
-                <a href="#traditional" class="btn btn-green"><i class="fas fa-graduation-cap"></i> Klassischen Führerschein Erwerben</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Us Section -->
-    <section class="container">
-        <h2 class="section-title">Warum uns wählen?</h2>
-        <p class="section-subtitle">Wir bieten einen umfassenden Service, der speziell auf die Bedürfnisse von Ausländern und Neuzuwanderern zugeschnitten ist</p>
-        
-        <div class="why-grid">
-            <div class="why-card">
-                <div class="why-icon">🌍</div>
-                <h3>Mehrsprachige Unterstützung</h3>
-                <p>Wir sprechen Deutsch, Englisch, Französisch, Arabisch und mehr. Keine Sprachbarrieren!</p>
-            </div>
-            
-            <div class="why-card">
-                <div class="why-icon">⚡</div>
-                <h3>Vereinfachter Prozess</h3>
-                <p>Wir übernehmen die gesamte Bürokratie und machen den Weg zum Führerschein einfach.</p>
-            </div>
-            
-            <div class="why-card">
-                <div class="why-icon">⏱</div>
-                <h3>Antwort in unter 24 Stunden</h3>
-                <p>Schnelle Reaktionszeiten auf alle Ihre Anfragen und Fragen.</p>
-            </div>
-            
-            <div class="why-card">
-                <div class="why-icon">👨‍🏫</div>
-                <h3>Schritt-für-Schritt-Begleitung</h3>
-                <p>Von der Anmeldung bis zur Ausstellung begleiten wir Sie persönlich.</p>
-            </div>
-            
-            <div class="why-card">
-                <div class="why-icon">💶</div>
-                <h3>Transparente Preise</h3>
-                <p>Keine versteckten Kosten. Alle Gebühren werden im Voraus kommuniziert.</p>
-            </div>
-            
-            <div class="why-card">
-                <div class="why-icon">🛡</div>
-                <h3>100% Behördenkonform</h3>
-                <p>Alle Dienstleistungen entsprechen den deutschen gesetzlichen Vorgaben.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="fast">
+    <section class="hero" id="accueil">
         <div class="container">
-            <h2 class="section-title">Unsere Top 3 Services</h2>
-            <p class="section-subtitle">Wählen Sie den Service, der am besten zu Ihrer Situation passt</p>
+            <div class="section-title">Ihr Weg zum deutschen Führerschein</div>
+            <h1>Ihr Führerschein in Deutschland – Einfach, Schnell und Perfekt für Ihre Situation</h1>
+            <p>Komplette Begleitung für Ausländer, Neuankömmlinge, Arbeitnehmer und Bewohner in Deutschland. Wir machen den Prozess einfach und stressfrei.</p>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-header service-blue">
-                        <h2>Schneller Führerschein Ohne Prüfung</h2>
+            <div class="hero-btns">
+                <a href="#schnellfuhrerschein" class="btn btn-success">Schnellführerschein ohne Prüfung</a>
+                <a href="#umschreibung" class="btn btn-secondary">Führerschein umschreiben</a>
+                <a href="#traditionell" class="btn btn-accent">Klassischen Führerschein</a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">2.000+</div>
+                    <div class="hero-stat-label">Zufriedene Kunden</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">24h</div>
+                    <div class="hero-stat-label">Schnelle Antwort</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">98%</div>
+                    <div class="hero-stat-label">Erfolgsquote</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">5</div>
+                    <div class="hero-stat-label">Sprachen</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">Warum FührerscheinExpress?</div>
+            <h2>Ihre Vorteile mit unserem Service</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <div class="service-body">
-                        <h3>Beschleunigte Verfahren für schnelle Ergebnisse</h3>
-                        <p>Für Inhaber ausländischer Führerscheine oder Personen mit dringendem Bedarf. Wir beschleunigen den gesamten Prozess und minimieren Wartezeiten.</p>
-                        <p><strong>Dauer:</strong> 2-6 Wochen</p>
-                        <a href="#pricing" class="btn btn-blue">Preise ansehen</a>
-                    </div>
+                    <h4>Mehrsprachiger Support</h4>
+                    <p>Wir unterstützen Sie auf Deutsch, Englisch, Arabisch, Türkisch und Französisch. Verständnisprobleme gehören der Vergangenheit an.</p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-header service-green">
-                        <h2>Traditioneller Führerschein</h2>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <div class="service-body">
-                        <h3>Komplette Ausbildung für Residenten</h3>
-                        <p>Die klassische Lösung mit Theorie- und Praxisunterricht. Ideal für Personen ohne Vorkenntnisse, die den deutschen Führerschein von Grund auf erwerben möchten.</p>
-                        <p><strong>Dauer:</strong> 2-4 Monate</p>
-                        <a href="#traditional-details" class="btn btn-green">Details ansehen</a>
-                    </div>
+                    <h4>Vereinfachter Prozess</h4>
+                    <p>Wir übernehmen die komplette Organisation – von der Antragstellung bis zur Terminvereinbarung bei der Führerscheinstelle.</p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-header service-orange">
-                        <h2>Führerscheinumstellung (Umschreibung)</h2>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <div class="service-body">
-                        <h3>Ausländischen Führerschein in deutschen umwandeln</h3>
-                        <p>Wir übernehmen die gesamte Umstellung Ihres ausländischen Führerscheins. Mit oder ohne Prüfung, je nach Herkunftsland.</p>
-                        <p><strong>Dauer:</strong> 2-8 Wochen</p>
-                        <a href="#umschreibung-details" class="btn btn-orange">Mehr erfahren</a>
+                    <h4>Antwort in unter 24h</h4>
+                    <p>Schnelle Reaktionszeiten per WhatsApp und E-Mail. Sie erhalten immer zeitnah eine Antwort auf Ihre Anfragen.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Schritt-für-Schritt-Begleitung</h4>
+                    <p>Wir begleiten Sie durch jeden Schritt des Prozesses und stellen sicher, dass alles korrekt und rechtzeitig erledigt wird.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <h4>Transparente Preise</h4>
+                    <p>Keine versteckten Kosten. Sie erhalten von Anfang an eine klare Preisübersicht ohne Überraschungen.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>100% konform mit deutschen Behörden</h4>
+                    <p>Alle unsere Dienstleistungen entsprechen den deutschen Gesetzen und Vorschriften für Führerscheine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="schnellfuhrerschein">
+        <div class="container">
+            <div class="section-title">Unsere Lösungen</div>
+            <h2>Wählen Sie die passende Option</h2>
+            
+            <div class="solutions-grid">
+                <!-- Solution 1: Schnellführerschein -->
+                <div class="solution-card">
+                    <div class="solution-badge">Schnell</div>
+                    <div class="solution-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Schnellführerschein ohne Prüfung</h3>
+                    <p>Beschleunigtes Verfahren für Personen mit ausländischem Führerschein oder solche, die den Prozess beschleunigen möchten.</p>
+                    
+                    <ul class="solution-features">
+                        <li><i class="fas fa-check"></i> Dauer: 2-6 Wochen</li>
+                        <li><i class="fas fa-check"></i> Ohne oder reduzierte Prüfungen</li>
+                        <li><i class="fas fa-check"></i> Komplette administrative Unterstützung</li>
+                        <li><i class="fas fa-check"></i> Dokumentenübersetzung inklusive</li>
+                        <li><i class="fas fa-check"></i> Terminvergabe bei Behörden</li>
+                    </ul>
+                    
+                    <a href="#preise-schnell" class="btn btn-success">Preise ansehen</a>
+                </div>
+                
+                <!-- Solution 2: Traditioneller Führerschein -->
+                <div class="solution-card" id="traditionell">
+                    <div class="solution-badge">Klassisch</div>
+                    <div class="solution-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Traditioneller Führerschein</h3>
+                    <p>Vollständige Ausbildung mit Theorie- und Praxisunterricht für alle, die in Deutschland von Grund auf lernen möchten.</p>
+                    
+                    <ul class="solution-features">
+                        <li><i class="fas fa-check"></i> Kompletter Theorieunterricht</li>
+                        <li><i class="fas fa-check"></i> Praxisstunden mit erfahrenen Fahrlehrern</li>
+                        <li><i class="fas fa-check"></i> Anmeldung zu offiziellen Prüfungen</li>
+                        <li><i class="fas fa-check"></i> Lernmaterial und App inklusive</li>
+                        <li><i class="fas fa-check"></i> Persönliche Betreuung</li>
+                    </ul>
+                    
+                    <a href="#preise-traditionell" class="btn btn-primary">Preise ansehen</a>
+                </div>
+                
+                <!-- Solution 3: Umschreibung -->
+                <div class="solution-card" id="umschreibung">
+                    <div class="solution-badge">Einfach</div>
+                    <div class="solution-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Führerscheinumtausch</h3>
+                    <p>Konvertieren Sie Ihren ausländischen Führerschein in einen deutschen Führerschein mit minimalem Aufwand.</p>
+                    
+                    <ul class="solution-features">
+                        <li><i class="fas fa-check"></i> Dokumentenprüfung und Übersetzung</li>
+                        <li><i class="fas fa-check"></i> Antragsstellung bei Behörden</li>
+                        <li><i class="fas fa-check"></i> Unterstützung bei erforderlichen Prüfungen</li>
+                        <li><i class="fas fa-check"></i> Begleitung zu Ämtern</li>
+                        <li><i class="fas fa-check"></i> EU-konforme Umschreibung</li>
+                    </ul>
+                    
+                    <a href="#preise-umschreibung" class="btn btn-accent">Preise ansehen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="preise">
+        <div class="container">
+            <div class="section-title">Transparente Preise</div>
+            <h2>Wählen Sie Ihre Kategorie</h2>
+            
+            <div class="pricing-tabs">
+                <div class="pricing-tab active" data-tab="schnell">Schnellführerschein</div>
+                <div class="pricing-tab" data-tab="traditionell">Traditionell</div>
+                <div class="pricing-tab" data-tab="umschreibung">Umschreibung</div>
+            </div>
+            
+            <!-- Schnellführerschein Pricing -->
+            <div class="pricing-content active" id="pricing-schnell">
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Führerschein B</h3>
+                            <p class="section-subtitle">Beschleunigte Option</p>
+                        </div>
+                        <div class="pricing-price">1.600€ - 2.500€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Dauer: 2-6 Wochen</li>
+                            <li><i class="fas fa-check"></i> Intensiver Theorieunterricht</li>
+                            <li><i class="fas fa-check"></i> 10-20 Fahrstunden</li>
+                            <li><i class="fas fa-check"></i> Beschleunigte Vorbereitung</li>
+                            <li><i class="fas fa-check"></i> Administrative Verwaltung</li>
+                            <li><i class="fas fa-check"></i> Termine bei Führerscheinstelle</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für den beschleunigten Führerschein B (1.600€ - 2.500€)')">Jetzt anfragen</button>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Beliebt</div>
+                        <div class="pricing-header">
+                            <h3>Motorradführerschein</h3>
+                            <p class="section-subtitle">A1 / A2 / A</p>
+                        </div>
+                        <div class="pricing-price">1.200€ - 2.000€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Dauer: 1-4 Wochen</li>
+                            <li><i class="fas fa-check"></i> Beschleunigte Ausbildung</li>
+                            <li><i class="fas fa-check"></i> Theorie und Praxis</li>
+                            <li><i class="fas fa-check"></i> Alle obligatorischen Stunden</li>
+                            <li><i class="fas fa-check"></i> Schnelle Prüfungstermine</li>
+                            <li><i class="fas fa-check"></i> Spezialisierte Fahrlehrer</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für den beschleunigten Motorradführerschein (1.200€ - 2.000€)')">Jetzt anfragen</button>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>LKW-Führerschein</h3>
+                            <p class="section-subtitle">C / CE</p>
+                        </div>
+                        <div class="pricing-price">2.500€ - 4.500€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Dauer: 4-8 Wochen</li>
+                            <li><i class="fas fa-check"></i> Beschleunigtes Modul</li>
+                            <li><i class="fas fa-check"></i> Professionelle Ausbildung</li>
+                            <li><i class="fas fa-check"></i> Fahrsicherheitstraining</li>
+                            <li><i class="fas fa-check"></i> Unterstützung bei Jobsuche</li>
+                            <li><i class="fas fa-check"></i> Alle behördlichen Genehmigungen</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für den beschleunigten LKW-Führerschein (2.500€ - 4.500€)')">Jetzt anfragen</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Traditioneller Führerschein Pricing -->
+            <div class="pricing-content" id="pricing-traditionell">
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Führerschein B</h3>
+                            <p class="section-subtitle">Klassische Ausbildung</p>
+                        </div>
+                        <div class="pricing-price">1.800€ - 3.200€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Umfangreicher Theorieunterricht</li>
+                            <li><i class="fas fa-check"></i> Fahrstunden nach Bedarf</li>
+                            <li><i class="fas fa-check"></i> Vollständige Prüfungsvorbereitung</li>
+                            <li><i class="fas fa-check"></i> Lernmaterial inklusive</li>
+                            <li><i class="fas fa-check"></i> Trainings-App Zugang</li>
+                            <li><i class="fas fa-check"></i> Persönlicher Betreuer</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für den traditionellen Führerschein B (1.800€ - 3.200€)')">Jetzt anfragen</button>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Empfohlen</div>
+                        <div class="pricing-header">
+                            <h3>Motorradführerschein</h3>
+                            <p class="section-subtitle">A1 / A2 / A</p>
+                        </div>
+                        <div class="pricing-price">1.000€ - 1.800€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Theorie und Praxis komplett</li>
+                            <li><i class="fas fa-check"></i> Alle obligatorischen Stunden</li>
+                            <li><i class="fas fa-check"></i> Sicherheitstraining</li>
+                            <li><i class="fas fa-check"></i> Prüfungsanmeldung inklusive</li>
+                            <li><i class="fas fa-check"></i> Erfahrene Motorradfahrlehrer</li>
+                            <li><i class="fas fa-check"></i> Flexible Terminplanung</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für den traditionellen Motorradführerschein (1.000€ - 1.800€)')">Jetzt anfragen</button>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>LKW-Führerschein</h3>
+                            <p class="section-subtitle">C / CE</p>
+                        </div>
+                        <div class="pricing-price">2.200€ - 4.000€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Zertifizierte Ausbildung</li>
+                            <li><i class="fas fa-check"></i> Professionelle Fahrpraxis</li>
+                            <li><i class="fas fa-check"></i> Sicherheitsmodule</li>
+                            <li><i class="fas fa-check"></i> Wirtschaftliches Fahren</li>
+                            <li><i class="fas fa-check"></i> Alle behördlichen Anforderungen</li>
+                            <li><i class="fas fa-check"></i> Jobvermittlung optional</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für den traditionellen LKW-Führerschein (2.200€ - 4.000€)')">Jetzt anfragen</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Umschreibung Pricing -->
+            <div class="pricing-content" id="pricing-umschreibung">
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Standard-Umschreibung</h3>
+                            <p class="section-subtitle">Ohne Prüfung</p>
+                        </div>
+                        <div class="pricing-price">350€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Dokumentenprüfung</li>
+                            <li><i class="fas fa-check"></i> Amtliche Übersetzung</li>
+                            <li><i class="fas fa-check"></i> Antragstellung</li>
+                            <li><i class="fas fa-check"></i> Terminvereinbarung</li>
+                            <li><i class="fas fa-check"></i> Begleitung zum Amt</li>
+                            <li><i class="fas fa-check"></i> Keine Prüfung erforderlich</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für die Standard-Umschreibung (350€)')">Jetzt anfragen</button>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Häufig</div>
+                        <div class="pricing-header">
+                            <h3>Umschreibung mit Theorie</h3>
+                            <p class="section-subtitle">Theorieprüfung erforderlich</p>
+                        </div>
+                        <div class="pricing-price">450€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Alles aus Standard-Paket</li>
+                            <li><i class="fas fa-check"></i> Theorievorbereitung</li>
+                            <li><i class="fas fa-check"></i> Anmeldung zur Prüfung</li>
+                            <li><i class="fas fa-check"></i> Lernmaterial</li>
+                            <li><i class="fas fa-check"></i> Prüfungsgebühr inklusive</li>
+                            <li><i class="fas fa-check"></i> Erfolgsgarantie</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für die Umschreibung mit Theorieprüfung (450€)')">Jetzt anfragen</button>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Komplett-Umschreibung</h3>
+                            <p class="section-subtitle">Theorie + Praxis</p>
+                        </div>
+                        <div class="pricing-price">650€</div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Alles aus Theorie-Paket</li>
+                            <li><i class="fas fa-check"></i> Praktische Vorbereitung</li>
+                            <li><i class="fas fa-check"></i> 5 Fahrstunden</li>
+                            <li><i class="fas fa-check"></i> Praxisprüfungsanmeldung</li>
+                            <li><i class="fas fa-check"></i> Fahrzeugbereitstellung</li>
+                            <li><i class="fas fa-check"></i> Vollständige Begleitung</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="redirectToWhatsApp('Hallo, ich interessiere mich für die Komplett-Umschreibung (650€)')">Jetzt anfragen</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews -->
-    <section class="container">
-        <h2 class="section-title">Was unsere Kunden sagen</h2>
-        <p class="section-subtitle">Über 500 zufriedene Kunden haben ihren Führerschein mit unserer Hilfe erhalten</p>
-        
-        <div class="reviews-slider">
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">MS</div>
-                    <div>
-                        <h4>Michael S.</h4>
-                        <p>Aus USA umgezogen</p>
-                    </div>
-                </div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <p>"Der Umschreibungsprozess war stressfrei und schnell. Das Team hat alles für mich erledigt. Sehr empfehlenswert!"</p>
-            </div>
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">So funktioniert's</div>
+            <h2>Ihr Weg zum deutschen Führerschein</h2>
             
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">AJ</div>
-                    <div>
-                        <h4>Anna J.</h4>
-                        <p>Studentin aus Polen</p>
-                    </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Kontaktieren Sie uns</h3>
+                    <p>Schildern Sie uns Ihre Situation per WhatsApp oder über unser Kontaktformular. Wir analysieren Ihre Möglichkeiten.</p>
                 </div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Beratungsgespräch</h3>
+                    <p>Wir besprechen alle Optionen, benötigten Dokumente und erstellen einen individuellen Fahrplan für Sie.</p>
                 </div>
-                <p>"Ohne Deutschkenntnisse dachte ich, es wäre unmöglich. Das mehrsprachige Team hat mir bei jedem Schritt geholfen."</p>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Dokumentenvorbereitung</h3>
+                    <p>Wir helfen bei der Beschaffung und Übersetzung aller erforderlichen Unterlagen für die Behörden.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Ausbildung & Prüfung</h3>
+                    <p>Wir organisieren Ihre Ausbildung und Prüfungstermine. Sie konzentrieren sich aufs Lernen.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Führerscheinerhalt</h3>
+                    <p>Sie erhalten Ihren deutschen Führerschein. Wir sind auch danach für Fragen da.</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">Erfahrungen</div>
+            <h2>Was unsere Kunden sagen</h2>
             
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">TK</div>
-                    <div>
-                        <h4>Thomas K.</h4>
-                        <p>Arbeitnehmer aus Syrien</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">M</div>
+                        <div>
+                            <h4>Mohammed A.</h4>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span style="color: var(--success); font-size: 0.9rem; font-weight: 600;">Schnellführerschein</span>
+                        </div>
                     </div>
+                    <p>"Als syrischer Flüchtling hatte ich Angst vor dem deutschen Bürokratie-Dschungel. FührerscheinExpress hat alles für mich organisiert - Übersetzung, Termine, alles. In 4 Wochen hatte ich meinen Führerschein!"</p>
                 </div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">S</div>
+                        <div>
+                            <h4>Sophia K.</h4>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span style="color: var(--primary); font-size: 0.9rem; font-weight: 600;">Umschreibung USA → DE</span>
+                        </div>
+                    </div>
+                    <p>"Meinen amerikanischen Führerschein umschreiben zu lassen war ein Albtraum - bis ich FührerscheinExpress fand. Sie haben jeden Schritt erklärt und mich zu allen Terminen begleitet. Perfekter Service!"</p>
                 </div>
-                <p>"Der beschleunigte Service war perfekt für meinen Arbeitsbeginn. In nur 3 Wochen hatte ich meinen deutschen Führerschein."</p>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">T</div>
+                        <div>
+                            <h4>Thomas B.</h4>
+                            <div class="testimonial-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span style="color: var(--accent); font-size: 0.9rem; font-weight: 600;">LKW-Führerschein</span>
+                        </div>
+                    </div>
+                    <p>"Für meinen Job brauchte ich dringend den LKW-Führerschein. Dank der beschleunigten Option hatte ich ihn in 6 Wochen. Die Unterstützung bei der Jobsuche war das i-Tüpfelchen!"</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="hilfe">
+        <div class="container">
+            <div class="section-title">Häufige Fragen</div>
+            <h2>Wir haben Antworten</h2>
             
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="review-avatar">LM</div>
-                    <div>
-                        <h4>Laura M.</h4>
-                        <p>Aus Frankreich umgezogen</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Wie lange dauert der gesamte Prozess?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Das hängt von Ihrer Situation und der gewählten Option ab: Schnellführerschein: 2-6 Wochen, Traditionelle Ausbildung: 2-4 Monate, Umschreibung: 2-8 Wochen.</p>
                     </div>
                 </div>
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Welche Dokumente benötige ich?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>In der Regel benötigen wir: Reisepass/Personalausweis, Meldebescheinigung, Biometrisches Foto, Gesundheitszeugnis, Erste-Hilfe-Kurs-Nachweis und ggf. Ihren ausländischen Führerschein.</p>
+                    </div>
                 </div>
-                <p>"Transparente Preise, keine Überraschungen. Das Team war immer erreichbar und hilfsbereit."</p>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Muss ich Deutsch sprechen können?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nein! Wir bieten Unterstützung in 5 Sprachen an. Für die Prüfung gibt es viele Sprachen zur Auswahl, darunter Englisch, Arabisch, Türkisch und mehr.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Ist der Schnellführerschein legal?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolut! Wir beschleunigen nur den Prozess durch effiziente Organisation und Vorbereitung. Der Führerschein wird von deutschen Behörden ausgestellt und ist vollständig legal.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Kann ich in Raten zahlen?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ja, wir bieten flexible Zahlungspläne an. Die Details besprechen wir individuell in Ihrem Beratungsgespräch.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" id="contact">
+    <section class="contact" id="uber-uns">
         <div class="container">
-            <h2 class="section-title">Kontaktieren Sie uns noch heute</h2>
-            <p class="section-subtitle">Starten Sie Ihren Weg zum deutschen Führerschein. Wir antworten innerhalb von 24 Stunden.</p>
+            <div class="section-title">Kontakt</div>
+            <h2>Bereit für Ihren Führerschein?</h2>
             
-            <div class="contact-grid">
-                <div class="contact-form">
-                    <h3>Schnellanfrage senden</h3>
-                    <form id="contactForm">
-                        <input type="text" placeholder="Ihr Name" required>
-                        <input type="email" placeholder="Ihre E-Mail" required>
-                        <input type="tel" placeholder="Ihre Telefonnummer">
-                        <select style="width: 100%; padding: 15px; margin-bottom: 20px; border: none; border-radius: 8px; background-color: rgba(255, 255, 255, 0.9);">
-                            <option>Interesse an...</option>
-                            <option>Schneller Führerschein Ohne Prüfung</option>
-                            <option>Traditioneller Führerschein</option>
-                            <option>Führerscheinumstellung (Umschreibung)</option>
-                            <option>Allgemeine Information</option>
-                        </select>
-                        <textarea rows="4" placeholder="Ihre Nachricht"></textarea>
-                        <button type="submit" class="btn btn-green">Nachricht senden</button>
-                    </form>
-                </div>
-                
-                <div class="contact-methods">
-                    <h3>Direktkontakt</h3>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Kontaktieren Sie uns</h3>
                     
-                    <div class="contact-method">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <div>
-                            <h4>WhatsApp</h4>
+                            <h4>WhatsApp (Schnellste Antwort)</h4>
                             <p>+49 1578 1345925</p>
-                            <a href="https://wa.me/4915781345925" class="btn btn-green" style="margin-top: 10px; padding: 10px 20px;">WhatsApp Nachricht</a>
+                            <small>Mo-So, 9:00-22:00 Uhr</small>
                         </div>
                     </div>
                     
-                    <div class="contact-method">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
                             <h4>E-Mail</h4>
-                            <p>schnellerfuehrerschein@proton.me</p>
+                            <p>schnellerfuhreschein@proton.me</p>
+                            <small>Antwort innerhalb von 24h</small>
                         </div>
                     </div>
                     
-                    <div class="contact-method">
+                    <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-globe"></i>
                         </div>
                         <div>
-                            <h4>Telefon</h4>
-                            <p>Montag-Freitag: 9:00-18:00</p>
-                            <p>+49 1578 1345925</p>
+                            <h4>Unterstützte Sprachen</h4>
+                            <p>Deutsch, Englisch, Arabisch, Türkisch, Französisch</p>
+                            <small>Wir sprechen Ihre Sprache</small>
                         </div>
                     </div>
                     
-                    <div class="contact-method">
+                    <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div>
                             <h4>Öffnungszeiten</h4>
-                            <p>Montag-Freitag: 9:00-18:00</p>
-                            <p>Samstag: 10:00-14:00</p>
+                            <p>Montag - Sonntag</p>
+                            <small>9:00 - 22:00 Uhr</small>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fast License Details -->
-    <section id="fast-details" class="page-content container">
-        <h2 class="section-title">Schneller Führerschein Ohne Prüfung – Beschleunigtes Verfahren</h2>
-        <p class="section-subtitle">Für Inhaber ausländischer Führerscheine oder Personen mit dringendem Bedarf an einem deutschen Führerschein</p>
-        
-        <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-            <p>Unser beschleunigtes Verfahren ermöglicht es Ihnen, in nur 2-6 Wochen Ihren deutschen Führerschein zu erhalten, indem wir alle bürokratischen Hürden für Sie übernehmen und den Prozess optimieren.</p>
-            
-            <h3 style="margin: 30px 0 20px;">Ideale für:</h3>
-            <ul style="list-style: none; margin-bottom: 30px;">
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Inhaber eines ausländischen Führerscheins</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Personen mit dringendem Zeitbedarf</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Arbeitnehmer mit baldigem Arbeitsbeginn</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Neuzuwanderer / Geflüchtete</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Berufskraftfahrer</li>
-            </ul>
-            
-            <h3 style="margin: 30px 0 20px;">Im Service enthalten:</h3>
-            <ul style="list-style: none; margin-bottom: 40px;">
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--primary-blue); margin-right: 10px;"></i> Analyse Ihrer individuellen Situation</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--primary-blue); margin-right: 10px;"></i> Übersetzung aller erforderlichen Dokumente</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--primary-blue); margin-right: 10px;"></i> Expressvorbereitung auf Prüfungen (falls nötig)</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--primary-blue); margin-right: 10px;"></i> Vereinfachung aller bürokratischen Schritte</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--primary-blue); margin-right: 10px;"></i> Prüfungsbegleitung (falls obligatorisch)</li>
-                <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check-circle" style="color: var(--primary-blue); margin-right: 10px;"></i> Begleitung bis zur Aushändigung des Führerscheins</li>
-            </ul>
-        </div>
-        
-        <h2 class="section-title" style="margin-top: 60px;">Preise - Schneller Führerschein</h2>
-        
-        <div class="price-cards">
-            <div class="price-card">
-                <div class="price-header service-blue">
-                    <h3>Auto Klasse B – Beschleunigt</h3>
-                </div>
-                <div class="price-body">
-                    <div class="price">2.500 €</div>
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> Intensiv-Theorie</li>
-                        <li><i class="fas fa-check"></i> 10–20 Fahrstunden</li>
-                        <li><i class="fas fa-check"></i> Beschleunigte Vorbereitung</li>
-                        <li><i class="fas fa-check"></i> Komplette Verwaltungsabwicklung</li>
-                        <li><i class="fas fa-check"></i> Begleitung bei Führerscheinstelle-Terminen</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-blue">Jetzt anfragen</a>
-                </div>
-            </div>
-            
-            <div class="price-card">
-                <div class="price-header" style="background-color: #7c3aed;">
-                    <h3>Motorrad – Beschleunigt</h3>
-                </div>
-                <div class="price-body">
-                    <div class="price">Ab 1.350 €</div>
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> <strong>A1:</strong> 1.350 €</li>
-                        <li><i class="fas fa-check"></i> <strong>A2:</strong> 1.700 €</li>
-                        <li><i class="fas fa-check"></i> <strong>A:</strong> 1.950 €</li>
-                        <li><i class="fas fa-check"></i> Theorie & Praxis inklusive</li>
-                        <li><i class="fas fa-check"></i> Schnelle Terminvergabe</li>
-                    </ul>
-                    <a href="#contact" class="btn" style="background-color: #7c3aed; color: white;">Jetzt anfragen</a>
-                </div>
-            </div>
-            
-            <div class="price-card">
-                <div class="price-header" style="background-color: #dc2626;">
-                    <h3>LKW – Beschleunigt</h3>
-                </div>
-                <div class="price-body">
-                    <div class="price">Ab 3.400 €</div>
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> <strong>C:</strong> 3.400 €</li>
-                        <li><i class="fas fa-check"></i> <strong>C + CE:</strong> 4.000 €</li>
-                        <li><i class="fas fa-check"></i> Berufsmodule inklusive</li>
-                        <li><i class="fas fa-check"></i> Sicherheitsschulungen</li>
-                        <li><i class="fas fa-check"></i> Beschleunigtes Verfahren</li>
-                    </ul>
-                    <a href="#contact" class="btn" style="background-color: #dc2626; color: white;">Jetzt anfragen</a>
-                </div>
-            </div>
-            
-            <div class="price-card">
-                <div class="price-header" style="background-color: #ea580c;">
-                    <h3>Bus – Beschleunigt</h3>
-                </div>
-                <div class="price-body">
-                    <div class="price">4.500 €</div>
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> Klasse D Führerschein</li>
-                        <li><i class="fas fa-check"></i> Personenbeförderung</li>
-                        <li><i class="fas fa-check"></i> Beschleunigtes Verfahren</li>
-                        <li><i class="fas fa-check"></i> Alle Prüfungen inklusive</li>
-                        <li><i class="fas fa-check"></i> Komplette Betreuung</li>
-                    </ul>
-                    <a href="#contact" class="btn" style="background-color: #ea580c; color: white;">Jetzt anfragen</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Traditional License Details -->
-    <section id="traditional-details" class="page-content container" style="background-color: #f8fafc; padding: 80px 20px;">
-        <div class="container">
-            <h2 class="section-title">Traditioneller Führerschein – Komplette Ausbildung</h2>
-            <p class="section-subtitle">Die klassische Lösung für alle, die den deutschen Führerschein von Grund auf erwerben möchten</p>
-            
-            <div style="max-width: 900px; margin: 40px auto 0; text-align: left;">
-                <p>Unsere traditionelle Führerscheinausbildung folgt dem bewährten deutschen System mit umfassendem Theorieunterricht, praktischen Fahrstunden und Vorbereitung auf beide Prüfungen. Ideal für Residenten ohne Vorkenntnisse.</p>
-                
-                <h3 style="margin: 30px 0 20px;">Im Preis enthalten:</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px;">
-                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05);">
-                        <h4><i class="fas fa-book" style="color: var(--primary-blue); margin-right: 10px;"></i> Theorieausbildung</h4>
-                        <p>Umfassender Theorieunterricht gemäß deutschen Vorgaben mit modernen Lehrmethoden.</p>
-                    </div>
-                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05);">
-                        <h4><i class="fas fa-car" style="color: var(--primary-green); margin-right: 10px;"></i> Praktische Ausbildung</h4>
-                        <p>Individuell angepasste Fahrstunden mit erfahrenen Fahrlehrern.</p>
-                    </div>
-                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.05);">
-                        <h4><i class="fas fa-mobile-alt" style="color: var(--primary-purple); margin-right: 10px;"></i> Lern-App</h4>
-                        <p>Moderne App für unterwegs mit allen Prüfungsfragen und Lernmodulen.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <h2 class="section-title" style="margin-top: 60px;">Preise - Traditioneller Führerschein</h2>
-            
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Führerscheinklasse</th>
-                        <th>Beschreibung</th>
-                        <th>Preis</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Auto Klasse B</strong></td>
-                        <td>Komplette Ausbildung inkl. Theorie, Praxis und Prüfungen</td>
-                        <td>2.500 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Motorrad A1</strong></td>
-                        <td>Leichtkrafträder bis 125 ccm</td>
-                        <td>1.350 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Motorrad A2</strong></td>
-                        <td>Mittelschwere Krafträder bis 35 kW</td>
-                        <td>1.700 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Motorrad A</strong></td>
-                        <td>Unbeschränkte Motorräder</td>
-                        <td>1.950 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>LKW Klasse C</strong></td>
-                        <td>Fahrzeuge über 3,5 t</td>
-                        <td>3.400 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>LKW Klasse C + CE</strong></td>
-                        <td>Fahrzeuge mit Anhänger über 750 kg</td>
-                        <td>4.000 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Bus Klasse D</strong></td>
-                        <td>Personenbeförderung</td>
-                        <td>4.500 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Anhänger Klasse BE</strong></td>
-                        <td>Anhänger über 750 kg</td>
-                        <td>850 €</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- Umschreibung Details -->
-    <section id="umschreibung-details" class="page-content container">
-        <h2 class="section-title">Führerscheinumstellung (Umschreibung)</h2>
-        <p class="section-subtitle">Ihren ausländischen Führerschein in einen deutschen umschreiben lassen</p>
-        
-        <div style="max-width: 900px; margin: 40px auto 0; text-align: left;">
-            <p>Wir begleiten Sie Schritt für Schritt bei der Umstellung Ihres ausländischen Führerscheins in einen deutschen. Ob mit oder ohne Prüfung – wir kennen die Anforderungen aller Herkunftsländer und sorgen für einen reibungslosen Ablauf.</p>
-            
-            <div style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; padding: 40px; border-radius: 12px; margin: 40px 0; text-align: center;">
-                <h3 style="color: white; margin-bottom: 10px;">Komplettservice Umschreibung</h3>
-                <div style="font-size: 3rem; font-weight: 700; margin: 20px 0;">380 €</div>
-                <p style="opacity: 0.9;">All-inclusive Preis für die komplette Umstellung</p>
-            </div>
-            
-            <h3 style="margin: 30px 0 20px;">Im Service enthalten:</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
-                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-purple);">
-                    <h4><i class="fas fa-folder-open" style="color: var(--primary-purple); margin-right: 10px;"></i> Dokumentenprüfung</h4>
-                    <p>Wir prüfen alle Ihre Unterlagen auf Vollständigkeit und Richtigkeit.</p>
-                </div>
-                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-purple);">
-                    <h4><i class="fas fa-language" style="color: var(--primary-purple); margin-right: 10px;"></i> Amtliche Übersetzung</h4>
-                    <p>Ihr Führerschein wird von einem vereidigten Übersetzer übersetzt.</p>
-                </div>
-                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-purple);">
-                    <h4><i class="fas fa-calendar-alt" style="color: var(--primary-purple); margin-right: 10px;"></i> Terminvereinbarung</h4>
-                    <p>Wir vereinbaren alle notwendigen Termine bei den Behörden für Sie.</p>
-                </div>
-                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary-purple);">
-                    <h4><i class="fas fa-file-signature" style="color: var(--primary-purple); margin-right: 10px;"></i> Antragstellung</h4>
-                    <p>Wir füllen alle Anträge aus und reichen sie fristgerecht ein.</p>
-                </div>
-            </div>
-            
-            <div style="background-color: #fef3c7; padding: 25px; border-radius: 8px; margin: 40px 0;">
-                <h4><i class="fas fa-info-circle" style="color: #d97706; margin-right: 10px;"></i> Wichtiger Hinweis zu Prüfungen</h4>
-                <p>Je nach Herkunftsland können theoretische und/oder praktische Prüfungen erforderlich sein. Diese sind im Grundpreis nicht enthalten:</p>
-                <ul style="margin-top: 10px; list-style: none;">
-                    <li style="padding: 5px 0;"><i class="fas fa-book" style="color: #d97706; margin-right: 10px;"></i> <strong>Theorieprüfung:</strong> +65 € (falls erforderlich)</li>
-                    <li style="padding: 5px 0;"><i class="fas fa-car" style="color: #d97706; margin-right: 10px;"></i> <strong>Praxisprüfung:</strong> +120 € (falls erforderlich)</li>
-                </ul>
-                <p style="margin-top: 10px; font-size: 0.9rem;">Wir informieren Sie im Voraus über die für Ihr Land geltenden Anforderungen.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Page -->
-    <section id="pricing" class="page-content container" style="background-color: #f8fafc; padding: 80px 20px;">
-        <div class="container">
-            <h2 class="section-title">Komplette Preisübersicht</h2>
-            <p class="section-subtitle">Transparente Preise ohne versteckte Kosten. Alle Preise sind inklusive Mehrwertsteuer.</p>
-            
-            <table class="pricing-table">
-                <thead>
-                    <tr>
-                        <th>Kategorie</th>
-                        <th>Beschreibung</th>
-                        <th>Preis (Schnellverfahren)</th>
-                        <th>Preis (Traditionell)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Auto Klasse B</strong></td>
-                        <td>Standard-Führerschein für PKW</td>
-                        <td>2.500 €</td>
-                        <td>2.500 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Motorrad A1</strong></td>
-                        <td>Leichtkrafträder bis 125 ccm</td>
-                        <td>1.350 €</td>
-                        <td>1.350 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Motorrad A2</strong></td>
-                        <td>Mittelschwere Krafträder bis 35 kW</td>
-                        <td>1.700 €</td>
-                        <td>1.700 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Motorrad A</strong></td>
-                        <td>Unbeschränkte Motorräder</td>
-                        <td>1.950 €</td>
-                        <td>1.950 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>LKW Klasse C</strong></td>
-                        <td>Fahrzeuge über 3,5 t</td>
-                        <td>3.400 €</td>
-                        <td>3.400 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>LKW Klasse CE</strong></td>
-                        <td>LKW mit schwerem Anhänger</td>
-                        <td>4.000 €</td>
-                        <td>4.000 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Bus Klasse D</strong></td>
-                        <td>Personenbeförderung</td>
-                        <td>4.500 €</td>
-                        <td>4.500 €</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Anhänger Klasse BE</strong></td>
-                        <td>Anhänger über 750 kg</td>
-                        <td>-</td>
-                        <td>850 €</td>
-                    </tr>
-                    <tr style="background-color: #e0f2fe;">
-                        <td><strong>Umschreibung</strong></td>
-                        <td>Umstellung ausländischer Führerschein</td>
-                        <td colspan="2" style="text-align: center; font-weight: bold;">380 €<br><small style="font-weight: normal;">+ Prüfungen falls erforderlich</small></td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <p><strong>Hinweis:</strong> Alle Preise verstehen sich inklusive Mehrwertsteuer. Eventuelle zusätzliche Gebühren der Behörden (z.B. Führerscheinausstellung) sind nicht im Preis enthalten und werden separat in Rechnung gestellt.</p>
-                <a href="#contact" class="btn btn-blue" style="margin-top: 20px;">Persönliches Angebot anfordern</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support/FAQ -->
-    <section id="support" class="page-content container">
-        <h2 class="section-title">Häufige Fragen (FAQ)</h2>
-        <p class="section-subtitle">Antworten auf die am häufigsten gestellten Fragen</p>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Welche Dokumente benötige ich für die Führerscheinumstellung?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>In der Regel benötigen Sie: Ihren ausländischen Führerschein (Original), gültigen Aufenthaltstitel, Meldebescheinigung, biometrisches Passfoto, Sehtestbescheinigung und Nachweis über Erste-Hilfe-Kurs. Wir prüfen Ihre individuelle Situation und informieren Sie über genau benötigte Dokumente.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Wird mein ausländischer Führerschein in Deutschland anerkannt?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Das hängt von Ihrem Herkunftsland ab. EU-Führerscheine können in der Regel umgetauscht werden. Für viele andere Länder (USA, Kanada, Australien etc.) ist eine Umschreibung mit oder ohne Prüfung möglich. Wir prüfen für Sie, welche Anforderungen für Ihr spezifisches Land gelten.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Wie lange dauert es, einen Termin bei der Führerscheinstelle zu bekommen?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Durch unsere langjährigen Kontakte und Priorisierungssysteme erhalten wir in der Regel innerhalb von 1-3 Wochen einen Termin. Im beschleunigten Verfahren können wir dies oft auf wenige Tage reduzieren.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Kann ich den Führerschein auch ohne Deutschkenntnisse machen?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Ja! Wir bieten Unterstützung in mehreren Sprachen an. Die Theorieprüfung kann in vielen Fällen in Ihrer Muttersprache abgelegt werden. Wir helfen bei der Beantragung der Sprachausnahme und bieten Lernmaterial in verschiedenen Sprachen an.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Was ist der Unterschied zwischen Schnellverfahren und traditionellem Weg?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Das Schnellverfahren (2-6 Wochen) ist für Personen mit ausländischem Führerschein oder Vorkenntnissen und reduziert Wartezeiten durch Priorisierung. Der traditionelle Weg (2-4 Monate) ist eine komplette Ausbildung von Grund auf für Personen ohne Vorkenntnisse.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 50px;">
-            <h3>Weitere Fragen?</h3>
-            <p>Kontaktieren Sie uns direkt per WhatsApp, Telefon oder E-Mail.</p>
-            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
-                <a href="https://wa.me/4915781345925" class="btn btn-green"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
-                <a href="tel:+4915781345925" class="btn btn-blue"><i class="fas fa-phone"></i> +49 1578 1345925</a>
-                <a href="mailto:schnellerfuehrerschein@proton.me" class="btn btn-outline"><i class="fas fa-envelope"></i> E-Mail senden</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us -->
-    <section id="about" class="page-content container" style="background-color: #f8fafc; padding: 80px 20px;">
-        <div class="container">
-            <h2 class="section-title">Über uns</h2>
-            <p class="section-subtitle">Ihr verlässlicher Partner für den Führerschein in Deutschland</p>
-            
-            <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
-                    <div>
-                        <h3 style="margin-bottom: 20px;">Unsere Mission</h3>
-                        <p>Wir möchten Neuzuwanderern und Ausländern den Weg zum deutschen Führerschein so einfach und stressfrei wie möglich machen. Durch unsere Expertise und mehrsprachige Unterstützung helfen wir Ihnen, sich schnell und legal auf deutschen Straßen fortzubewegen.</p>
-                    </div>
-                    
-                    <div>
-                        <h3 style="margin-bottom: 20px;">Unsere Werte</h3>
-                        <ul style="list-style: none;">
-                            <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Transparenz in allen Prozessen</li>
-                            <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Kundenzufriedenheit als oberstes Ziel</li>
-                            <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Rechtssicherheit und Behördenkonformität</li>
-                            <li style="padding: 8px 0; display: flex; align-items: center;"><i class="fas fa-check" style="color: var(--primary-green); margin-right: 10px;"></i> Schnelle und effiziente Abwicklung</li>
-                        </ul>
                     </div>
                 </div>
                 
-                <div style="background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 40px;">
-                    <h3 style="margin-bottom: 20px;">Offizielle Zertifizierung</h3>
-                    <p>Wir arbeiten mit offiziell anerkannten Fahrschulen und Übersetzungsbüros zusammen. Alle unsere Dienstleistungen entsprechen den gesetzlichen Vorgaben der deutschen Straßenverkehrsbehörden.</p>
-                    
-                    <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
-                        <div style="background-color: #f3f4f6; padding: 10px 20px; border-radius: 8px;">
-                            <i class="fas fa-award" style="color: var(--primary-blue); margin-right: 8px;"></i> TÜV-zertifizierte Partner
+                <div class="contact-form">
+                    <h3>Kostenlose Erstberatung</h3>
+                    <form id="contactForm" onsubmit="submitContactForm(event)">
+                        <div class="form-group">
+                            <label for="name">Vollständiger Name *</label>
+                            <input type="text" id="name" required>
                         </div>
-                        <div style="background-color: #f3f4f6; padding: 10px 20px; border-radius: 8px;">
-                            <i class="fas fa-gavel" style="color: var(--primary-blue); margin-right: 8px;"></i> Amtlich beeidigte Übersetzer
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefonnummer *</label>
+                            <input type="tel" id="phone" required>
                         </div>
-                        <div style="background-color: #f3f4f6; padding: 10px 20px; border-radius: 8px;">
-                            <i class="fas fa-shield-alt" style="color: var(--primary-blue); margin-right: 8px;"></i> Datenschutz nach DSGVO
+                        
+                        <div class="form-group">
+                            <label for="email">E-Mail-Adresse</label>
+                            <input type="email" id="email">
                         </div>
-                    </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Welche Dienstleistung interessiert Sie? *</label>
+                            <select id="service" required>
+                                <option value="">Bitte auswählen</option>
+                                <option value="schnell-b">Schnellführerschein B</option>
+                                <option value="schnell-motorrad">Schnellführerschein Motorrad</option>
+                                <option value="schnell-lkw">Schnellführerschein LKW</option>
+                                <option value="traditionell-b">Traditioneller Führerschein B</option>
+                                <option value="traditionell-motorrad">Traditioneller Motorradführerschein</option>
+                                <option value="umschreibung">Führerscheinumtausch</option>
+                                <option value="unsicher">Ich bin unsicher</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Herkunftsland Ihres aktuellen Führerscheins</label>
+                            <input type="text" id="country" placeholder="z.B. Türkei, USA, Syrien...">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht (optional)</label>
+                            <textarea id="message" rows="4" placeholder="Beschreiben Sie kurz Ihre Situation..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Kostenlose Beratung anfordern</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1353,163 +1769,185 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>SchnellerFührerschein</h3>
-                    <p>Ihr zuverlässiger Partner für den Führerschein in Deutschland. Spezialisiert auf die Bedürfnisse von Ausländern und Neuzuwanderern.</p>
-                    <div style="display: flex; gap: 15px; margin-top: 20px;">
-                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
-                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
-                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
-                    </div>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>FührerscheinExpress</h3>
+                    <p style="color: #bbb; margin-top: 20px;">Ihr Partner für den deutschen Führerschein. Schnell, zuverlässig und multisprachig. Wir machen den Weg zu Ihrem Führerschein einfach.</p>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Unsere Services</h3>
+                <div class="footer-col">
+                    <h3>Schnelle Lösungen</h3>
                     <ul>
-                        <li><a href="#fast">Schneller Führerschein Ohne Prüfung</a></li>
-                        <li><a href="#traditional">Traditioneller Führerschein</a></li>
-                        <li><a href="#umschreibung">Führerscheinumstellung</a></li>
-                        <li><a href="#pricing">Preisübersicht</a></li>
+                        <li><a href="#schnellfuhrerschein"><i class="fas fa-arrow-right"></i> Schnellführerschein B</a></li>
+                        <li><a href="#schnellfuhrerschein"><i class="fas fa-arrow-right"></i> Motorrad Schnellkurs</a></li>
+                        <li><a href="#schnellfuhrerschein"><i class="fas fa-arrow-right"></i> LKW-Beschleunigung</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Kontakt</h3>
+                <div class="footer-col">
+                    <h3>Umschreibung</h3>
                     <ul>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +49 1578 1345925</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> schnellerfuehrerschein@proton.me</li>
-                        <li><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> WhatsApp: +49 1578 1345925</li>
-                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i> Mo-Fr: 9:00-18:00, Sa: 10:00-14:00</li>
+                        <li><a href="#umschreibung"><i class="fas fa-arrow-right"></i> EU-Länder</a></li>
+                        <li><a href="#umschreibung"><i class="fas fa-arrow-right"></i> Drittstaaten</a></li>
+                        <li><a href="#umschreibung"><i class="fas fa-arrow-right"></i> Mit Prüfung</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Rechtliches</h3>
+                <div class="footer-col">
+                    <h3>Kontakt & Support</h3>
                     <ul>
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutzerklärung</a></li>
-                        <li><a href="#">AGB</a></li>
-                        <li><a href="#">Widerrufsrecht</a></li>
+                        <li><a href="https://wa.me/4915781345925" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: +49 1578 1345925</a></li>
+                        <li><a href="mailto:schnellerfuhreschein@proton.me"><i class="fas fa-envelope"></i> schnellerfuhreschein@proton.me</a></li>
+                        <li><a href="#hilfe"><i class="fas fa-question-circle"></i> Hilfe & FAQ</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2024 SchnellerFührerschein. Alle Rechte vorbehalten.</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Diese Website dient nur zu Informationszwecken. Preise können sich ändern.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FührerscheinExpress. Alle Rechte vorbehalten. | Professionelle Unterstützung für Ihren deutschen Führerschein</p>
             </div>
         </div>
     </footer>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/4915781345925?text=Hallo%20F%C3%BChrerscheinExpress,%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Beratung%20zum%20deutschen%20F%C3%BChrerschein." class="btn btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp Beratung</span>
+    </a>
+
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mainMenu').classList.toggle('active');
-        });
+        // Coordonnées mises à jour
+        const whatsappNumber = "4915781345925";
+        const emailAddress = "schnellerfuhreschein@proton.me";
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('mainMenu');
-            const menuBtn = document.getElementById('mobileMenuBtn');
-            
-            if (!menu.contains(event.target) && !menuBtn.contains(event.target) && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-            }
-        });
+        // Fonction pour rediriger vers WhatsApp avec un message
+        function redirectToWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
         
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                
-                // Close other open answers
-                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
-                    if (otherAnswer !== answer && otherAnswer.classList.contains('open')) {
-                        otherAnswer.classList.remove('open');
-                        otherAnswer.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
-                        otherAnswer.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
-                    }
+        // Gestion des onglets de prix
+        document.querySelectorAll('.pricing-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Retirer la classe active de tous les onglets
+                document.querySelectorAll('.pricing-tab').forEach(t => {
+                    t.classList.remove('active');
                 });
                 
-                // Toggle current answer
-                answer.classList.toggle('open');
-                if (answer.classList.contains('open')) {
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up');
-                } else {
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
-                }
+                // Ajouter la classe active à l'onglet cliqué
+                this.classList.add('active');
+                
+                // Masquer tous les contenus
+                document.querySelectorAll('.pricing-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Afficher le contenu correspondant
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(`pricing-${tabId}`).classList.add('active');
             });
         });
         
-        // Contact Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const service = this.querySelector('select').value;
-            
-            // Create WhatsApp message
-            const whatsappMessage = `Hallo! Ich interessiere mich für: ${service}.%0A%0AMein Name: ${name}%0AMeine E-Mail: ${email}%0A%0AKönnen Sie mir weitere Informationen senden?`;
-            const whatsappUrl = `https://wa.me/4915781345925?text=${whatsappMessage}`;
-            
-            // Open WhatsApp
-            window.open(whatsappUrl, '_blank');
-            
-            // Reset form
-            this.reset();
-            
-            // Show confirmation message
-            alert('Vielen Dank! Sie werden nun zu WhatsApp weitergeleitet, um Ihre Anfrage abzuschließen.');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                
-                if (href === '#') return;
-                
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                document.getElementById('mainMenu').classList.remove('active');
-                
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
             });
         });
         
-        // Auto-scroll reviews
-        let reviewScrollPosition = 0;
-        const reviewsSlider = document.querySelector('.reviews-slider');
+        // Soumission du formulaire de contact
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const country = document.getElementById('country').value;
+            const message = document.getElementById('message').value;
+            
+            // Texte du service
+            const serviceText = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+            
+            // Création du message pour WhatsApp
+            const whatsappMessage = `Neue Beratungsanfrage:%0A%0A👤 Name: ${name}%0A📞 Telefon: ${phone}%0A📧 Email: ${email || 'Nicht angegeben'}%0A🚗 Dienstleistung: ${serviceText}%0A🌍 Herkunftsland: ${country || 'Nicht angegeben'}%0A💬 Nachricht: ${message || 'Keine zusätzliche Nachricht'}`;
+            
+            // Redirection vers WhatsApp
+            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+            
+            // Réinitialisation du formulaire
+            document.getElementById('contactForm').reset();
+            
+            // Notification
+            alert('Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Sie werden nun zu WhatsApp weitergeleitet für Ihre kostenlose Beratung.');
+        }
         
-        function autoScrollReviews() {
-            if (!reviewsSlider) return;
-            
-            reviewScrollPosition += 1;
-            
-            if (reviewScrollPosition >= reviewsSlider.scrollWidth - reviewsSlider.clientWidth) {
-                reviewScrollPosition = 0;
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Fermer le menu mobile en cliquant sur un lien
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
             
-            reviewsSlider.scrollLeft = reviewScrollPosition;
-        }
+            // Animation des sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const scrollY = window.scrollY;
+                
+                if (scrollY > sectionTop - window.innerHeight + 100 && scrollY < sectionTop + sectionHeight) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
         
-        // Start auto-scroll only if reviews slider exists
-        if (reviewsSlider) {
-            setInterval(autoScrollReviews, 50);
-        }
+        // Initialisation des animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // Déclencher l'animation initiale
+            setTimeout(() => {
+                window.dispatchEvent(new Event('scroll'));
+            }, 100);
+            
+            // Smooth scroll pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if(target) {
+                            window.scrollTo({
+                                top: target.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
