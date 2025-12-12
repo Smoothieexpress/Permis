@@ -148,6 +148,7 @@
             animation: pulse 2s infinite;
             z-index: 9999;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
         
         @keyframes pulse {
@@ -159,7 +160,7 @@
         .btn-whatsapp:hover {
             background-color: var(--whatsapp-dark);
             transform: scale(1.05);
-            animation: none;
+            box-shadow: var(--shadow-xl), 0 0 0 12px rgba(37, 211, 102, 0.2);
         }
         
         section {
@@ -1279,6 +1280,11 @@
                 font-size: 1.2rem;
                 right: 15px;
                 bottom: 15px;
+            }
+            
+            .btn-whatsapp:hover {
+                transform: scale(1.02);
+                box-shadow: var(--shadow-lg), 0 0 0 8px rgba(37, 211, 102, 0.15);
             }
             
             .audience-grid {
