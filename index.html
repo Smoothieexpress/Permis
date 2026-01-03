@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxx Apartments - Studio Moderne à Cotonou</title>
+    <title>Meublé Cotonou - Appartements meublés à Cotonou</title>
     <style>
         /* Reset et base */
         * {
@@ -16,7 +16,6 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #fff;
         }
 
         .container {
@@ -30,11 +29,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: white;
             z-index: 1000;
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .header-container {
@@ -46,16 +44,21 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #2c3e50;
             text-decoration: none;
         }
 
         .logo span {
-            color: #0077cc;
+            color: #e74c3c;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
         }
 
         nav a {
-            margin-left: 30px;
             text-decoration: none;
             color: #555;
             font-weight: 500;
@@ -63,7 +66,21 @@
         }
 
         nav a:hover {
-            color: #0077cc;
+            color: #e74c3c;
+        }
+
+        .btn-reserve {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-reserve:hover {
+            background: #c0392b;
         }
 
         .mobile-menu-btn {
@@ -72,114 +89,164 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
+            color: #333;
         }
 
         /* Hero */
         .hero {
-            padding: 160px 0 80px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
             text-align: center;
         }
 
-        .hero-subtitle {
-            color: #0077cc;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .hero-title {
+        .hero h1 {
             font-size: 48px;
-            font-weight: 700;
-            color: #1a1a1a;
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
-        .hero-description {
-            font-size: 18px;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 40px;
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: #0077cc;
-            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
             text-decoration: none;
-            border-radius: 8px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 119, 204, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #333;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        /* Sections communes */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Avantages */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .advantage-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .advantage-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #e74c3c;
         }
 
         /* Featured Studio */
         .featured-studio {
-            padding: 100px 0;
+            background: #f8f9fa;
         }
 
-        .studio-container {
+        .studio-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .studio-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .studio-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .studio-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
+            gap: 0;
         }
 
-        .studio-video-container {
+        .studio-gallery {
             position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #000;
         }
 
-        .studio-video {
+        .studio-main-image {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 400px;
+            object-fit: cover;
         }
 
-        .video-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 30px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-        }
-
-        .studio-badge {
-            display: inline-block;
-            background: #0077cc;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .studio-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-        }
-
-        .studio-location {
-            color: #666;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .studio-details {
+            padding: 40px;
         }
 
         .studio-features {
@@ -192,86 +259,82 @@
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            color: #666;
         }
 
         .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: #f0f7ff;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0077cc;
+            color: #e74c3c;
+            font-size: 20px;
         }
 
         .price-section {
             background: #f8f9fa;
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 10px;
             margin-top: 30px;
         }
 
         .price-amount {
             font-size: 36px;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 5px;
+            color: #e74c3c;
+            margin-bottom: 10px;
         }
 
-        .price-details {
-            color: #666;
-            margin-bottom: 20px;
+        /* Comment ça marche */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
-        /* Apartments */
-        .apartments-section {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
-        .section-header {
+        .step-card {
             text-align: center;
-            margin-bottom: 60px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .section-subtitle {
-            color: #0077cc;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .section-title {
-            font-size: 36px;
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
         }
 
+        /* Apartments Grid */
         .apartments-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .apartment-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
         }
 
         .apartment-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
 
         .apartment-image {
-            height: 240px;
+            height: 250px;
+            width: 100%;
             overflow: hidden;
         }
 
@@ -293,151 +356,58 @@
         .apartment-title {
             font-size: 20px;
             font-weight: 600;
-            color: #1a1a1a;
             margin-bottom: 10px;
+            color: #2c3e50;
         }
 
         .apartment-location {
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .apartment-price {
             font-size: 24px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #e74c3c;
             margin-bottom: 20px;
         }
 
-        .btn-secondary {
-            display: inline-block;
-            padding: 12px 24px;
-            border: 2px solid #0077cc;
-            color: #0077cc;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: #0077cc;
-            color: white;
-        }
-
-        /* Contact */
-        .contact-section {
-            padding: 100px 0;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contact-info h2 {
-            font-size: 36px;
+        .apartment-features-list {
+            display: flex;
+            gap: 15px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        .contact-methods {
-            margin-top: 40px;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: #f0f7ff;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0077cc;
-            font-size: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: #f0f7ff;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0077cc;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: #0077cc;
-            color: white;
-        }
-
-        .contact-form {
+        .apartment-feature {
             background: #f8f9fa;
-            padding: 40px;
-            border-radius: 12px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0077cc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #666;
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
+            background: #2c3e50;
             color: white;
-            padding: 80px 0 40px;
+            padding: 60px 0 30px;
         }
 
         .footer-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 25px;
+            color: white;
         }
 
         .footer-links {
@@ -449,7 +419,7 @@
         }
 
         .footer-links a {
-            color: #aaa;
+            color: #bdc3c7;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -460,10 +430,9 @@
 
         .copyright {
             text-align: center;
-            padding-top: 40px;
-            margin-top: 60px;
-            border-top: 1px solid #333;
-            color: #777;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
             font-size: 14px;
         }
 
@@ -493,10 +462,8 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .studio-container,
-            .contact-container {
+            .studio-content {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
             
             .footer-container {
@@ -505,16 +472,20 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title {
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
                 font-size: 36px;
             }
             
-            .studio-title {
-                font-size: 28px;
-            }
-            
-            .section-title {
-                font-size: 28px;
+            .hero p {
+                font-size: 18px;
             }
             
             .studio-features {
@@ -525,29 +496,32 @@
                 grid-template-columns: 1fr;
             }
             
-            nav {
-                display: none;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .mobile-menu-btn {
-                display: block;
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-title {
+            .hero h1 {
                 font-size: 28px;
             }
             
-            .price-amount {
+            .section-title {
                 font-size: 28px;
-            }
-            
-            .contact-form {
-                padding: 25px;
             }
             
             .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -557,263 +531,296 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Luxx<span>Apartments</span></a>
+            <a href="#" class="logo">Meublé<span>Cotonou</span></a>
+            
             <nav>
-                <a href="#studio">Studio</a>
-                <a href="#apartments">Appartements</a>
+                <a href="#accueil">Accueil</a>
+                <a href="#logements">Logements</a>
+                <a href="#reserver">Réserver</a>
+                <a href="#proposer">Proposer un logement</a>
+                <a href="#apropos">À propos</a>
                 <a href="#contact">Contact</a>
+                <a href="#reserver" class="btn-reserve">Réserver maintenant</a>
             </nav>
+            
             <button class="mobile-menu-btn">☰</button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="accueil">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-subtitle">Cotonou • Disponible maintenant</div>
-                <h1 class="hero-title">Studio Moderne & Élégant</h1>
-                <p class="hero-description">
-                    Découvrez ce studio entièrement meublé au cœur de Cotonou. 
-                    Design contemporain et équipements haut de gamme.
-                </p>
-                <a href="#studio" class="btn">Voir le studio</a>
+            <h1>Trouvez votre appartement meublé à Cotonou, en toute simplicité.</h1>
+            <p>Studios et appartements meublés – confort, sécurité et tranquillité pour vos séjours courts ou longs.</p>
+            
+            <div class="hero-buttons">
+                <a href="#logements" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Voir les logements
+                </a>
+                <a href="#reserver" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    Réserver maintenant
+                </a>
+                <a href="https://wa.me/22966953934" class="btn btn-whatsapp" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.76.982.998-3.677-.236-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.9 6.994c-.004 5.45-4.436 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411"></path>
+                    </svg>
+                    WhatsApp
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Featured Studio -->
-    <section class="featured-studio" id="studio">
+    <!-- Avantages -->
+    <section>
         <div class="container">
-            <div class="studio-container">
-                <div class="studio-video-container">
-                    <video class="studio-video" controls poster="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
-                        <source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_30fps.mp4" type="video/mp4">
-                        Votre navigateur ne supporte pas la vidéo.
-                    </video>
-                    <div class="video-overlay">
-                        <h3>Visite guidée du studio</h3>
-                    </div>
+            <h2 class="section-title">Pourquoi choisir notre plateforme ?</h2>
+            <p class="section-subtitle">Nous offrons la meilleure expérience de location d'appartements meublés à Cotonou</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">🏡</div>
+                    <h3>Logements propres et bien équipés</h3>
+                    <p>Tous nos appartements sont régulièrement nettoyés et entièrement équipés pour votre confort.</p>
                 </div>
                 
-                <div class="studio-info">
-                    <div class="studio-badge">Disponible immédiatement</div>
-                    <h2 class="studio-title">Studio Design - Cotonou Centre</h2>
-                    <div class="studio-location">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        Quartier résidentiel calme
+                <div class="advantage-card">
+                    <div class="advantage-icon">📍</div>
+                    <h3>Quartiers accessibles de Cotonou</h3>
+                    <p>Des emplacements stratégiques dans les meilleurs quartiers de la ville.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Réservation rapide et simple</h3>
+                    <p>Réservez en quelques clics ou directement via WhatsApp.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">🔐</div>
+                    <h3>Sécurité & discrétion</h3>
+                    <p>Votre sécurité et votre confidentialité sont nos priorités.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">📶</div>
+                    <h3>Confort moderne</h3>
+                    <p>Wi-Fi, climatisation, équipements neufs pour un séjour agréable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio à la une -->
+    <section class="featured-studio" id="logements">
+        <div class="container">
+            <h2 class="section-title">Logement à la une</h2>
+            <p class="section-subtitle">Notre studio phare - Disponible immédiatement</p>
+            
+            <div class="studio-card">
+                <div class="studio-header">
+                    <h2>Studio meublé haut standing – Akpakpa</h2>
+                    <p>Le confort moderne au cœur de Cotonou</p>
+                </div>
+                
+                <div class="studio-content">
+                    <div class="studio-gallery">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Studio Akpakpa" class="studio-main-image">
                     </div>
                     
-                    <p>
-                        Ce studio moderne de 40m² allie élégance et fonctionnalité. 
-                        Entièrement meublé et équipé pour votre confort à Cotonou.
-                    </p>
-                    
-                    <div class="studio-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                                </svg>
+                    <div class="studio-details">
+                        <h3>Description</h3>
+                        <p>Ce studio moderne et élégant vous offre tout le confort nécessaire pour un séjour agréable à Cotonou. Idéal pour les professionnels, les touristes ou les séjours prolongés.</p>
+                        
+                        <div class="studio-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">❄️</span>
+                                <span>Climatisé</span>
                             </div>
-                            <div>
-                                <strong>40 m²</strong>
-                                <p>Surface optimisée</p>
+                            <div class="feature-item">
+                                <span class="feature-icon">📶</span>
+                                <span>Wi-Fi haut débit</span>
                             </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
+                            <div class="feature-item">
+                                <span class="feature-icon">📺</span>
+                                <span>TV + PS4</span>
                             </div>
-                            <div>
-                                <strong>Lit queen size</strong>
-                                <p>Matelas neuve</p>
+                            <div class="feature-item">
+                                <span class="feature-icon">🍳</span>
+                                <span>Cuisine équipée</span>
                             </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                </svg>
+                            <div class="feature-item">
+                                <span class="feature-icon">🚿</span>
+                                <span>Douche moderne</span>
                             </div>
-                            <div>
-                                <strong>Fibre optique</strong>
-                                <p>Internet haute vitesse</p>
+                            <div class="feature-item">
+                                <span class="feature-icon">✨</span>
+                                <span>Propre et cosy</span>
                             </div>
                         </div>
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>Climatisation</strong>
-                                <p>Inverter récente</p>
+                        
+                        <div class="price-section">
+                            <div class="price-amount">À partir de 15 000 F / nuit</div>
+                            <p>Prix dégressif pour séjours prolongés</p>
+                            
+                            <div style="display: flex; gap: 15px; margin-top: 20px;">
+                                <a href="#details-studio" class="btn btn-secondary" style="flex: 1;">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    </svg>
+                                    Voir détails
+                                </a>
+                                <a href="https://wa.me/22966953934?text=Bonjour,%20je%20souhaite%20réserver%20le%20studio%20Akpakpa" 
+                                   class="btn btn-primary" style="flex: 1;" target="_blank">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    Réserver ce studio
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="price-section">
-                        <div class="price-amount">85.000 FCFA</div>
-                        <div class="price-details">/ mois • Charges incluses</div>
-                        <button onclick="redirectToWhatsApp('Bonjour, je suis intéressé par le studio à 85.000 FCFA/mois à Cotonou')" class="btn">
-                            Contacter sur WhatsApp
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Apartments Section -->
-    <section class="apartments-section" id="apartments">
+    <!-- Comment ça marche -->
+    <section>
         <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Notre sélection</div>
-                <h2 class="section-title">Autres appartements</h2>
+            <h2 class="section-title">Réserver en 3 étapes simples</h2>
+            <p class="section-subtitle">Un processus rapide et sans tracas</p>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Choisissez votre logement</h3>
+                    <p>Parcourez notre catalogue et sélectionnez l'appartement qui correspond à vos besoins.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Sélectionnez vos dates</h3>
+                    <p>Indiquez vos dates d'arrivée et de départ pour vérifier la disponibilité.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Réservez en ligne ou via WhatsApp</h3>
+                    <p>Confirmez votre réservation en ligne ou directement par WhatsApp pour une réponse rapide.</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Autres logements -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Autres logements disponibles</h2>
+            <p class="section-subtitle">Découvrez notre sélection d'appartements meublés à Cotonou</p>
             
             <div class="apartments-grid">
                 <div class="apartment-card">
                     <div class="apartment-image">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Appartement 2 chambres">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Studio centre-ville">
                     </div>
                     <div class="apartment-content">
-                        <h3 class="apartment-title">Appartement 2 Chambres</h3>
-                        <div class="apartment-location">Akpakpa, Cotonou</div>
-                        <div class="apartment-price">125.000 FCFA / mois</div>
-                        <a href="#" onclick="redirectToWhatsApp('Bonjour, je suis intéressé par l\\'appartement 2 chambres à Akpakpa')" class="btn-secondary">
-                            Demander des infos
-                        </a>
+                        <h3 class="apartment-title">Studio centre-ville</h3>
+                        <div class="apartment-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Centre-ville, Cotonou
+                        </div>
+                        <div class="apartment-price">18 000 F / nuit</div>
+                        <div class="apartment-features-list">
+                            <span class="apartment-feature">35 m²</span>
+                            <span class="apartment-feature">Climatisé</span>
+                            <span class="apartment-feature">Wi-Fi</span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="#" class="btn btn-secondary" style="flex: 1;">Voir détails</a>
+                            <a href="#" class="btn btn-primary" style="flex: 1;">Réserver</a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="apartment-card">
                     <div class="apartment-image">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Studio jumelé">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Appartement 2 pièces">
                     </div>
                     <div class="apartment-content">
-                        <h3 class="apartment-title">Studio Jumelé</h3>
-                        <div class="apartment-location">Cadjehoun, Cotonou</div>
-                        <div class="apartment-price">75.000 FCFA / mois</div>
-                        <a href="#" onclick="redirectToWhatsApp('Bonjour, je suis intéressé par le studio jumelé à Cadjehoun')" class="btn-secondary">
-                            Demander des infos
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Nous contacter</h2>
-                    <p>Contactez-nous pour organiser une visite ou obtenir plus d'informations.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>WhatsApp</h4>
-                                <p>+229 66 95 39 34</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Téléphone</h4>
-                                <p>+229 01 66 95 39 34</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>mauricegerauds@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://www.tiktok.com/@house.luxx" target="_blank" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path>
+                        <h3 class="apartment-title">Appartement 2 pièces – Hédzranawoe</h3>
+                        <div class="apartment-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-link">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
+                            Hédzranawoe, Cotonou
+                        </div>
+                        <div class="apartment-price">25 000 F / nuit</div>
+                        <div class="apartment-features-list">
+                            <span class="apartment-feature">65 m²</span>
+                            <span class="apartment-feature">2 chambres</span>
+                            <span class="apartment-feature">Cuisine équipée</span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="#" class="btn btn-secondary" style="flex: 1;">Voir détails</a>
+                            <a href="#" class="btn btn-primary" style="flex: 1;">Réserver</a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h3>Demande d'information</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" required>
+                <div class="apartment-card">
+                    <div class="apartment-image">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Appartement Fidjrossè">
+                    </div>
+                    <div class="apartment-content">
+                        <h3 class="apartment-title">Appartement meublé – Fidjrossè</h3>
+                        <div class="apartment-location">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Fidjrossè, Cotonou
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" required>
+                        <div class="apartment-price">22 000 F / nuit</div>
+                        <div class="apartment-features-list">
+                            <span class="apartment-feature">50 m²</span>
+                            <span class="apartment-feature">Vue mer</span>
+                            <span class="apartment-feature">Terrasse</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="apartment">Appartement intéressé</label>
-                            <select id="apartment" required>
-                                <option value="">Sélectionnez</option>
-                                <option value="studio">Studio Design</option>
-                                <option value="2chambres">Appartement 2 Chambres</option>
-                                <option value="jumelé">Studio Jumelé</option>
-                            </select>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="#" class="btn btn-secondary" style="flex: 1;">Voir détails</a>
+                            <a href="#" class="btn btn-primary" style="flex: 1;">Réserver</a>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="4"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Envoyer la demande</button>
-                    </form>
+                    </div>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#tous-logements" class="btn btn-primary" style="padding: 15px 40px;">
+                    Voir tous les logements
+                </a>
             </div>
         </div>
     </section>
@@ -823,40 +830,47 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3>Luxx Apartments</h3>
-                    <p>Appartements meublés de qualité à Cotonou.</p>
+                    <h3>Meublé Cotonou</h3>
+                    <p style="color: #bdc3c7; margin-top: 15px;">
+                        La plateforme de référence pour les appartements meublés à Cotonou.
+                    </p>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Appartements</h3>
+                    <h3>Liens rapides</h3>
                     <ul class="footer-links">
-                        <li><a href="#studio">Studio Design</a></li>
-                        <li><a href="#apartments">2 Chambres</a></li>
-                        <li><a href="#apartments">Studio Jumelé</a></li>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#logements">Logements</a></li>
+                        <li><a href="#reserver">Réserver</a></li>
+                        <li><a href="#proposer">Proposer un logement</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Contact</h3>
+                    <h3>Informations</h3>
                     <ul class="footer-links">
-                        <li><a href="tel:+22966953934">+229 66 95 39 34</a></li>
-                        <li><a href="tel:+2290166953934">+229 01 66 95 39 34</a></li>
-                        <li><a href="mailto:mauricegerauds@gmail.com">mauricegerauds@gmail.com</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#mentions">Mentions légales</a></li>
+                        <li><a href="#conditions">Conditions de réservation</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Réseaux</h3>
+                    <h3>Politiques</h3>
                     <ul class="footer-links">
-                        <li><a href="https://www.tiktok.com/@house.luxx" target="_blank">TikTok</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#confidentialite">Politique de confidentialité</a></li>
+                        <li><a href="#annulation">Politique d'annulation</a></li>
+                        <li><a href="#cgv">CGV</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2024 Luxx Apartments Cotonou. Tous droits réservés.</p>
+                <p>© 2026 Meublé Cotonou – Plate-forme d'appartements meublés à Cotonou</p>
+                <p style="margin-top: 10px; font-size: 12px;">
+                    Contact : +229 66 95 39 34 | mauricegerauds@gmail.com
+                </p>
             </div>
         </div>
     </footer>
@@ -869,49 +883,25 @@
     </a>
 
     <script>
-        // WhatsApp Redirection
-        function redirectToWhatsApp(message) {
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/22966953934?text=${encodedMessage}`, '_blank');
-        }
-        
-        // Mobile Menu
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const nav = document.querySelector('nav');
         
         mobileMenuBtn.addEventListener('click', () => {
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
             if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
                 nav.style.position = 'absolute';
                 nav.style.top = '70px';
                 nav.style.left = '0';
                 nav.style.right = '0';
                 nav.style.backgroundColor = 'white';
                 nav.style.flexDirection = 'column';
-                nav.style.padding = '20px';
+                nav.style.padding = '30px';
+                nav.style.gap = '20px';
                 nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
             }
-        });
-        
-        // Contact Form
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const apartment = document.getElementById('apartment').value;
-            const message = document.getElementById('message').value;
-            
-            const apartmentNames = {
-                'studio': 'Studio Design - 85.000 FCFA',
-                '2chambres': 'Appartement 2 Chambres - 125.000 FCFA',
-                'jumelé': 'Studio Jumelé - 75.000 FCFA'
-            };
-            
-            const whatsappMessage = `Nom: ${name}%0ATéléphone: ${phone}%0AAppartement: ${apartmentNames[apartment] || apartment}%0AMessage: ${message || 'Aucun message'}`;
-            
-            redirectToWhatsApp(whatappMessage);
-            this.reset();
         });
         
         // Smooth Scrolling
@@ -924,8 +914,38 @@
                         top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        nav.style.display = 'none';
+                    }
                 }
             });
+        });
+        
+        // WhatsApp Redirection
+        function redirectToWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/22966953934?text=${encodedMessage}`, '_blank');
+        }
+        
+        // Contact Buttons
+        document.querySelectorAll('.btn-whatsapp, .btn-primary').forEach(btn => {
+            if (btn.href && btn.href.includes('wa.me')) {
+                btn.addEventListener('click', function(e) {
+                    if (!this.getAttribute('target')) {
+                        e.preventDefault();
+                        redirectToWhatsApp('Bonjour, je souhaite réserver un appartement sur Meublé Cotonou');
+                    }
+                });
+            }
+        });
+        
+        // Update year in copyright
+        document.addEventListener('DOMContentLoaded', () => {
+            const year = new Date().getFullYear();
+            document.querySelector('.copyright p').innerHTML = 
+                document.querySelector('.copyright p').innerHTML.replace('2026', year);
         });
     </script>
 </body>
