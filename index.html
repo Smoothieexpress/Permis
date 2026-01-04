@@ -297,6 +297,7 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid rgba(217, 130, 43, 0.1);
+            position: relative;
         }
 
         .tarif-card:hover {
@@ -353,6 +354,43 @@
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
+        }
+
+        /* Calcul de prix */
+        .price-calculator {
+            background: var(--blanc);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(217, 130, 43, 0.1);
+        }
+
+        .price-summary {
+            background: var(--gris-clair);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid var(--terracotta);
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(92, 58, 33, 0.1);
+        }
+
+        .price-row.total {
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--terracotta);
+            border-bottom: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid var(--terracotta);
         }
 
         /* Gallery Carousel */
@@ -620,6 +658,29 @@
             text-decoration: underline;
         }
 
+        /* Calcul du prix en temps réel */
+        .price-display {
+            background: rgba(217, 130, 43, 0.1);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid var(--terracotta);
+        }
+
+        .price-amount {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--terracotta);
+            margin: 10px 0;
+        }
+
+        .price-details {
+            font-size: 14px;
+            color: var(--gris);
+            margin-top: 10px;
+        }
+
         /* Footer */
         footer {
             background: var(--chocolat);
@@ -749,7 +810,7 @@
             text-align: center;
         }
 
-        /* Responsive Design - AMÉLIORÉ */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .container {
                 padding: 0 30px;
@@ -795,7 +856,6 @@
                 font-size: 16px;
             }
             
-            /* Navigation mobile améliorée */
             nav {
                 position: fixed;
                 top: 80px;
@@ -877,6 +937,10 @@
             .modal-title {
                 font-size: 26px;
             }
+            
+            .price-amount {
+                font-size: 28px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -927,75 +991,9 @@
                 padding: 12px 20px;
                 font-size: 14px;
             }
-        }
-
-        @media (max-width: 360px) {
-            .hero h1 {
+            
+            .price-amount {
                 font-size: 24px;
-            }
-            
-            .hero-subtitle {
-                font-size: 15px;
-            }
-            
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .tarif-price {
-                font-size: 36px;
-            }
-            
-            .carousel-slide {
-                height: 200px;
-            }
-            
-            .btn {
-                font-size: 14px;
-                padding: 12px 18px;
-            }
-        }
-
-        /* Améliorations pour très petits écrans */
-        @media (max-width: 320px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .hero h1 {
-                font-size: 22px;
-            }
-            
-            .section-title {
-                font-size: 22px;
-            }
-            
-            .tarif-card {
-                padding: 30px 20px;
-            }
-            
-            .reservation-form-container {
-                padding: 20px 15px;
-            }
-        }
-
-        /* Amélioration pour orientation paysage mobile */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .hero {
-                padding: 120px 0 60px;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero-subtitle {
-                margin-bottom: 25px;
-                font-size: 16px;
-            }
-            
-            nav.active {
-                max-height: 70vh;
             }
         }
     </style>
@@ -1125,7 +1123,7 @@
             
             <div class="tarifs-grid">
                 <!-- Tarif Nuitée -->
-                <div class="tarif-card" style="position: relative;">
+                <div class="tarif-card">
                     <div class="offer-badge">OFFERT</div>
                     <h3>Nuitée Cosy</h3>
                     <div class="tarif-price">17 000 F</div>
@@ -1150,7 +1148,7 @@
                 </div>
                 
                 <!-- Tarif 24h -->
-                <div class="tarif-card" style="position: relative;">
+                <div class="tarif-card">
                     <div class="offer-badge">OFFERT</div>
                     <h3>24h Flexibles</h3>
                     <div class="tarif-price">27 000 F</div>
@@ -1177,8 +1175,8 @@
             
             <div class="text-center" style="margin-top: 40px;">
                 <p style="color: var(--gris); font-size: 16px;">
-                    <i class="fas fa-gift"></i> 
-                    <strong>Attention :</strong> Les smoothies et sandwichs offerts sont préparés par notre partenaire FreshMood
+                    <i class="fas fa-info-circle"></i> 
+                    <strong>Option :</strong> Sans smoothie/sandwich → 15.000 F/nuit ou 25.000 F/24h
                 </p>
             </div>
         </div>
@@ -1348,7 +1346,8 @@
                         
                         <div class="form-group">
                             <label class="form-label" for="telephone">Téléphone WhatsApp *</label>
-                            <input type="tel" class="form-control" id="telephone" required placeholder="Ex: +229 00 00 00 00">
+                            <input type="tel" class="form-control" id="telephone" required placeholder="Ex: 66953934">
+                            <small style="color: var(--gris);">Format: 66953934 (sans espace)</small>
                         </div>
                     </div>
                     
@@ -1371,8 +1370,8 @@
                             <label class="form-label" for="formule">Formule choisie *</label>
                             <select class="form-control" id="formule" required>
                                 <option value="">Sélectionnez une formule</option>
-                                <option value="nuit">Nuitée Cosy (17.000 F) - Smoothie ou sandwich OFFERT</option>
-                                <option value="24h">24h Flexibles (27.000 F) - Smoothie ou sandwich OFFERT</option>
+                                <option value="nuit">Nuitée Cosy (smoothie/sandwich OFFERT)</option>
+                                <option value="24h">24h Flexibles (smoothie/sandwich OFFERT)</option>
                             </select>
                         </div>
                         
@@ -1389,18 +1388,37 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="preference">Préférence</label>
+                        <label class="form-label" for="smoothie-sandwich">Smoothie/Sandwich FreshMood</label>
+                        <select class="form-control" id="smoothie-sandwich">
+                            <option value="avec">Oui, je veux le smoothie ou sandwich OFFERT</option>
+                            <option value="sans">Non, sans smoothie/sandwich (tarif réduit)</option>
+                        </select>
+                        <small style="color: var(--gris); display: block; margin-top: 5px;">
+                            <i class="fas fa-info-circle"></i> Sans smoothie/sandwich : 15.000 F/nuit ou 25.000 F/24h
+                        </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="preference">Préférence (si vous prenez l'offre)</label>
                         <select class="form-control" id="preference">
-                            <option value="">Smoothie ou sandwich ?</option>
+                            <option value="">Choisissez votre préférence</option>
                             <option value="smoothie">Smoothie FreshMood</option>
                             <option value="sandwich">Sandwich FreshMood</option>
-                            <option value="aucun">Aucun</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label" for="message">Message ou demande particulière</label>
                         <textarea class="form-control" id="message" placeholder="Heure d'arrivée, besoins particuliers, etc." rows="4"></textarea>
+                    </div>
+                    
+                    <!-- Affichage du prix en temps réel -->
+                    <div class="price-display" id="price-display" style="display: none;">
+                        <h3>Estimation du prix</h3>
+                        <div class="price-amount" id="total-price">0 F</div>
+                        <div class="price-details" id="price-details">
+                            Calculé en fonction de votre séjour
+                        </div>
                     </div>
                     
                     <!-- Checkbox d'acceptation des conditions -->
@@ -1467,7 +1485,7 @@
                             <i class="fab fa-whatsapp"></i>
                             <div>
                                 <strong>WhatsApp</strong><br>
-                                +229 66 95 39 34
+                                66 95 39 34
                             </div>
                         </li>
                         <li>
@@ -1491,7 +1509,7 @@
             <div class="copyright">
                 <p>© <span id="current-year">2024</span> Cosylogement – Studio à Akpakpa, Cotonou. Tous droits réservés.</p>
                 <p style="margin-top: 10px; font-size: 13px;">
-                    Contact : +229 66 95 39 34 | mauricegerauds@gmail.com
+                    Contact : 66 95 39 34 | mauricegerauds@gmail.com
                 </p>
             </div>
         </div>
@@ -1728,6 +1746,99 @@
             
             // Check initial availability
             checkAvailability();
+            // Calculate initial price
+            calculatePrice();
+        }
+
+        // Fonction pour calculer le prix
+        function calculatePrice() {
+            const arriveeDate = document.getElementById('date-arrivee').value;
+            const departDate = document.getElementById('date-depart').value;
+            const formule = document.getElementById('formule').value;
+            const smoothieOption = document.getElementById('smoothie-sandwich').value;
+            
+            if (!arriveeDate || !departDate || !formule) {
+                document.getElementById('price-display').style.display = 'none';
+                return;
+            }
+            
+            const arrivee = new Date(arriveeDate);
+            const depart = new Date(departDate);
+            
+            // Vérifier si les dates sont valides
+            if (depart <= arrivee) {
+                document.getElementById('price-display').style.display = 'none';
+                return;
+            }
+            
+            let prix = 0;
+            let details = '';
+            let prixUnitaire = 0;
+            
+            // Calcul selon la formule
+            switch(formule) {
+                case 'nuit':
+                    // Calcul en nuits
+                    const diffTimeNuit = Math.abs(depart - arrivee);
+                    const nuits = Math.ceil(diffTimeNuit / (1000 * 60 * 60 * 24));
+                    
+                    if (smoothieOption === 'avec') {
+                        prixUnitaire = 17000;
+                        prix = nuits * 17000;
+                        details = `${nuits} nuitée(s) × 17.000 F = ${prix.toLocaleString('fr-FR')} F`;
+                    } else {
+                        prixUnitaire = 15000;
+                        prix = nuits * 15000;
+                        details = `${nuits} nuitée(s) × 15.000 F = ${prix.toLocaleString('fr-FR')} F`;
+                    }
+                    break;
+                    
+                case '24h':
+                    // Calcul en périodes de 24h
+                    const diffTime = Math.abs(depart - arrivee);
+                    const heures = diffTime / (1000 * 60 * 60);
+                    const periodes24h = Math.ceil(heures / 24);
+                    
+                    if (smoothieOption === 'avec') {
+                        prixUnitaire = 27000;
+                        prix = periodes24h * 27000;
+                        details = `${periodes24h} période(s) de 24h × 27.000 F = ${prix.toLocaleString('fr-FR')} F`;
+                    } else {
+                        prixUnitaire = 25000;
+                        prix = periodes24h * 25000;
+                        details = `${periodes24h} période(s) de 24h × 25.000 F = ${prix.toLocaleString('fr-FR')} F`;
+                    }
+                    break;
+                    
+                default:
+                    document.getElementById('price-display').style.display = 'none';
+                    return;
+            }
+            
+            // Ajouter la caution
+            let caution = 20000;
+            if (formule === '24h') {
+                caution = 25000;
+            }
+            const prixTotal = prix + caution;
+            
+            // Formater les dates
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const dateArriveeFormat = arrivee.toLocaleDateString('fr-FR', options);
+            const dateDepartFormat = depart.toLocaleDateString('fr-FR', options);
+            
+            // Mettre à jour l'affichage
+            document.getElementById('total-price').textContent = prixTotal.toLocaleString('fr-FR') + ' F';
+            document.getElementById('price-details').innerHTML = `
+                <strong>Détails :</strong><br>
+                • ${formule === 'nuit' ? 'Nuitées' : 'Périodes 24h'}: ${details}<br>
+                • Caution: ${caution.toLocaleString('fr-FR')} F<br>
+                • Séjour: ${dateArriveeFormat} → ${dateDepartFormat}<br>
+                • Smoothie/Sandwich: ${smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS (-2.000 F)'}
+            `;
+            
+            // Afficher le calculateur
+            document.getElementById('price-display').style.display = 'block';
         }
 
         function setupForms() {
@@ -1806,7 +1917,7 @@
                 }
             }
             
-            // Date change listeners
+            // Écouteurs pour le calcul du prix
             document.getElementById('date-arrivee').addEventListener('change', function() {
                 const arriveeDate = new Date(this.value);
                 const minDepartDate = new Date(arriveeDate);
@@ -1821,9 +1932,29 @@
                 }
                 
                 checkAvailability();
+                calculatePrice();
             });
             
-            document.getElementById('date-depart').addEventListener('change', checkAvailability);
+            document.getElementById('date-depart').addEventListener('change', function() {
+                checkAvailability();
+                calculatePrice();
+            });
+            
+            document.getElementById('formule').addEventListener('change', calculatePrice);
+            document.getElementById('smoothie-sandwich').addEventListener('change', calculatePrice);
+            
+            // Gérer l'affichage de la préférence selon le choix smoothie/sandwich
+            document.getElementById('smoothie-sandwich').addEventListener('change', function() {
+                const preferenceSelect = document.getElementById('preference');
+                if (this.value === 'avec') {
+                    preferenceSelect.disabled = false;
+                    preferenceSelect.required = true;
+                } else {
+                    preferenceSelect.disabled = true;
+                    preferenceSelect.required = false;
+                    preferenceSelect.value = '';
+                }
+            });
             
             // Form submission
             reservationForm.addEventListener('submit', function(e) {
@@ -1846,6 +1977,7 @@
                     dateDepart: document.getElementById('date-depart').value,
                     formule: document.getElementById('formule').value,
                     personnes: document.getElementById('personnes').value,
+                    smoothieOption: document.getElementById('smoothie-sandwich').value,
                     preference: document.getElementById('preference').value,
                     message: document.getElementById('message').value.trim()
                 };
@@ -1859,14 +1991,12 @@
                 
                 // Validate phone number for WhatsApp
                 let phoneNumber = formData.telephone.replace(/\s/g, ''); // Remove spaces
-                if (!phoneNumber.startsWith('+229')) {
-                    if (phoneNumber.startsWith('0')) {
-                        phoneNumber = '+229' + phoneNumber.substring(1);
-                    } else if (phoneNumber.startsWith('229')) {
-                        phoneNumber = '+' + phoneNumber;
-                    } else {
-                        phoneNumber = '+229' + phoneNumber;
-                    }
+                
+                // Format du numéro Bénin
+                if (phoneNumber.startsWith('0')) {
+                    phoneNumber = '229' + phoneNumber.substring(1);
+                } else if (!phoneNumber.startsWith('229')) {
+                    phoneNumber = '229' + phoneNumber;
                 }
                 
                 // Validate dates
@@ -1878,32 +2008,31 @@
                     return;
                 }
                 
-                // Calculate price and duration
-                let prix = 0;
+                // Recalculer le prix pour confirmation
+                calculatePrice();
+                const prixTotal = document.getElementById('total-price').textContent;
+                
+                // Déterminer les textes
                 let formuleTexte = '';
-                let caution = '20 000 FCFA';
+                let prixUnitaire = 0;
+                let caution = 20000;
                 
                 switch(formData.formule) {
                     case 'nuit':
-                        // Calculate nights
-                        const diffTime = Math.abs(departDate - arriveeDate);
-                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                        prix = diffDays * 17000;
-                        formuleTexte = `${diffDays} nuitée(s) Cosy - 17.000 F/nuit`;
-                        caution = '20 000 FCFA';
+                        const diffTimeNuit = Math.abs(departDate - arriveeDate);
+                        const nuits = Math.ceil(diffTimeNuit / (1000 * 60 * 60 * 24));
+                        prixUnitaire = formData.smoothieOption === 'avec' ? 17000 : 15000;
+                        formuleTexte = `${nuits} nuitée(s) Cosy - ${prixUnitaire.toLocaleString('fr-FR')} F/nuit`;
+                        caution = 20000;
                         break;
+                        
                     case '24h':
-                        const diffHours = Math.abs(departDate - arriveeDate) / (1000 * 60 * 60);
-                        if (diffHours > 24) {
-                            // Calculate additional hours
-                            const additionalHours = Math.ceil((diffHours - 24) / 24) * 27000;
-                            prix = 27000 + additionalHours;
-                            formuleTexte = `${Math.ceil(diffHours/24)} x 24h Flexibles - 27.000 F/24h`;
-                        } else {
-                            prix = 27000;
-                            formuleTexte = '24h Flexibles - 27.000 F';
-                        }
-                        caution = '25 000 FCFA';
+                        const diffTime = Math.abs(departDate - arriveeDate);
+                        const heures = diffTime / (1000 * 60 * 60);
+                        const periodes24h = Math.ceil(heures / 24);
+                        prixUnitaire = formData.smoothieOption === 'avec' ? 27000 : 25000;
+                        formuleTexte = `${periodes24h} période(s) de 24h Flexibles - ${prixUnitaire.toLocaleString('fr-FR')} F/24h`;
+                        caution = 25000;
                         break;
                 }
                 
@@ -1911,12 +2040,24 @@
                 const options = { day: 'numeric', month: 'long', year: 'numeric' };
                 
                 // Determine preference text
-                let preferenceText = '';
-                switch(formData.preference) {
-                    case 'smoothie': preferenceText = 'Smoothie FreshMood'; break;
-                    case 'sandwich': preferenceText = 'Sandwich FreshMood'; break;
-                    case 'aucun': preferenceText = 'Aucun'; break;
-                    default: preferenceText = 'Non spécifié';
+                let preferenceText = 'Non inclus';
+                if (formData.smoothieOption === 'avec') {
+                    preferenceText = formData.preference === 'smoothie' ? 'Smoothie FreshMood' : 
+                                   formData.preference === 'sandwich' ? 'Sandwich FreshMood' : 
+                                   'Non spécifié';
+                }
+                
+                // Calcul du prix du séjour (sans caution)
+                let prixSejour = 0;
+                if (formData.formule === 'nuit') {
+                    const diffTimeNuit = Math.abs(departDate - arriveeDate);
+                    const nuits = Math.ceil(diffTimeNuit / (1000 * 60 * 60 * 24));
+                    prixSejour = nuits * prixUnitaire;
+                } else {
+                    const diffTime = Math.abs(departDate - arriveeDate);
+                    const heures = diffTime / (1000 * 60 * 60);
+                    const periodes24h = Math.ceil(heures / 24);
+                    prixSejour = periodes24h * prixUnitaire;
                 }
                 
                 // Prepare WhatsApp message
@@ -1932,12 +2073,13 @@
 • Départ : ${departDate.toLocaleDateString('fr-FR', options)} à 12h
 • Formule : ${formuleTexte}
 • Personnes : ${formData.personnes}
+• Smoothie/Sandwich : ${formData.smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS'}
 • Préférence : ${preferenceText}
 
 💰 TARIFS :
-• Prix total : ${prix.toLocaleString('fr-FR')} FCFA
-• Caution : ${caution}
-• Smoothie/Sandwich : OFFERT
+• Prix séjour : ${prixSejour.toLocaleString('fr-FR')} FCFA
+• Caution : ${caution.toLocaleString('fr-FR')} FCFA
+• TOTAL : ${prixTotal}
 
 ${formData.message ? `📝 MESSAGE DU CLIENT :
 ${formData.message}` : ''}
@@ -1953,7 +2095,7 @@ ${formData.message}` : ''}
                 
                 // Show confirmation
                 setTimeout(() => {
-                    alert('✅ Ouverture de WhatsApp...\n\nVeuillez envoyer le message pré-rempli pour finaliser votre réservation.');
+                    alert('✅ Ouverture de WhatsApp...\n\nVeuillez envoyer le message pré-rempli pour finaliser votre réservation.\n\nLe numéro de contact est : 66 95 39 34');
                     
                     // Reset form after a delay
                     setTimeout(() => {
@@ -1963,6 +2105,9 @@ ${formData.message}` : ''}
                     }, 1000);
                 }, 500);
             });
+            
+            // Calcul initial
+            calculatePrice();
         }
 
         function handleHeaderScroll() {
@@ -2017,16 +2162,6 @@ ${formData.message}` : ''}
                     document.getElementById('mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
                 }
             }
-            
-            // Fix for mobile viewport height
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        });
-
-        // Fix for mobile viewport
-        window.addEventListener('load', function() {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
     </script>
 </body>
