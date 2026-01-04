@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosylogement | Votre refuge cosy à Cotonou</title>
+    <title>Cosylogement | Votre nuitée cosy avec smoothie offert</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -272,9 +272,97 @@
             color: var(--terracotta);
         }
 
+        /* Offer Badge */
+        .offer-badge {
+            display: inline-block;
+            background: var(--rose);
+            color: var(--chocolat);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--blanc);
+            text-align: center;
+        }
+
+        .main-price {
+            font-size: 72px;
+            font-weight: 800;
+            color: var(--terracotta);
+            margin: 30px 0 10px;
+            line-height: 1;
+        }
+
+        .price-label {
+            font-size: 20px;
+            color: var(--gris);
+            margin-bottom: 40px;
+        }
+
+        .included-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .included-feature {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .included-feature i {
+            font-size: 36px;
+            color: var(--vert);
+            margin-bottom: 15px;
+        }
+
+        /* Extended Stay Options */
+        .extended-stay {
+            background: var(--gris-clair);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .extended-stay h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--terracotta);
+        }
+
+        .stay-option {
+            background: var(--blanc);
+            border-radius: var(--radius-sm);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--vert);
+        }
+
+        .stay-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--terracotta);
+            margin-bottom: 10px;
+        }
+
         /* Experience Section */
         .experience-section {
-            background: var(--blanc);
+            background: var(--gris-clair);
         }
 
         .section-header {
@@ -326,12 +414,13 @@
         }
 
         .partner-box {
-            background: var(--gris-clair);
+            background: var(--blanc);
             border-radius: var(--radius);
             padding: 30px;
             text-align: center;
             border-left: 4px solid var(--vert);
             margin-top: 30px;
+            box-shadow: var(--shadow);
         }
 
         .experience-gallery {
@@ -355,121 +444,6 @@
 
         .gallery-item:hover img {
             transform: scale(1.05);
-        }
-
-        /* Formules Section */
-        .formules-section {
-            background: var(--gris-clair);
-        }
-
-        .formules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .formule-card {
-            background: var(--blanc);
-            border-radius: var(--radius);
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border-top: 4px solid var(--vert);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .formule-card.popular {
-            border-color: var(--terracotta);
-            transform: scale(1.05);
-        }
-
-        .formule-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .formule-card.popular:hover {
-            transform: translateY(-10px) scale(1.05);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: var(--terracotta);
-            color: var(--blanc);
-            padding: 8px 40px;
-            transform: rotate(45deg);
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .formule-price {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--terracotta);
-            margin: 20px 0;
-        }
-
-        .formule-price span {
-            font-size: 16px;
-            color: var(--gris);
-            font-weight: 400;
-        }
-
-        .formule-features {
-            list-style: none;
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .formule-features li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .formule-features li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--vert);
-            font-weight: bold;
-        }
-
-        .bonus-options {
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(163, 196, 188, 0.1);
-            border-radius: var(--radius-sm);
-        }
-
-        .bonus-options h4 {
-            margin-bottom: 15px;
-            color: var(--terracotta);
-        }
-
-        .bonus-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            padding: 8px;
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .bonus-option:hover {
-            background: rgba(244, 168, 156, 0.1);
-        }
-
-        .bonus-option.selected {
-            background: rgba(244, 168, 156, 0.2);
-            border: 1px solid var(--rose);
         }
 
         /* Reservation Form */
@@ -598,55 +572,9 @@
             animation: fadeIn 0.5s ease;
         }
 
-        /* Photos Section */
-        .photos-section {
-            background: var(--gris-clair);
-        }
-
-        .photos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .photo-card {
-            border-radius: var(--radius);
-            overflow: hidden;
-            height: 300px;
-            position: relative;
-        }
-
-        .photo-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .photo-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(92, 58, 33, 0.8), transparent);
-            color: var(--blanc);
-            padding: 20px;
-            transform: translateY(100%);
-            transition: var(--transition);
-        }
-
-        .photo-card:hover .photo-overlay {
-            transform: translateY(0);
-        }
-
         /* Conditions Section */
         .conditions-section {
-            background: var(--blanc);
+            background: var(--gris-clair);
         }
 
         .conditions-grid {
@@ -657,10 +585,11 @@
         }
 
         .condition-card {
-            background: var(--gris-clair);
+            background: var(--blanc);
             border-radius: var(--radius);
             padding: 30px;
             border-left: 4px solid var(--vert);
+            box-shadow: var(--shadow);
         }
 
         .condition-card h3 {
@@ -673,7 +602,7 @@
 
         /* Contact Section */
         .contact-section {
-            background: var(--gris-clair);
+            background: var(--blanc);
         }
 
         .contact-container {
@@ -856,23 +785,6 @@
             color: var(--terracotta);
         }
 
-        /* Fidélité */
-        .fidelite-section {
-            background: var(--blanc);
-            text-align: center;
-        }
-
-        .fidelite-badge {
-            display: inline-block;
-            background: var(--rose);
-            color: var(--chocolat);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 600;
-            margin: 20px 0;
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .experience-content {
@@ -942,21 +854,13 @@
                 display: block;
             }
             
-            .user-actions {
-                gap: 15px;
+            .main-price {
+                font-size: 56px;
             }
             
             .btn {
                 padding: 12px 24px;
                 font-size: 14px;
-            }
-            
-            .formule-card.popular {
-                transform: scale(1);
-            }
-            
-            .formule-card.popular:hover {
-                transform: translateY(-10px);
             }
             
             .reservation-form-container {
@@ -970,10 +874,6 @@
             .form-actions {
                 flex-direction: column;
                 gap: 20px;
-            }
-            
-            .photos-grid {
-                grid-template-columns: 1fr;
             }
             
             .conditions-grid {
@@ -1008,6 +908,10 @@
                 font-size: 28px;
             }
             
+            .main-price {
+                font-size: 48px;
+            }
+            
             .experience-gallery {
                 grid-template-columns: 1fr;
             }
@@ -1038,7 +942,7 @@
             <nav id="main-nav">
                 <a href="#accueil" class="active">Accueil</a>
                 <a href="#experience">L'expérience</a>
-                <a href="#formules">Nos formules</a>
+                <a href="#tarif">Notre offre</a>
                 <a href="#reservation">Réserver</a>
                 <a href="#conditions">Conditions</a>
                 <a href="#contact">Contact</a>
@@ -1051,13 +955,17 @@
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="container">
-            <h1>Votre refuge cosy à Cotonou</h1>
-            <p class="hero-subtitle">Savourez vos boissons et snacks préférés dans un espace cosy, lumineux et apaisant.</p>
+            <h1>Votre nuitée cosy à Cotonou</h1>
+            <p class="hero-subtitle">Profitez d'un cadre chaleureux avec smoothie ou sandwich OFFERT</p>
+            
+            <div class="offer-badge">
+                <i class="fas fa-gift"></i> SMOOTHIE OU SANDWICH OFFERT
+            </div>
             
             <div class="hero-buttons">
-                <a href="#formules" class="btn btn-primary">
+                <a href="#tarif" class="btn btn-primary">
                     <i class="fas fa-glass-whiskey"></i>
-                    Découvrir nos formules
+                    Découvrir l'offre
                 </a>
                 <a href="#reservation" class="btn btn-secondary">
                     <i class="fas fa-calendar-check"></i>
@@ -1068,19 +976,87 @@
             <div class="hero-features">
                 <div class="hero-feature">
                     <i class="fas fa-couch"></i>
-                    <span>Canapés confortables</span>
-                </div>
-                <div class="hero-feature">
-                    <i class="fas fa-lightbulb"></i>
-                    <span>Lumière chaude</span>
-                </div>
-                <div class="hero-feature">
-                    <i class="fas fa-book-open"></i>
-                    <span>Coin lecture</span>
+                    <span>Cadre cosy et chaleureux</span>
                 </div>
                 <div class="hero-feature">
                     <i class="fas fa-blender"></i>
-                    <span>Smoothies frais</span>
+                    <span>Smoothie frais offert</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-wifi"></i>
+                    <span>Wi-Fi haut débit</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-snowflake"></i>
+                    <span>Climatisation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="tarif">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre offre exclusive</h2>
+                <p class="section-subtitle">Une nuitée confortable avec une gourmandise offerte</p>
+            </div>
+            
+            <div class="main-price">17 000 F</div>
+            <div class="price-label">par nuitée • smoothie ou sandwich OFFERT</div>
+            
+            <div class="included-features">
+                <div class="included-feature">
+                    <i class="fas fa-bed"></i>
+                    <h4>Nuitée complète</h4>
+                    <p>Arrivée 14h - Départ 12h</p>
+                </div>
+                
+                <div class="included-feature">
+                    <i class="fas fa-glass-whiskey"></i>
+                    <h4>Smoothie offert</h4>
+                    <p>Frais et préparé avec soin</p>
+                </div>
+                
+                <div class="included-feature">
+                    <i class="fas fa-bread-slice"></i>
+                    <h4>Sandwich offert</h4>
+                    <p>Gourmand et savoureux</p>
+                </div>
+                
+                <div class="included-feature">
+                    <i class="fas fa-home"></i>
+                    <h4>Studio entier</h4>
+                    <p>Espace privé et cosy</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#reservation" class="btn btn-primary" style="padding: 18px 40px; font-size: 18px;">
+                    <i class="fas fa-calendar-alt"></i>
+                    Réserver ma nuitée à 17.000F
+                </a>
+            </div>
+            
+            <!-- Options de séjour prolongé (moins visible) -->
+            <div class="extended-stay">
+                <h3><i class="fas fa-clock"></i> Vous souhaitez rester plus longtemps ?</h3>
+                
+                <div class="stay-option">
+                    <div class="stay-price">27 000 F - 24h flexibles</div>
+                    <p>Profitez du studio pour 24 heures consécutives avec la même gourmandise offerte. Heure d'arrivée au choix.</p>
+                </div>
+                
+                <div class="stay-option">
+                    <div class="stay-price">30 000 F - 2 nuitées</div>
+                    <p>Deux nuits complètes dans notre cadre cosy. Pour chaque nuit supplémentaire : +4 000 F.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <p style="color: var(--gris); font-size: 14px;">
+                        <i class="fas fa-info-circle"></i>
+                        Ces options sont disponibles lors de votre réservation
+                    </p>
                 </div>
             </div>
         </div>
@@ -1124,161 +1100,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="photos-grid" style="margin-top: 40px;">
-                <div class="photo-card">
-                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Coussins cosy">
-                    <div class="photo-overlay">
-                        <h4>Ambiance chaleureuse</h4>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Smoothie frais">
-                    <div class="photo-overlay">
-                        <h4>Smoothies frais</h4>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                         alt="Sandwich gourmand">
-                    <div class="photo-overlay">
-                        <h4>Sandwichs gourmands</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formules Section -->
-    <section class="formules-section" id="formules">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nos Formules Cosy</h2>
-                <p class="section-subtitle">Choisissez la formule qui correspond à votre besoin de détente</p>
-            </div>
-            
-            <div class="formules-grid">
-                <!-- Nuitée Chill -->
-                <div class="formule-card popular">
-                    <div class="popular-badge">Populaire</div>
-                    <h3>Nuitée Chill</h3>
-                    <div class="formule-price">17 000 F<span> / nuit</span></div>
-                    
-                    <ul class="formule-features">
-                        <li>Arrivée à 14h - Départ à 12h</li>
-                        <li>Accès à tout l'espace cosy</li>
-                        <li>Wi-Fi haut débit inclus</li>
-                        <li>Climatisation</li>
-                        <li>Caution : 20 000 FCFA</li>
-                    </ul>
-                    
-                    <div class="bonus-options">
-                        <h4>Choisissez votre bonus :</h4>
-                        <div class="bonus-option selected" data-bonus="smoothie">
-                            <i class="fas fa-check-circle" style="color: var(--vert);"></i>
-                            <span>1 Smoothie frais</span>
-                        </div>
-                        <div class="bonus-option" data-bonus="sandwich">
-                            <i class="far fa-circle"></i>
-                            <span>1 Sandwich gourmand</span>
-                        </div>
-                        <div class="bonus-option" data-bonus="mix">
-                            <i class="far fa-circle"></i>
-                            <span>Mix (supplément)</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#reservation" class="btn btn-primary" style="margin-top: 20px;">
-                        <i class="fas fa-calendar-alt"></i>
-                        Réserver cette formule
-                    </a>
-                </div>
-                
-                <!-- Week-end Relax -->
-                <div class="formule-card">
-                    <h3>Week-end Relax</h3>
-                    <div class="formule-price">45 000 F<span> / 2 nuits</span></div>
-                    
-                    <ul class="formule-features">
-                        <li>Vendredi 14h - Dimanche 12h</li>
-                        <li>2 nuits complètes</li>
-                        <li>Wi-Fi haut débit inclus</li>
-                        <li>Climatisation</li>
-                        <li>Caution : 30 000 FCFA</li>
-                        <li>Arrivée flexible (sur demande)</li>
-                    </ul>
-                    
-                    <div class="bonus-options">
-                        <h4>Choisissez votre bonus :</h4>
-                        <div class="bonus-option" data-bonus="smoothie">
-                            <i class="far fa-circle"></i>
-                            <span>2 Smoothies frais</span>
-                        </div>
-                        <div class="bonus-option" data-bonus="sandwich">
-                            <i class="far fa-circle"></i>
-                            <span>2 Sandwichs gourmands</span>
-                        </div>
-                        <div class="bonus-option" data-bonus="mix">
-                            <i class="far fa-circle"></i>
-                            <span>Mix (supplément)</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#reservation" class="btn btn-outline" style="margin-top: 20px;">
-                        <i class="fas fa-calendar-alt"></i>
-                        Réserver cette formule
-                    </a>
-                </div>
-                
-                <!-- 24h Flexible -->
-                <div class="formule-card">
-                    <h3>24h Flexible</h3>
-                    <div class="formule-price">27 000 F<span> / 24h</span></div>
-                    
-                    <ul class="formule-features">
-                        <li>24h consécutives</li>
-                        <li>Heure d'arrivée au choix</li>
-                        <li>Wi-Fi haut débit inclus</li>
-                        <li>Climatisation</li>
-                        <li>Caution : 25 000 FCFA</li>
-                        <li>Flexibilité maximale</li>
-                    </ul>
-                    
-                    <div class="bonus-options">
-                        <h4>Choisissez votre bonus :</h4>
-                        <div class="bonus-option" data-bonus="smoothie">
-                            <i class="far fa-circle"></i>
-                            <span>1 Smoothie frais</span>
-                        </div>
-                        <div class="bonus-option" data-bonus="sandwich">
-                            <i class="far fa-circle"></i>
-                            <span>1 Sandwich gourmand</span>
-                        </div>
-                        <div class="bonus-option" data-bonus="mix">
-                            <i class="far fa-circle"></i>
-                            <span>Mix (supplément)</span>
-                        </div>
-                    </div>
-                    
-                    <a href="#reservation" class="btn btn-outline" style="margin-top: 20px;">
-                        <i class="fas fa-clock"></i>
-                        Réserver cette formule
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Fidélité Section -->
-            <div class="fidelite-section" style="margin-top: 80px;">
-                <h2 class="section-title">Programme Fidélité</h2>
-                <div class="fidelite-badge">
-                    <i class="fas fa-gift"></i> 5% de remise sur votre 2ᵉ réservation
-                </div>
-                <p style="max-width: 600px; margin: 0 auto; color: var(--gris);">
-                    Profitez de notre offre fidélité : une réduction de 5% sur votre seconde réservation chez Cosylogement.
-                </p>
-            </div>
         </div>
     </section>
 
@@ -1287,7 +1108,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Réservez votre séjour</h2>
-                <p class="section-subtitle">Remplissez le formulaire pour réserver votre expérience cosy</p>
+                <p class="section-subtitle">Choisissez votre gourmandise offerte et profitez de notre cadre cosy</p>
             </div>
             
             <div class="reservation-form-container">
@@ -1314,26 +1135,21 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">WhatsApp</label>
-                            <input type="tel" class="form-control" id="whatsapp">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="email" required>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="form-label">Email *</label>
-                        <input type="email" class="form-control" id="email" required>
-                    </div>
-                    
                     <div class="form-actions">
-                        <button type="button" class="btn btn-outline" id="nextStep1">
+                        <button type="button" class="btn btn-primary" id="nextStep1">
                             Suivant <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
                 
-                <!-- Étape 2 : Dates et formule -->
+                <!-- Étape 2 : Dates et durée -->
                 <div class="form-step" id="step2">
-                    <h3 style="margin-bottom: 30px; color: var(--terracotta);">2. Dates et formule</h3>
+                    <h3 style="margin-bottom: 30px; color: var(--terracotta);">2. Votre séjour</h3>
                     
                     <div class="form-grid">
                         <div class="form-group">
@@ -1342,8 +1158,18 @@
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label">Date de départ *</label>
-                            <input type="date" class="form-control" id="date-depart" required>
+                            <label class="form-label">Durée du séjour *</label>
+                            <select class="form-control" id="duree-sejour" required>
+                                <option value="">Choisissez...</option>
+                                <option value="1">1 nuitée (17.000 F)</option>
+                                <option value="24">24h flexibles (27.000 F)</option>
+                                <option value="2">2 nuitées (30.000 F)</option>
+                                <option value="3">3 nuitées (34.000 F)</option>
+                                <option value="4">4 nuitées (38.000 F)</option>
+                                <option value="5">5 nuitées (42.000 F)</option>
+                                <option value="6">6 nuitées (46.000 F)</option>
+                                <option value="7">7 nuitées (50.000 F)</option>
+                            </select>
                         </div>
                     </div>
                     
@@ -1358,35 +1184,6 @@
                         </select>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="form-label">Formule choisie *</label>
-                        <div class="radio-group">
-                            <label class="radio-label">
-                                <input type="radio" name="formule" value="nuit" class="radio-input" checked>
-                                <div class="radio-box">
-                                    <strong>Nuitée Chill</strong><br>
-                                    <small>17 000 F</small>
-                                </div>
-                            </label>
-                            
-                            <label class="radio-label">
-                                <input type="radio" name="formule" value="weekend" class="radio-input">
-                                <div class="radio-box">
-                                    <strong>Week-end Relax</strong><br>
-                                    <small>45 000 F</small>
-                                </div>
-                            </label>
-                            
-                            <label class="radio-label">
-                                <input type="radio" name="formule" value="24h" class="radio-input">
-                                <div class="radio-box">
-                                    <strong>24h Flexible</strong><br>
-                                    <small>27 000 F</small>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    
                     <div class="form-actions">
                         <button type="button" class="btn btn-outline" id="prevStep2">
                             <i class="fas fa-arrow-left"></i> Précédent
@@ -1399,32 +1196,24 @@
                 
                 <!-- Étape 3 : Bonus et paiement -->
                 <div class="form-step" id="step3">
-                    <h3 style="margin-bottom: 30px; color: var(--terracotta);">3. Bonus et paiement</h3>
+                    <h3 style="margin-bottom: 30px; color: var(--terracotta);">3. Votre gourmandise offerte</h3>
                     
                     <div class="form-group">
-                        <label class="form-label">Choix bonus *</label>
+                        <label class="form-label">Que souhaitez-vous recevoir ? *</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="bonus" value="smoothie" class="radio-input" checked>
                                 <div class="radio-box">
-                                    <strong>Smoothie</strong><br>
-                                    <small>Frais et naturel</small>
+                                    <strong>Smoothie frais</strong><br>
+                                    <small>Fait avec des fruits de saison</small>
                                 </div>
                             </label>
                             
                             <label class="radio-label">
                                 <input type="radio" name="bonus" value="sandwich" class="radio-input">
                                 <div class="radio-box">
-                                    <strong>Sandwich</strong><br>
-                                    <small>Gourmand et savoureux</small>
-                                </div>
-                            </label>
-                            
-                            <label class="radio-label">
-                                <input type="radio" name="bonus" value="mix" class="radio-input">
-                                <div class="radio-box">
-                                    <strong>Mix</strong><br>
-                                    <small>Smoothie + Sandwich</small>
+                                    <strong>Sandwich gourmand</strong><br>
+                                    <small>Ingrédients frais et savoureux</small>
                                 </div>
                             </label>
                         </div>
@@ -1448,21 +1237,13 @@
                                     <small>Paiement sécurisé</small>
                                 </div>
                             </label>
-                            
-                            <label class="radio-label">
-                                <input type="radio" name="paiement" value="stripe" class="radio-input">
-                                <div class="radio-box">
-                                    <strong>Stripe</strong><br>
-                                    <small>Carte bancaire</small>
-                                </div>
-                            </label>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="checkbox-label">
                             <input type="checkbox" class="checkbox-input" id="conditions" required>
-                            <span>J'accepte les conditions générales et comprends qu'une caution sera demandée à l'arrivée *</span>
+                            <span>J'accepte les conditions générales et comprends qu'une caution de 20.000 F sera demandée à l'arrivée *</span>
                         </label>
                     </div>
                     
@@ -1508,52 +1289,57 @@
     <section class="conditions-section" id="conditions">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Conditions & Caution</h2>
+                <h2 class="section-title">Conditions & Informations</h2>
                 <p class="section-subtitle">Toutes les informations importantes pour votre séjour</p>
             </div>
             
             <div class="conditions-grid">
                 <div class="condition-card">
-                    <h3><i class="fas fa-shield-alt"></i> Caution</h3>
+                    <h3><i class="fas fa-money-bill-wave"></i> Tarifs & Paiement</h3>
                     <ul style="list-style: none;">
                         <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
                             <i class="fas fa-circle" style="position: absolute; left: 0; top: 8px; font-size: 8px; color: var(--terracotta);"></i>
-                            <strong>Nuitée :</strong> 20 000 FCFA
+                            <strong>Nuitée standard :</strong> 17.000 F<br>
+                            <small style="color: var(--gris);">(smoothie ou sandwich offert)</small>
                         </li>
                         <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
                             <i class="fas fa-circle" style="position: absolute; left: 0; top: 8px; font-size: 8px; color: var(--terracotta);"></i>
-                            <strong>Week-end :</strong> 30 000 FCFA
+                            <strong>24h flexibles :</strong> 27.000 F
                         </li>
                         <li style="padding-left: 20px; position: relative;">
                             <i class="fas fa-circle" style="position: absolute; left: 0; top: 8px; font-size: 8px; color: var(--terracotta);"></i>
-                            <strong>24h :</strong> 25 000 FCFA
+                            <strong>Nuitée supplémentaire :</strong> +4.000 F
                         </li>
                     </ul>
                     <p style="margin-top: 20px; font-size: 14px; color: var(--gris);">
-                        La caution est remise à l'arrivée et restituée à votre départ si le logement est rendu en bon état.
+                        <strong>Caution :</strong> 20.000 F remise à l'arrivée et restituée à votre départ si le logement est rendu en bon état.
                     </p>
                 </div>
                 
                 <div class="condition-card">
-                    <h3><i class="fas fa-clock"></i> Horaires</h3>
+                    <h3><i class="fas fa-clock"></i> Horaires de séjour</h3>
                     <ul style="list-style: none;">
                         <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
                             <i class="fas fa-circle" style="position: absolute; left: 0; top: 8px; font-size: 8px; color: var(--terracotta);"></i>
-                            <strong>Nuitée :</strong> 14h → 12h
+                            <strong>Check-in :</strong> À partir de 14h
                         </li>
                         <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
                             <i class="fas fa-circle" style="position: absolute; left: 0; top: 8px; font-size: 8px; color: var(--terracotta);"></i>
-                            <strong>Week-end :</strong> vendredi 14h → dimanche 12h
+                            <strong>Check-out :</strong> Avant 12h
                         </li>
                         <li style="margin-bottom: 15px; padding-left: 20px; position: relative;">
                             <i class="fas fa-circle" style="position: absolute; left: 0; top: 8px; font-size: 8px; color: var(--terracotta);"></i>
-                            <strong>24h flexible :</strong> entrée à heure souhaitée → sortie même heure
+                            <strong>24h flexibles :</strong> Heure d'arrivée au choix
+                        </li>
+                        <li style="padding-left: 20px; position: relative;">
+                            <i class="fas fa-circle" style="position: absolute; left: 0; top: 8px; font-size: 8px; color: var(--terracotta);"></i>
+                            <strong>Arrivée tardive :</strong> Sur demande
                         </li>
                     </ul>
                 </div>
                 
                 <div class="condition-card">
-                    <h3><i class="fas fa-calendar-times"></i> Annulation</h3>
+                    <h3><i class="fas fa-calendar-times"></i> Politique d'annulation</h3>
                     <p style="margin-bottom: 15px;">
                         <strong>Plus de 7 jours avant :</strong> Remboursement intégral
                     </p>
@@ -1564,7 +1350,7 @@
                         <strong>Moins de 3 jours avant :</strong> Aucun remboursement
                     </p>
                     <p style="margin-top: 20px; font-size: 14px; color: var(--gris);">
-                        En cas d'annulation, contactez-nous au plus vite par WhatsApp.
+                        En cas d'annulation, contactez-nous au plus vite par WhatsApp au <strong>+229 66 95 39 34</strong>.
                     </p>
                 </div>
             </div>
@@ -1591,7 +1377,7 @@
                             <div>
                                 <h4 style="margin-bottom: 5px;">WhatsApp & Téléphone</h4>
                                 <p style="font-size: 18px; margin-bottom: 5px;">+229 66 95 39 34</p>
-                                <small>Réponse garantie sous 24h</small>
+                                <small>Pour réserver ou poser vos questions</small>
                             </div>
                         </div>
                         
@@ -1601,7 +1387,7 @@
                             </div>
                             <div>
                                 <h4 style="margin-bottom: 5px;">Email</h4>
-                                <p style="font-size: 18px; margin-bottom: 5px;">contact@cosylogement.bj</p>
+                                <p style="font-size: 18px; margin-bottom: 5px;">mauricegerauds@gmail.com</p>
                                 <small>Pour les demandes détaillées</small>
                             </div>
                         </div>
@@ -1613,23 +1399,17 @@
                             <div>
                                 <h4 style="margin-bottom: 5px;">Adresse</h4>
                                 <p style="font-size: 18px; margin-bottom: 5px;">Akpakpa, Cotonou</p>
-                                <small>Quartier calme et sécurisé</small>
+                                <small>Quartier calme et accessible</small>
                             </div>
                         </div>
                     </div>
                     
-                    <h3 style="margin-top: 40px; margin-bottom: 20px;">Suivez-nous</h3>
-                    <div class="social-links">
-                        <a href="https://www.tiktok.com/@house.luxx" target="_blank" class="social-link" title="TikTok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </div>
+                    <h3 style="margin-top: 40px; margin-bottom: 20px;">Notre partenaire</h3>
+                    <p>Découvrez <strong>FreshMood</strong>, notre partenaire spécialisé dans les smoothies frais et sandwichs gourmands.</p>
+                    <a href="https://freshmood.bj" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; color: var(--terracotta); text-decoration: none; font-weight: 600; margin-top: 10px;">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visiter freshmood.bj
+                    </a>
                 </div>
                 
                 <div>
@@ -1667,7 +1447,7 @@
                 <div class="footer-column">
                     <h3>Cosylogement</h3>
                     <p style="color: #bdc3c7; margin-top: 20px; line-height: 1.6;">
-                        Votre refuge cosy à Cotonou. Une expérience unique de détente et de gourmandise.
+                        Votre nuitée cosy avec smoothie ou sandwich offert. Une expérience unique de détente à Cotonou.
                     </p>
                 </div>
                 
@@ -1676,7 +1456,7 @@
                     <ul class="footer-links">
                         <li><a href="#accueil">Accueil</a></li>
                         <li><a href="#experience">L'expérience</a></li>
-                        <li><a href="#formules">Nos formules</a></li>
+                        <li><a href="#tarif">Notre offre</a></li>
                         <li><a href="#reservation">Réserver</a></li>
                     </ul>
                 </div>
@@ -1695,24 +1475,24 @@
                     <h3>Contact rapide</h3>
                     <ul class="footer-links">
                         <li><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> +229 66 95 39 34</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> contact@cosylogement.bj</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> mauricegerauds@gmail.com</li>
                         <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Akpakpa, Cotonou</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>© <span id="current-year">2024</span> Cosylogement – Votre refuge cosy à Cotonou. Tous droits réservés.</p>
+                <p>© <span id="current-year">2024</span> Cosylogement – Votre nuitée cosy avec gourmandise offerte. Tous droits réservés.</p>
                 <p style="margin-top: 10px; font-size: 13px;">
-                    Contact : +229 66 95 39 34 | contact@cosylogement.bj
+                    Contact : +229 66 95 39 34 | mauricegerauds@gmail.com
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- WhatsApp Float -->
-    <a href="https://wa.me/22966953934?text=Bonjour%20!%20Je%20souhaite%20plus%20d'informations%20sur%20Cosylogement" 
-       class="whatsapp-float" target="_blank" title="Contact WhatsApp">
+    <a href="https://wa.me/22966953934?text=Bonjour%20!%20Je%20souhaite%20r%C3%A9server%20une%20nuit%C3%A9e%20%C3%A0%2017%20000%20F%20avec%20smoothie%20offert" 
+       class="whatsapp-float" target="_blank" title="Réserver sur WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1749,26 +1529,6 @@
             
             // Header scroll effect
             window.addEventListener('scroll', handleHeaderScroll);
-            
-            // Bonus selection in formula cards
-            document.querySelectorAll('.bonus-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    const parent = this.closest('.bonus-options');
-                    parent.querySelectorAll('.bonus-option').forEach(opt => {
-                        opt.querySelector('i').className = 'far fa-circle';
-                    });
-                    this.querySelector('i').className = 'fas fa-check-circle';
-                    this.querySelector('i').style.color = 'var(--vert)';
-                    this.classList.add('selected');
-                    
-                    // Remove selected from siblings
-                    parent.querySelectorAll('.bonus-option').forEach(opt => {
-                        if (opt !== this) {
-                            opt.classList.remove('selected');
-                        }
-                    });
-                });
-            });
             
             // Close modals on ESC key
             document.addEventListener('keydown', (e) => {
@@ -1839,16 +1599,10 @@
             // Step 2 -> Step 3
             document.getElementById('nextStep2').addEventListener('click', function() {
                 const dateArrivee = document.getElementById('date-arrivee').value;
-                const dateDepart = document.getElementById('date-depart').value;
+                const duree = document.getElementById('duree-sejour').value;
                 const personnes = document.getElementById('nombre-personnes').value;
-                const formule = document.querySelector('input[name="formule"]:checked');
                 
-                if (dateArrivee && dateDepart && personnes && formule) {
-                    // Validate dates
-                    if (new Date(dateDepart) <= new Date(dateArrivee)) {
-                        alert('La date de départ doit être après la date d\'arrivée.');
-                        return;
-                    }
+                if (dateArrivee && duree && personnes) {
                     showStep(2);
                 } else {
                     alert('Veuillez remplir tous les champs obligatoires.');
@@ -1883,7 +1637,7 @@
                     
                     // Send confirmation message
                     setTimeout(() => {
-                        alert('Merci pour votre réservation ! Un email de confirmation va vous être envoyé.');
+                        alert('Merci pour votre réservation ! Nous vous contacterons sous 24h pour confirmation.');
                     }, 500);
                 } else {
                     alert('Veuillez accepter les conditions et sélectionner toutes les options.');
@@ -1913,51 +1667,77 @@
             const telephone = document.getElementById('telephone').value;
             const email = document.getElementById('email').value;
             const dateArrivee = document.getElementById('date-arrivee').value;
-            const dateDepart = document.getElementById('date-depart').value;
+            const duree = document.getElementById('duree-sejour').value;
             const personnes = document.getElementById('nombre-personnes').value;
-            const formule = document.querySelector('input[name="formule"]:checked').value;
             const bonus = document.querySelector('input[name="bonus"]:checked').value;
             const paiement = document.querySelector('input[name="paiement"]:checked').value;
             
-            // Format dates
+            // Format date
             const arriveeDate = new Date(dateArrivee);
-            const departDate = new Date(dateDepart);
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
             
-            // Get formule name and price
+            // Calculate price based on duration
             let formuleName = '';
-            let prix = '';
-            let caution = '';
+            let prix = 0;
+            let caution = '20 000 FCFA';
             
-            switch(formule) {
-                case 'nuit':
-                    formuleName = 'Nuitée Chill';
-                    prix = '17 000 FCFA';
+            switch(duree) {
+                case '1':
+                    formuleName = '1 nuitée';
+                    prix = 17000;
+                    break;
+                case '24':
+                    formuleName = '24h flexibles';
+                    prix = 27000;
+                    break;
+                case '2':
+                    formuleName = '2 nuitées';
+                    prix = 30000;
                     caution = '20 000 FCFA';
                     break;
-                case 'weekend':
-                    formuleName = 'Week-end Relax';
-                    prix = '45 000 FCFA';
-                    caution = '30 000 FCFA';
+                case '3':
+                    formuleName = '3 nuitées';
+                    prix = 34000;
+                    caution = '20 000 FCFA';
                     break;
-                case '24h':
-                    formuleName = '24h Flexible';
-                    prix = '27 000 FCFA';
-                    caution = '25 000 FCFA';
+                case '4':
+                    formuleName = '4 nuitées';
+                    prix = 38000;
+                    caution = '20 000 FCFA';
                     break;
+                case '5':
+                    formuleName = '5 nuitées';
+                    prix = 42000;
+                    caution = '20 000 FCFA';
+                    break;
+                case '6':
+                    formuleName = '6 nuitées';
+                    prix = 46000;
+                    caution = '20 000 FCFA';
+                    break;
+                case '7':
+                    formuleName = '7 nuitées';
+                    prix = 50000;
+                    caution = '20 000 FCFA';
+                    break;
+            }
+            
+            // Calculate departure date
+            const departDate = new Date(arriveeDate);
+            if (duree !== '24') {
+                departDate.setDate(departDate.getDate() + parseInt(duree));
+            } else {
+                departDate.setDate(departDate.getDate() + 1);
             }
             
             // Get bonus name
             let bonusName = '';
             switch(bonus) {
                 case 'smoothie':
-                    bonusName = 'Smoothie frais';
+                    bonusName = 'Smoothie frais offert';
                     break;
                 case 'sandwich':
-                    bonusName = 'Sandwich gourmand';
-                    break;
-                case 'mix':
-                    bonusName = 'Mix Smoothie + Sandwich';
+                    bonusName = 'Sandwich gourmand offert';
                     break;
             }
             
@@ -1970,13 +1750,7 @@
                 case 'paypal':
                     paiementMethod = 'PayPal';
                     break;
-                case 'stripe':
-                    paiementMethod = 'Carte bancaire (Stripe)';
-                    break;
             }
-            
-            // Calculate nights
-            const nights = Math.ceil((departDate - arriveeDate) / (1000 * 60 * 60 * 24));
             
             // Generate summary HTML
             const summaryHTML = `
@@ -1996,15 +1770,15 @@
                     </div>
                     
                     <div style="border-top: 1px solid var(--gris-clair); padding-top: 15px;">
-                        <strong>Séjour :</strong> ${arriveeDate.toLocaleDateString('fr-FR', options)} → ${departDate.toLocaleDateString('fr-FR', options)}<br>
-                        <strong>Durée :</strong> ${nights} nuit${nights > 1 ? 's' : ''}<br>
+                        <strong>Arrivée :</strong> ${arriveeDate.toLocaleDateString('fr-FR', options)} à 14h<br>
+                        <strong>Départ :</strong> ${departDate.toLocaleDateString('fr-FR', options)} à 12h<br>
+                        <strong>Durée :</strong> ${formuleName}<br>
                         <strong>Personnes :</strong> ${personnes} personne${personnes > 1 ? 's' : ''}
                     </div>
                     
                     <div style="border-top: 1px solid var(--gris-clair); padding-top: 15px; margin-top: 15px;">
-                        <strong>Formule :</strong> ${formuleName}<br>
-                        <strong>Prix :</strong> ${prix}<br>
-                        <strong>Bonus :</strong> ${bonusName}<br>
+                        <strong>Offre spéciale :</strong> ${bonusName}<br>
+                        <strong>Prix total :</strong> ${prix.toLocaleString('fr-FR')} FCFA<br>
                         <strong>Paiement :</strong> ${paiementMethod}<br>
                         <strong>Caution :</strong> ${caution} (à régler à l'arrivée)
                     </div>
@@ -2013,7 +1787,10 @@
                 <div style="text-align: center; padding: 15px; background: rgba(244, 168, 156, 0.1); border-radius: var(--radius-sm);">
                     <p style="margin: 0; font-size: 16px;">
                         <i class="fas fa-check-circle" style="color: var(--vert); margin-right: 10px;"></i>
-                        <strong>Votre logement est confirmé !</strong>
+                        <strong>Votre nuitée cosy est confirmée !</strong>
+                    </p>
+                    <p style="margin: 10px 0 0 0; font-size: 14px; color: var(--gris);">
+                        Vous recevrez ${bonus === 'smoothie' ? 'un smoothie frais' : 'un sandwich gourmand'} à votre arrivée.
                     </p>
                 </div>
             `;
@@ -2037,9 +1814,6 @@
         // Set minimum date for date inputs to today
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('date-arrivee').min = today;
-        document.getElementById('date-arrivee').addEventListener('change', function() {
-            document.getElementById('date-depart').min = this.value;
-        });
     </script>
 </body>
 </html>
