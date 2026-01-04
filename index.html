@@ -6,16 +6,17 @@
     <title>Meublé Cotonou - Appartements meublés à Cotonou</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Variables et reset */
+        /* Variables et reset - NOUVELLE PALETTE DORÉE/BLEU NUIT */
         :root {
-            --primary: #e74c3c;
-            --primary-dark: #c0392b;
-            --dark: #2c3e50;
+            --primary: #D4AF37; /* Or principal */
+            --primary-dark: #B8860B; /* Or foncé */
+            --secondary: #2c3e50; /* Bleu nuit */
+            --secondary-light: #34495e; /* Bleu nuit clair */
             --light: #f8f9fa;
             --gray: #666;
             --shadow: 0 5px 15px rgba(0,0,0,0.1);
             --radius: 10px;
-            --success: #2ecc71;
+            --success: #27ae60;
             --warning: #f39c12;
         }
 
@@ -30,6 +31,7 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            background-color: #f9f9f9;
         }
 
         .container {
@@ -43,7 +45,7 @@
         }
 
         h1, h2, h3, h4 {
-            color: var(--dark);
+            color: var(--secondary);
         }
 
         /* Header */
@@ -66,7 +68,7 @@
         .logo {
             font-size: 22px;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--secondary);
             text-decoration: none;
         }
 
@@ -109,17 +111,20 @@
 
         .btn-reserve {
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             padding: 10px 20px;
             border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: all 0.3s;
             font-size: 15px;
+            border: 2px solid transparent;
         }
 
         .btn-reserve:hover {
             background: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
         }
 
         .mobile-menu-btn {
@@ -128,13 +133,13 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: var(--dark);
+            color: var(--secondary);
         }
 
         /* Hero */
         .hero {
             padding: 150px 0 80px;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), 
                         url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
@@ -155,7 +160,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .btn {
@@ -175,26 +180,71 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         .btn-primary {
             background: var(--primary);
+            color: var(--secondary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
             color: white;
         }
 
         .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
             background: white;
-            color: var(--dark);
+            color: var(--secondary);
         }
 
         .btn-whatsapp {
             background: #25D366;
             color: white;
+            border: 2px solid #25D366;
         }
 
         .btn-whatsapp:hover {
             background: #128C7E;
+            border-color: #128C7E;
+        }
+
+        /* NOUVEAU STYLE POUR LE BOUTON TIKTOK */
+        .btn-tiktok {
+            background: #000000;
+            color: white;
+            border: 2px solid #000000;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 25px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 15px;
+            justify-content: center;
+        }
+
+        .btn-tiktok:hover {
+            background: #333333;
+            border-color: #333333;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-tiktok i {
+            color: #FF0050;
+            font-size: 18px;
         }
 
         .btn-disabled {
@@ -214,6 +264,19 @@
             text-align: center;
             font-size: 32px;
             margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
         }
 
         .section-subtitle {
@@ -238,18 +301,21 @@
             text-align: center;
             padding: 35px 20px;
             border-radius: var(--radius);
-            background: var(--light);
+            background: white;
             transition: transform 0.3s;
+            border: 1px solid #eee;
         }
 
         .advantage-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow);
+            border-color: var(--primary);
         }
 
         .advantage-icon {
             font-size: 36px;
             margin-bottom: 15px;
+            color: var(--primary);
         }
 
         /* Featured Studio */
@@ -264,11 +330,12 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             max-width: 1000px;
             margin: 0 auto;
+            border: 1px solid #eee;
         }
 
         .studio-header {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
+            color: var(--secondary);
             padding: 30px;
             text-align: center;
         }
@@ -276,41 +343,43 @@
         .studio-header h2 {
             font-size: 28px;
             margin-bottom: 10px;
-            color: white;
+            color: var(--secondary);
         }
 
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            overflow: hidden;
+        /* NOUVEAU DESIGN POUR LA SECTION TIKTOK */
+        .tiktok-section {
+            padding: 40px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             border-radius: var(--radius);
             margin: 30px;
+            border: 1px solid #eee;
         }
 
-        .tiktok-video {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: var(--radius);
-        }
-
-        .video-alternative {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-            height: 100%;
-            padding: 30px;
-            text-align: center;
-            border-radius: var(--radius);
-        }
-
-        .video-alternative i {
-            font-size: 60px;
-            color: var(--primary);
+        .tiktok-icon {
+            font-size: 50px;
+            color: #000000;
             margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .tiktok-icon i {
+            color: #FF0050;
+        }
+
+        .tiktok-section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .tiktok-section p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
         .studio-gallery {
@@ -327,10 +396,12 @@
             border-radius: var(--radius);
             cursor: pointer;
             transition: transform 0.3s;
+            border: 1px solid #eee;
         }
 
         .gallery-image:hover {
             transform: scale(1.05);
+            border-color: var(--primary);
         }
 
         .studio-details {
@@ -351,11 +422,19 @@
             padding: 12px;
             background: var(--light);
             border-radius: var(--radius);
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
 
         .feature-icon {
             font-size: 22px;
             flex-shrink: 0;
+            color: var(--primary);
         }
 
         .feature-item div {
@@ -366,6 +445,7 @@
             display: block;
             margin-bottom: 3px;
             font-size: 15px;
+            color: var(--secondary);
         }
 
         .feature-item p {
@@ -379,6 +459,7 @@
             padding: 25px;
             border-radius: var(--radius);
             margin-top: 30px;
+            border: 1px solid #eee;
         }
 
         .price-grid {
@@ -407,11 +488,11 @@
 
         .price-item.selected {
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
         }
 
         .price-item.selected .price-amount {
-            color: white;
+            color: var(--secondary);
         }
 
         .price-amount {
@@ -427,16 +508,17 @@
         }
 
         .price-item.selected p {
-            color: white;
+            color: var(--secondary);
         }
 
         .selected-tarif {
             text-align: center;
             margin-top: 20px;
             padding: 15px;
-            background: var(--light);
+            background: white;
             border-radius: var(--radius);
             display: none;
+            border: 1px solid var(--primary);
         }
 
         .selected-tarif.active {
@@ -468,7 +550,7 @@
 
         .filter-btn.active, .filter-btn:hover {
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             border-color: var(--primary);
         }
 
@@ -484,6 +566,7 @@
             overflow: hidden;
             height: 250px;
             cursor: pointer;
+            border: 1px solid #eee;
         }
 
         .gallery-item img {
@@ -502,7 +585,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(44, 62, 80, 0.9));
             color: white;
             padding: 20px;
             transform: translateY(100%);
@@ -527,13 +610,20 @@
             background: white;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
         .step-number {
             width: 55px;
             height: 55px;
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -557,10 +647,12 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s;
+            border: 1px solid #eee;
         }
 
         .apartment-card:hover {
             transform: translateY(-8px);
+            border-color: var(--primary);
         }
 
         .apartment-image {
@@ -588,6 +680,7 @@
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 8px;
+            color: var(--secondary);
         }
 
         .apartment-location {
@@ -618,6 +711,7 @@
             box-shadow: var(--shadow);
             max-width: 700px;
             margin: 0 auto;
+            border: 1px solid #eee;
         }
 
         .form-group {
@@ -628,7 +722,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--secondary);
             font-size: 15px;
         }
 
@@ -657,6 +751,7 @@
             border-radius: var(--radius);
             margin-bottom: 25px;
             text-align: center;
+            border: 1px solid #eee;
         }
 
         .availability-status {
@@ -696,6 +791,7 @@
             border-radius: var(--radius);
             max-width: 700px;
             margin: 0 auto;
+            border: 1px solid #eee;
         }
 
         /* Page À propos */
@@ -722,6 +818,13 @@
             background: white;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
         /* Page Contact */
@@ -756,7 +859,7 @@
             width: 45px;
             height: 45px;
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             border-radius: var(--radius);
             display: flex;
             align-items: center;
@@ -775,7 +878,7 @@
             width: 45px;
             height: 45px;
             background: var(--light);
-            color: var(--dark);
+            color: var(--secondary);
             border-radius: var(--radius);
             display: flex;
             align-items: center;
@@ -783,17 +886,19 @@
             text-decoration: none;
             font-size: 18px;
             transition: all 0.3s;
+            border: 1px solid #eee;
         }
 
         .social-link:hover {
             background: var(--primary);
-            color: white;
+            color: var(--secondary);
             transform: translateY(-5px);
+            border-color: var(--primary);
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
+            background: var(--secondary);
             color: white;
             padding: 60px 0 30px;
         }
@@ -808,7 +913,7 @@
         .footer-column h3 {
             font-size: 16px;
             margin-bottom: 20px;
-            color: white;
+            color: var(--primary);
         }
 
         .footer-links {
@@ -827,13 +932,13 @@
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--primary);
         }
 
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #34495e;
+            border-top: 1px solid var(--secondary-light);
             color: #95a5a6;
             font-size: 13px;
         }
@@ -860,6 +965,35 @@
 
         .whatsapp-float:hover {
             transform: scale(1.1);
+        }
+
+        /* TikTok Float */
+        .tiktok-float {
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            background: #000000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .tiktok-float:hover {
+            transform: scale(1.1);
+            background: #333333;
+        }
+
+        .tiktok-float i {
+            color: #FF0050;
         }
 
         /* Modal */
@@ -903,10 +1037,6 @@
             
             .section-title {
                 font-size: 28px;
-            }
-            
-            .video-container {
-                height: 500px;
             }
         }
 
@@ -964,9 +1094,9 @@
                 grid-template-columns: 1fr;
             }
             
-            .video-container {
-                height: 400px;
+            .tiktok-section {
                 margin: 20px;
+                padding: 30px 20px;
             }
             
             .studio-gallery {
@@ -1000,6 +1130,22 @@
             
             .gallery-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .tiktok-float {
+                bottom: 85px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 22px;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
             }
         }
 
@@ -1035,17 +1181,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+            .tiktok-section h3 {
+                font-size: 20px;
             }
             
-            .video-container {
-                height: 300px;
-                margin: 15px;
+            .tiktok-section p {
+                font-size: 14px;
             }
             
             .gallery-grid {
@@ -1092,6 +1233,10 @@
                    class="btn btn-whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
+                </a>
+                <a href="https://www.tiktok.com/@house.luxx" class="btn btn-tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
                 </a>
             </div>
         </div>
@@ -1143,17 +1288,21 @@
                     <p>Le confort moderne au cœur de Cotonou</p>
                 </div>
                 
-                <!-- Page Logements - Section du studio à la une -->
-<div class="video-container">
-    <div class="video-alternative">
-        <i class="fab fa-tiktok"></i>
-        <h3>Visitez notre compte TikTok</h3>
-        <p>Découvrez des visites, des témoignages et plus encore sur notre chaîne TikTok.</p>
-        <a href="https://www.tiktok.com/@house.luxx" target="_blank" class="btn btn-primary" style="margin-top: 15px;">
-            <i class="fab fa-tiktok"></i> Voir notre TikTok @house.luxx
-        </a>
-    </div>
-</div>
+                <!-- NOUVELLE SECTION TIKTOK RESPONSIVE ET BIEN DESIGNÉE -->
+                <div class="tiktok-section">
+                    <div class="tiktok-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>Découvrez nos vidéos sur TikTok</h3>
+                    <p>Suivez-nous sur TikTok pour des visites virtuelles exclusives de nos appartements, des témoignages de clients et découvrir l'ambiance de nos logements !</p>
+                    <a href="https://www.tiktok.com/@house.luxx" class="btn btn-tiktok" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                        <span>Suivez-nous sur TikTok</span>
+                    </a>
+                    <p style="margin-top: 15px; font-size: 14px; color: var(--gray);">
+                        @house.luxx
+                    </p>
+                </div>
                 
                 <div class="studio-gallery">
                     <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
@@ -1556,7 +1705,7 @@
                             <div class="contact-icon">📞</div>
                             <div>
                                 <h4 style="margin-bottom: 5px;">Téléphone / WhatsApp</h4>
-                                <p style="color: var(--dark);">+229 66 95 39 34</p>
+                                <p style="color: var(--secondary);">+229 66 95 39 34</p>
                                 <small style="color: var(--gray);">Réponse rapide garantie</small>
                             </div>
                         </div>
@@ -1565,7 +1714,7 @@
                             <div class="contact-icon">📧</div>
                             <div>
                                 <h4 style="margin-bottom: 5px;">Email</h4>
-                                <p style="color: var(--dark);">mauricegerauds@gmail.com</p>
+                                <p style="color: var(--secondary);">mauricegerauds@gmail.com</p>
                                 <small style="color: var(--gray);">Pour les demandes officielles</small>
                             </div>
                         </div>
@@ -1574,7 +1723,7 @@
                             <div class="contact-icon">📍</div>
                             <div>
                                 <h4 style="margin-bottom: 5px;">Localisation</h4>
-                                <p style="color: var(--dark);">Cotonou, Bénin</p>
+                                <p style="color: var(--secondary);">Cotonou, Bénin</p>
                                 <small style="color: var(--gray);">Plateforme en ligne</small>
                             </div>
                         </div>
@@ -1676,14 +1825,16 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- NOUVEAU TikTok Float -->
+    <a href="https://www.tiktok.com/@house.luxx" class="tiktok-float" target="_blank" title="Suivez-nous sur TikTok">
+        <i class="fab fa-tiktok"></i>
+    </a>
+
     <!-- Image Modal -->
     <div class="modal" id="imageModal">
         <button class="close-modal" onclick="closeModal()">×</button>
         <img class="modal-content" id="modalImage">
     </div>
-
-    <!-- Script TikTok Embed -->
-    <script async src="https://www.tiktok.com/embed.js"></script>
 
     <script>
         // Données de la galerie
@@ -1781,23 +1932,7 @@
             initDatePickers();
             initTarifSelection();
             initFormPrepopulation();
-            checkTikTokEmbed();
         });
-
-        // Vérifier si l'embed TikTok a chargé
-        function checkTikTokEmbed() {
-            setTimeout(() => {
-                const tiktokEmbed = document.querySelector('.tiktok-embed');
-                const fallback = document.getElementById('tiktok-fallback');
-                
-                // Si l'embed TikTok n'est pas visible, afficher le fallback
-                if (tiktokEmbed && tiktokEmbed.offsetHeight === 0) {
-                    fallback.style.display = 'flex';
-                } else {
-                    fallback.style.display = 'none';
-                }
-            }, 2000);
-        }
 
         // Mobile Menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
