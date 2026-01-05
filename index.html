@@ -13,10 +13,10 @@
             --terracotta: #D9822B;
             --rose: #F4A89C;
             --vert: #A3C4BC;
-            --chocolat: #3A2415; /* PLUS FONCÉ pour meilleur contraste */
+            --chocolat: #3A2415;
             --blanc: #FFFFFF;
             --gris-clair: #F8F5F0;
-            --gris: #6B5C4A; /* PLUS FONCÉ pour lisibilité */
+            --gris: #6B5C4A;
             --shadow: 0 5px 15px rgba(58, 36, 21, 0.08);
             --shadow-hover: 0 8px 25px rgba(58, 36, 21, 0.12);
             --radius: 12px;
@@ -152,7 +152,7 @@
             padding: 5px;
         }
 
-        /* Hero Section - NOUVELLE PRÉSENTATION */
+        /* Hero Section */
         .hero {
             padding: 160px 0 100px;
             background: linear-gradient(rgba(58, 36, 21, 0.75), rgba(58, 36, 21, 0.85)), 
@@ -270,7 +270,7 @@
             border-color: #128C7E;
         }
 
-        /* Tarifs Section - AMÉLIORÉE */
+        /* Tarifs Section */
         .tarifs-section {
             background: var(--gris-clair);
         }
@@ -322,7 +322,6 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid rgba(217, 130, 43, 0.1);
-            position: relative;
         }
 
         .tarif-card:hover {
@@ -377,18 +376,6 @@
             margin-top: 25px;
         }
 
-        .offer-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--terracotta);
-            color: var(--blanc);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
         /* Alternative sans gourmandise */
         .alternative-card {
             background: var(--blanc);
@@ -431,44 +418,7 @@
             color: var(--gris);
         }
 
-        /* Calcul de prix */
-        .price-calculator {
-            background: var(--blanc);
-            border-radius: var(--radius);
-            padding: 25px;
-            margin: 30px auto;
-            max-width: 800px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(217, 130, 43, 0.1);
-        }
-
-        .price-summary {
-            background: var(--gris-clair);
-            border-radius: var(--radius-sm);
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 4px solid var(--terracotta);
-        }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(58, 36, 21, 0.1);
-        }
-
-        .price-row.total {
-            font-weight: bold;
-            font-size: 18px;
-            color: var(--terracotta);
-            border-bottom: none;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid var(--terracotta);
-        }
-
-        /* Gallery Carousel - 8 SLIDES */
+        /* Gallery Carousel */
         .gallery-section {
             background: var(--blanc);
             position: relative;
@@ -556,7 +506,7 @@
             background: var(--terracotta);
         }
 
-        /* Studio Section - AVEC NOUVEAUX POINTS */
+        /* Studio Section */
         .studio-section {
             background: var(--gris-clair);
         }
@@ -596,7 +546,7 @@
             margin: 0 auto 20px;
         }
 
-        /* Partenaire Section - TEXTE AMÉLIORÉ */
+        /* Partenaire Section */
         .partenaire-section {
             background: var(--blanc);
             text-align: center;
@@ -640,7 +590,7 @@
             border-top: 1px solid rgba(217, 130, 43, 0.2);
         }
 
-        /* Reservation Section - AVEC ACCROCHE */
+        /* Reservation Section */
         .reservation-section {
             background: var(--gris-clair);
         }
@@ -791,7 +741,7 @@
             margin-top: 10px;
         }
 
-        /* Footer - AVEC PHRASES DE CONFIANCE */
+        /* Footer */
         footer {
             background: var(--chocolat);
             color: var(--blanc);
@@ -888,7 +838,7 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* Modal pour politique d'annulation - VERSION HUMAINE */
+        /* Modal pour politique d'annulation */
         .modal {
             display: none;
             position: fixed;
@@ -1229,7 +1179,7 @@
         </div>
     </header>
 
-    <!-- Modal pour politique d'annulation - VERSION HUMAINE -->
+    <!-- Modal pour politique d'annulation -->
     <div class="modal" id="politiqueModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
@@ -1323,15 +1273,15 @@
         </div>
     </div>
 
-    <!-- Hero Section - NOUVELLE PRÉSENTATION -->
+    <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="container">
             <h1>Votre studio cosy à Akpakpa, Cotonou</h1>
             <div class="hero-tagline">
-                <i class="fas fa-star"></i> Confort • Calme • Intimité • Gourmandise OFFERTE <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i> Confort • Calme • Intimité • Gourmandise incluse <i class="fas fa-star"></i>
             </div>
             <p class="hero-subtitle">
-                Offrez-vous un séjour paisible dans un studio moderne, cosy et entièrement équipé, pensé pour votre bien-être avec une touche gourmande offerte pour votre séjour.
+                Offrez-vous un séjour paisible dans un studio moderne, cosy et entièrement équipé, pensé pour votre bien-être avec une touche gourmande incluse pour votre séjour.
             </p>
             <p class="hero-note">
                 Installez-vous, détendez-vous… on s'occupe du reste.
@@ -1350,7 +1300,7 @@
         </div>
     </section>
 
-    <!-- Tarifs Section - AMÉLIORÉE -->
+    <!-- Tarifs Section -->
     <section class="tarifs-section" id="tarifs">
         <div class="container">
             <div class="section-header">
@@ -1363,7 +1313,6 @@
             <div class="tarifs-grid">
                 <!-- Tarif Nuitée -->
                 <div class="tarif-card">
-                    <div class="offer-badge"></div>
                     <h3>Nuitée Cosy</h3>
                     <div class="tarif-price">17 000 F</div>
                     <div class="tarif-period">par nuitée</div>
@@ -1379,7 +1328,7 @@
                         <li>TV écran plat + PS4</li>
                         <li>Cuisine équipée</li>
                         <li>Arrivée 14h - Départ 12h</li>
-                        <li><strong>Smoothie ou sandwich OFFERT</strong></li>
+                        <li><strong>Smoothie ou sandwich INCLUS</strong></li>
                     </ul>
                     
                     <div class="tarif-cta">
@@ -1392,7 +1341,6 @@
                 
                 <!-- Tarif 24h -->
                 <div class="tarif-card">
-                    <div class="offer-badge"></div>
                     <h3>24h Flexibles</h3>
                     <div class="tarif-price">27 000 F</div>
                     <div class="tarif-period">pour 24 heures</div>
@@ -1408,7 +1356,7 @@
                         <li>TV écran plat + PS4</li>
                         <li>Cuisine équipée</li>
                         <li>Heure d'arrivée flexible</li>
-                        <li><strong>Smoothie ou sandwich OFFERT</strong></li>
+                        <li><strong>Smoothie ou sandwich INCLUS</strong></li>
                     </ul>
                     
                     <div class="tarif-cta">
@@ -1420,9 +1368,9 @@
                 </div>
             </div>
             
-            <!-- Alternative sans gourmandise - MIEUX PRÉSENTÉE -->
+            <!-- Alternative sans gourmandise -->
             <div class="alternative-card">
-                <h3 class="alternative-title">Vous préférez sans offre gourmande ?</h3>
+                <h3 class="alternative-title">Vous préférez sans option gourmande ?</h3>
                 <p style="color: var(--gris); margin-bottom: 20px;">
                     Profitez simplement du studio confortable à un tarif réduit.
                 </p>
@@ -1443,7 +1391,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - 8 SLIDES -->
+    <!-- Gallery Section -->
     <section class="gallery-section" id="galerie">
         <div class="container">
             <div class="section-header">
@@ -1455,43 +1403,37 @@
             
             <div class="gallery-carousel">
                 <div class="carousel-container" id="carousel-container">
-                    <!-- Slide 1 : image1.jpg - Vue principale -->
+                    <!-- Slide 1 -->
                     <div class="carousel-slide">
-                        <img src="images/image1.jpg" 
-                             alt="Vue principale du studio Cosylogement à Akpakpa">
+                        <img src="images/image1.jpg" alt="Vue principale du studio Cosylogement à Akpakpa">
                     </div>
                     
-                    <!-- Slide 2 : image2.jpg - Espace lit -->
+                    <!-- Slide 2 -->
                     <div class="carousel-slide">
-                        <img src="images/image2.jpg" 
-                             alt="Espace lit cosy du studio Cosylogement">
+                        <img src="images/image2.jpg" alt="Espace lit cosy du studio Cosylogement">
                     </div>
                     
-                    <!-- Slide 3 : image3.jpg - Coin détente -->
+                    <!-- Slide 3 -->
                     <div class="carousel-slide">
-                        <img src="images/image3.jpg" 
-                             alt="Coin détente du studio à Cotonou">
+                        <img src="images/image3.jpg" alt="Coin détente du studio à Cotonou">
                     </div>
                     
-                    <!-- Slide 4 : image4.jpg - Nouvelle photo cuisine -->
+                    <!-- Slide 4 -->
                     <div class="carousel-slide">
-                        <img src="images/cuisine-equipee.jpg" 
-                             alt="Cuisine équipée du studio Cosylogement">
+                        <img src="images/cuisine-equipee.jpg" alt="Cuisine équipée du studio Cosylogement">
                     </div>
                     
-                    <!-- Slide 5 : image5.jpg - Salle de bain -->
+                    <!-- Slide 5 -->
                     <div class="carousel-slide">
-                        <img src="images/image4.jpg" 
-                             alt="Salle de bain moderne du studio">
+                        <img src="images/image4.jpg" alt="Salle de bain moderne du studio">
                     </div>
                     
-                    <!-- Slide 6 : image6.jpg - Détail ambiance -->
+                    <!-- Slide 6 -->
                     <div class="carousel-slide">
-                        <img src="images/image5.jpg" 
-                             alt="Détail ambiance cosy du studio">
+                        <img src="images/image5.jpg" alt="Détail ambiance cosy du studio">
                     </div>
                     
-                    <!-- Slide 7 : VIDÉO avec miniature image6.jpg -->
+                    <!-- Slide 7 : Vidéo -->
                     <div class="carousel-slide">
                         <video controls poster="images/image6.jpg">
                             <source src="images/visite-studio.mp4" type="video/mp4">
@@ -1499,10 +1441,9 @@
                         </video>
                     </div>
                     
-                    <!-- Slide 8 : image7.jpg - Photo avec flyer FreshMood -->
+                    <!-- Slide 8 -->
                     <div class="carousel-slide">
-                        <img src="images/image7.jpg" 
-                             alt="Touche gourmande FreshMood offerte avec votre séjour">
+                        <img src="images/image7.jpg" alt="Touche gourmande FreshMood incluse avec votre séjour">
                     </div>
                 </div>
                 
@@ -1520,7 +1461,7 @@
         </div>
     </section>
 
-    <!-- Studio Section - AVEC NOUVEAUX POINTS -->
+    <!-- Studio Section -->
     <section class="studio-section" id="studio">
         <div class="container">
             <div class="section-header">
@@ -1598,7 +1539,7 @@
         </div>
     </section>
 
-    <!-- Partenaire Section - TEXTE AMÉLIORÉ -->
+    <!-- Partenaire Section -->
     <section class="partenaire-section" id="partenaire">
         <div class="container">
             <div class="section-header">
@@ -1629,7 +1570,7 @@
         </div>
     </section>
 
-    <!-- Reservation Section - AVEC ACCROCHE -->
+    <!-- Reservation Section -->
     <section class="reservation-section" id="reservation">
         <div class="container">
             <div class="reservation-header">
@@ -1708,16 +1649,16 @@
                     <div class="form-group">
                         <label class="form-label" for="smoothie-sandwich">Option gourmande</label>
                         <select class="form-control" id="smoothie-sandwich">
-                            <option value="avec">Oui, je veux le smoothie ou sandwich OFFERT</option>
+                            <option value="avec">Oui, je veux le smoothie ou sandwich INCLUS</option>
                             <option value="sans">Non, sans smoothie/sandwich (tarif réduit)</option>
                         </select>
                         <small style="color: var(--gris); display: block; margin-top: 5px;">
-                            <i class="fas fa-info-circle"></i> Sans l'offre : 15.000 F/nuit ou 25.000 F/24h
+                            <i class="fas fa-info-circle"></i> Sans l'option : 15.000 F/nuit ou 25.000 F/24h
                         </small>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="preference">Préférence (si vous prenez l'offre)</label>
+                        <label class="form-label" for="preference">Préférence (si vous prenez l'option)</label>
                         <select class="form-control" id="preference">
                             <option value="">Choisissez votre préférence</option>
                             <option value="smoothie">Smoothie FreshMood</option>
@@ -1765,7 +1706,7 @@
         </div>
     </section>
 
-    <!-- Footer - AVEC PHRASES DE CONFIANCE -->
+    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-container">
@@ -1848,7 +1789,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialisation
             initApp();
         });
 
@@ -1858,20 +1798,10 @@
             
             // Setup event listeners
             setupEventListeners();
-            
-            // Setup UI
             setupUI();
-            
-            // Setup carousel (MAINTENANT 8 SLIDES)
             setupCarousel();
-            
-            // Setup forms
             setupForms();
-            
-            // Setup modal
             setupModal();
-            
-            // Initialize dates
             initDates();
         }
 
@@ -1965,8 +1895,6 @@
             
             // Update active nav link on scroll
             window.addEventListener('scroll', updateActiveNavLink);
-            
-            // Initialize active nav link
             updateActiveNavLink();
         }
 
@@ -1978,10 +1906,10 @@
             const dotsContainer = document.getElementById('carousel-dots');
             
             let currentSlide = 0;
-            const totalSlides = slides.length; // Maintenant 8 slides
+            const totalSlides = slides.length;
             let autoSlideInterval;
             
-            // Create dots (8 points maintenant)
+            // Create dots
             slides.forEach((_, index) => {
                 const dot = document.createElement('button');
                 dot.classList.add('carousel-dot');
@@ -2075,7 +2003,6 @@
             calculatePrice();
         }
 
-        // Fonction pour calculer le prix
         function calculatePrice() {
             const arriveeDate = document.getElementById('date-arrivee').value;
             const departDate = document.getElementById('date-depart').value;
@@ -2090,7 +2017,6 @@
             const arrivee = new Date(arriveeDate);
             const depart = new Date(departDate);
             
-            // Vérifier si les dates sont valides
             if (depart <= arrivee) {
                 document.getElementById('price-display').style.display = 'none';
                 return;
@@ -2100,10 +2026,8 @@
             let details = '';
             let prixUnitaire = 0;
             
-            // Calcul selon la formule
             switch(formule) {
                 case 'nuit':
-                    // Calcul en nuits
                     const diffTimeNuit = Math.abs(depart - arrivee);
                     const nuits = Math.ceil(diffTimeNuit / (1000 * 60 * 60 * 24));
                     
@@ -2119,7 +2043,6 @@
                     break;
                     
                 case '24h':
-                    // Calcul en périodes de 24h
                     const diffTime = Math.abs(depart - arrivee);
                     const heures = diffTime / (1000 * 60 * 60);
                     const periodes24h = Math.ceil(heures / 24);
@@ -2140,29 +2063,25 @@
                     return;
             }
             
-            // Ajouter la caution
             let caution = 20000;
             if (formule === '24h') {
                 caution = 25000;
             }
             const prixTotal = prix + caution;
             
-            // Formater les dates
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
             const dateArriveeFormat = arrivee.toLocaleDateString('fr-FR', options);
             const dateDepartFormat = depart.toLocaleDateString('fr-FR', options);
             
-            // Mettre à jour l'affichage
             document.getElementById('total-price').textContent = prixTotal.toLocaleString('fr-FR') + ' F';
             document.getElementById('price-details').innerHTML = `
                 <strong>Détails :</strong><br>
                 • ${formule === 'nuit' ? 'Nuitées' : 'Périodes 24h'}: ${details}<br>
                 • Caution: ${caution.toLocaleString('fr-FR')} F<br>
                 • Séjour: ${dateArriveeFormat} → ${dateDepartFormat}<br>
-                • Option gourmande: ${smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS (-2.000 F)'}
+                • Option gourmande: ${smoothieOption === 'avec' ? 'INCLUS' : 'NON INCLUS (-2.000 F)'}
             `;
             
-            // Afficher le calculateur
             document.getElementById('price-display').style.display = 'block';
         }
 
@@ -2176,20 +2095,17 @@
                 '2024-12-31', '2025-01-01',
             ];
             
-            // Check date availability
             function checkAvailability() {
                 const arriveeDate = document.getElementById('date-arrivee').value;
                 const departDate = document.getElementById('date-depart').value;
                 const arriveeStatus = document.getElementById('arrivee-status');
                 const departStatus = document.getElementById('depart-status');
                 
-                // Reset status
                 arriveeStatus.textContent = '';
                 departStatus.textContent = '';
                 arriveeStatus.className = 'date-status';
                 departStatus.className = 'date-status';
                 
-                // Validate dates
                 if (!arriveeDate || !departDate) return;
                 
                 const arrivee = new Date(arriveeDate);
@@ -2197,7 +2113,6 @@
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
                 
-                // Check if arrival is in the past
                 if (arrivee < today) {
                     arriveeStatus.textContent = '❌ Date déjà passée';
                     arriveeStatus.classList.add('unavailable');
@@ -2205,7 +2120,6 @@
                     return;
                 }
                 
-                // Check if departure is before arrival
                 if (depart <= arrivee) {
                     departStatus.textContent = '❌ Doit être après l\'arrivée';
                     departStatus.classList.add('unavailable');
@@ -2213,10 +2127,7 @@
                     return;
                 }
                 
-                // Check if dates are booked
                 let isAvailable = true;
-                
-                // Simulate checking each day between arrival and departure
                 const checkDate = new Date(arrivee);
                 while (checkDate < depart) {
                     const dateStr = checkDate.toISOString().split('T')[0];
@@ -2242,7 +2153,6 @@
                 }
             }
             
-            // Écouteurs pour le calcul du prix
             document.getElementById('date-arrivee').addEventListener('change', function() {
                 const arriveeDate = new Date(this.value);
                 const minDepartDate = new Date(arriveeDate);
@@ -2250,7 +2160,6 @@
                 
                 document.getElementById('date-depart').min = minDepartDate.toISOString().split('T')[0];
                 
-                // If current departure date is before new minimum, update it
                 const currentDepart = new Date(document.getElementById('date-depart').value);
                 if (currentDepart <= arriveeDate) {
                     document.getElementById('date-depart').value = minDepartDate.toISOString().split('T')[0];
@@ -2268,7 +2177,6 @@
             document.getElementById('formule').addEventListener('change', calculatePrice);
             document.getElementById('smoothie-sandwich').addEventListener('change', calculatePrice);
             
-            // Gérer l'affichage de la préférence selon le choix smoothie/sandwich
             document.getElementById('smoothie-sandwich').addEventListener('change', function() {
                 const preferenceSelect = document.getElementById('preference');
                 if (this.value === 'avec') {
@@ -2281,18 +2189,15 @@
                 }
             });
             
-            // Form submission
             reservationForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Vérifier l'acceptation des conditions
                 const acceptConditions = document.getElementById('accept-conditions');
                 if (!acceptConditions.checked) {
                     alert('Veuillez accepter la politique d\'annulation et de remboursement pour continuer.');
                     return;
                 }
                 
-                // Collect form data
                 const formData = {
                     nom: document.getElementById('nom').value.trim(),
                     prenom: document.getElementById('prenom').value.trim(),
@@ -2307,24 +2212,21 @@
                     message: document.getElementById('message').value.trim()
                 };
                 
-                // Validate form
                 if (!formData.nom || !formData.prenom || !formData.email || !formData.telephone || 
                     !formData.dateArrivee || !formData.dateDepart || !formData.formule || !formData.personnes) {
                     alert('Veuillez remplir tous les champs obligatoires (*).');
                     return;
                 }
                 
-                // Validate phone number for WhatsApp
-                let phoneNumber = formData.telephone.replace(/\s/g, ''); // Remove spaces
+                let phoneNumber = formData.telephone.replace(/\s/g, '');
                 
-                // Format du numéro Bénin
-                if (phoneNumber.startsWith('')) {
-                    phoneNumber = '229' + phoneNumber.;
+                // Format du numéro Bénin pour WhatsApp
+                if (phoneNumber.startsWith('0')) {
+                    phoneNumber = '229' + phoneNumber.substring(1);
                 } else if (!phoneNumber.startsWith('229')) {
                     phoneNumber = '229' + phoneNumber;
                 }
                 
-                // Validate dates
                 const arriveeDate = new Date(formData.dateArrivee);
                 const departDate = new Date(formData.dateDepart);
                 
@@ -2333,11 +2235,9 @@
                     return;
                 }
                 
-                // Recalculer le prix pour confirmation
                 calculatePrice();
                 const prixTotal = document.getElementById('total-price').textContent;
                 
-                // Déterminer les textes
                 let formuleTexte = '';
                 let prixUnitaire = 0;
                 let caution = 20000;
@@ -2361,10 +2261,8 @@
                         break;
                 }
                 
-                // Format dates
                 const options = { day: 'numeric', month: 'long', year: 'numeric' };
                 
-                // Determine preference text
                 let preferenceText = 'Non inclus';
                 if (formData.smoothieOption === 'avec') {
                     preferenceText = formData.preference === 'smoothie' ? 'Smoothie FreshMood' : 
@@ -2372,7 +2270,6 @@
                                    'Non spécifié';
                 }
                 
-                // Calcul du prix du séjour (sans caution)
                 let prixSejour = 0;
                 if (formData.formule === 'nuit') {
                     const diffTimeNuit = Math.abs(departDate - arriveeDate);
@@ -2385,7 +2282,6 @@
                     prixSejour = periodes24h * prixUnitaire;
                 }
                 
-                // Prepare WhatsApp message
                 const whatsappMessage = `📋 NOUVELLE RÉSERVATION COSYLOGEMENT 📋
 
 👤 INFORMATIONS CLIENT :
@@ -2398,7 +2294,7 @@
 • Départ : ${departDate.toLocaleDateString('fr-FR', options)} à 12h
 • Formule : ${formuleTexte}
 • Personnes : ${formData.personnes}
-• Option gourmande : ${formData.smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS'}
+• Option gourmande : ${formData.smoothieOption === 'avec' ? 'INCLUS' : 'NON INCLUS'}
 • Préférence : ${preferenceText}
 
 💰 TARIFS :
@@ -2412,17 +2308,13 @@ ${formData.message}` : ''}
 ────────────────────
 ⚠️ Cette réservation est soumise à notre politique d'annulation.`;
 
-                // Encode message for WhatsApp URL
                 const encodedMessage = encodeURIComponent(whatsappMessage);
                 
-                // Open WhatsApp directly
                 window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
                 
-                // Show confirmation
                 setTimeout(() => {
                     alert('✅ Ouverture de WhatsApp...\n\nVeuillez envoyer le message pré-rempli pour finaliser votre réservation.\n\nLe numéro de contact est : 66 95 39 34');
                     
-                    // Reset form after a delay
                     setTimeout(() => {
                         reservationForm.reset();
                         acceptConditions.checked = false;
@@ -2431,7 +2323,6 @@ ${formData.message}` : ''}
                 }, 500);
             });
             
-            // Calcul initial
             calculatePrice();
         }
 
@@ -2467,7 +2358,6 @@ ${formData.message}` : ''}
                 }
             });
             
-            // Default to accueil if at top
             if (scrollPosition < 100) {
                 navLinks.forEach(link => {
                     link.classList.remove('active');
@@ -2478,7 +2368,6 @@ ${formData.message}` : ''}
             }
         }
 
-        // Handle window resize
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 const nav = document.getElementById('main-nav');
