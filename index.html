@@ -1363,7 +1363,7 @@
             <div class="tarifs-grid">
                 <!-- Tarif Nuitée -->
                 <div class="tarif-card">
-                    <div class="offer-badge">OFFERT</div>
+                    <div class="offer-badge"></div>
                     <h3>Nuitée Cosy</h3>
                     <div class="tarif-price">17 000 F</div>
                     <div class="tarif-period">par nuitée</div>
@@ -1392,7 +1392,7 @@
                 
                 <!-- Tarif 24h -->
                 <div class="tarif-card">
-                    <div class="offer-badge">OFFERT</div>
+                    <div class="offer-badge"></div>
                     <h3>24h Flexibles</h3>
                     <div class="tarif-price">27 000 F</div>
                     <div class="tarif-period">pour 24 heures</div>
@@ -2318,8 +2318,8 @@
                 let phoneNumber = formData.telephone.replace(/\s/g, ''); // Remove spaces
                 
                 // Format du numéro Bénin
-                if (phoneNumber.startsWith('0')) {
-                    phoneNumber = '229' + phoneNumber.substring(1);
+                if (phoneNumber.startsWith('')) {
+                    phoneNumber = '229' + phoneNumber.;
                 } else if (!phoneNumber.startsWith('229')) {
                     phoneNumber = '229' + phoneNumber;
                 }
