@@ -2220,11 +2220,21 @@
                 
                 let phoneNumber = formData.telephone.replace(/\s/g, '');
                 
-                // Format du numéro Bénin pour WhatsApp
+                // CORRECTION ICI : Enlever le "1" qui s'ajoutait
+                // Avant : if (phoneNumber.startsWith('0')) { phoneNumber = '229' + phoneNumber.substring(1); }
+                // Maintenant : Format correct pour WhatsApp Bénin
                 if (phoneNumber.startsWith('0')) {
-                    phoneNumber = '229' + phoneNumber.substring(1);
+                    phoneNumber = '229' + phoneNumber.substring(1); // Enlève le 0 initial
+                } else if (phoneNumber.length === 8) {
+                    // Si c'est un numéro à 8 chiffres (ex: 66953934)
+                    phoneNumber = '229' + phoneNumber;
                 } else if (!phoneNumber.startsWith('229')) {
                     phoneNumber = '229' + phoneNumber;
+                }
+                
+                // Vérifier qu'il n'y a pas de "1" après le 229
+                if (phoneNumber.startsWith('2291')) {
+                    phoneNumber = '229' + phoneNumber.substring(4); // Enlève le "1" après 229
                 }
                 
                 const arriveeDate = new Date(formData.dateArrivee);
@@ -2310,6 +2320,7 @@ ${formData.message}` : ''}
 
                 const encodedMessage = encodeURIComponent(whatsappMessage);
                 
+                // CORRECTION : URL WhatsApp avec le bon numéro
                 window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
                 
                 setTimeout(() => {
