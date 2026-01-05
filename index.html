@@ -417,7 +417,7 @@
             color: var(--gris);
         }
 
-        /* Gallery Carousel - CORRIGÉ */
+        /* Gallery Carousel - VIDÉO CORRIGÉE */
         .gallery-section {
             background: var(--blanc);
             position: relative;
@@ -454,11 +454,80 @@
             display: block;
         }
 
-        .carousel-slide video {
+        /* Styles spécifiques pour la vidéo */
+        .video-slide {
+            background: #000;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #studio-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            background: #000;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-video-btn {
+            width: 70px;
+            height: 70px;
+            background: var(--terracotta);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .play-video-btn:hover {
+            background: #C17322;
+            transform: scale(1.1);
+        }
+
+        .video-caption {
+            font-size: 18px;
+            text-align: center;
+            max-width: 80%;
+            margin-top: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .video-legend {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--gris);
+            font-size: 14px;
+            font-style: italic;
         }
 
         .carousel-nav {
@@ -695,7 +764,7 @@
             cursor: not-allowed;
         }
 
-        /* NOUVEAU : Conditions avec bouton de lecture */
+        /* Conditions avec bouton de lecture */
         .conditions-container {
             margin: 25px 0;
             padding: 20px;
@@ -970,7 +1039,7 @@
             letter-spacing: 5px;
         }
 
-        /* Responsive Design - AMÉLIORÉ */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .container {
                 padding: 0 30px;
@@ -999,6 +1068,16 @@
             .form-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
+            }
+            
+            .play-video-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .video-caption {
+                font-size: 16px;
             }
         }
 
@@ -1031,7 +1110,7 @@
                 font-size: 16px;
             }
             
-            /* MENU MOBILE - CORRIGÉ */
+            /* MENU MOBILE */
             nav {
                 position: fixed;
                 top: 80px;
@@ -1127,6 +1206,16 @@
             .footer-contact li {
                 justify-content: center;
             }
+            
+            .play-video-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .video-caption {
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1190,11 +1279,21 @@
             .conditions-header label {
                 font-size: 14px;
             }
+            
+            .play-video-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .video-caption {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header - CORRIGÉ -->
+    <!-- Header -->
     <header id="main-header">
         <div class="container header-container">
             <a href="#parenthese" class="logo">
@@ -1430,7 +1529,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section - CORRIGÉ -->
+    <!-- Gallery Section - VIDÉO CORRIGÉE -->
     <section class="gallery-section" id="galerie">
         <div class="container">
             <div class="section-header">
@@ -1472,12 +1571,22 @@
                         <img src="images/image5.jpg" alt="Détail ambiance cosy du studio">
                     </div>
                     
-                    <!-- Slide 7 : Vidéo - CORRIGÉ pour bien cadrer -->
-                    <div class="carousel-slide">
-                        <video controls poster="images/image6.jpg">
-                            <source src="images/visite-studio.mp4" type="video/mp4">
-                            Votre navigateur ne supporte pas la vidéo.
-                        </video>
+                    <!-- Slide 7 : Vidéo - CORRIGÉE -->
+                    <div class="carousel-slide video-slide">
+                        <div class="video-container">
+                            <video id="studio-video" controls playsinline preload="metadata" 
+                                   poster="images/video-poster.jpg" style="width:100%; height:100%; object-fit:cover;">
+                                <source src="images/visite-studio.mp4" type="video/mp4">
+                                <source src="images/visite-studio.webm" type="video/webm">
+                                Votre navigateur ne supporte pas la vidéo.
+                            </video>
+                            <div class="video-overlay" id="video-overlay">
+                                <button class="play-video-btn" id="play-video-btn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <p class="video-caption">Cliquez pour lancer la visite vidéo du studio</p>
+                            </div>
+                        </div>
                     </div>
                     
                     <!-- Slide 8 -->
@@ -1496,6 +1605,10 @@
                 <div class="carousel-dots" id="carousel-dots">
                     <!-- Les points seront générés par JavaScript -->
                 </div>
+            </div>
+            
+            <div class="video-legend">
+                <i class="fas fa-video"></i> La vidéo présente une visite complète du studio. Cliquez sur le bouton play pour la visionner.
             </div>
         </div>
     </section>
@@ -1609,7 +1722,7 @@
         </div>
     </section>
 
-    <!-- Reservation Section - CORRIGÉ -->
+    <!-- Reservation Section -->
     <section class="reservation-section" id="reservation">
         <div class="container">
             <div class="reservation-header">
@@ -1710,7 +1823,7 @@
                         <textarea class="form-control" id="message" placeholder="Heure d'arrivée, besoins particuliers, etc." rows="4"></textarea>
                     </div>
                     
-                    <!-- Affichage du prix en temps réel - CORRIGÉ -->
+                    <!-- Affichage du prix en temps réel -->
                     <div class="price-display" id="price-display" style="display: none;">
                         <h3>Estimation du prix</h3>
                         <div class="price-amount" id="total-price">0 F</div>
@@ -1719,7 +1832,7 @@
                         </div>
                     </div>
                     
-                    <!-- NOUVEAU : Conditions avec bouton de lecture -->
+                    <!-- Conditions avec bouton de lecture -->
                     <div class="conditions-container">
                         <div class="conditions-header">
                             <input type="checkbox" id="accept-conditions" required>
@@ -1843,11 +1956,49 @@
             setupCarousel();
             setupForms();
             setupModal();
+            setupVideo();
             initDates();
         }
 
+        function setupVideo() {
+            const video = document.getElementById('studio-video');
+            const playBtn = document.getElementById('play-video-btn');
+            const overlay = document.getElementById('video-overlay');
+            
+            if (video && playBtn && overlay) {
+                // Play video on button click
+                playBtn.addEventListener('click', function() {
+                    video.play().then(() => {
+                        overlay.classList.add('hidden');
+                    }).catch(error => {
+                        console.log('Erreur de lecture vidéo:', error);
+                        // Fallback: ouvrir les contrôles
+                        video.controls = true;
+                        overlay.classList.add('hidden');
+                    });
+                });
+                
+                // Show overlay when video ends
+                video.addEventListener('ended', function() {
+                    overlay.classList.remove('hidden');
+                });
+                
+                // Show overlay when video is paused (except when ended)
+                video.addEventListener('pause', function() {
+                    if (!video.ended) {
+                        overlay.classList.remove('hidden');
+                    }
+                });
+                
+                // Hide overlay when video is playing
+                video.addEventListener('play', function() {
+                    overlay.classList.add('hidden');
+                });
+            }
+        }
+
         function setupEventListeners() {
-            // Mobile menu toggle - CORRIGÉ
+            // Mobile menu toggle
             const menuBtn = document.getElementById('mobile-menu-btn');
             const nav = document.getElementById('main-nav');
             
@@ -1976,6 +2127,16 @@
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
                 });
+                
+                // Pause video if we're not on the video slide
+                const video = document.getElementById('studio-video');
+                const overlay = document.getElementById('video-overlay');
+                if (video && overlay) {
+                    if (currentSlide !== 6) { // 6 is the video slide index
+                        video.pause();
+                        overlay.classList.remove('hidden');
+                    }
+                }
             }
             
             // Go to specific slide
@@ -2267,7 +2428,7 @@
                 });
             }
             
-            // Form submission - CORRIGÉ pour WhatsApp
+            // Form submission
             reservationForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -2300,17 +2461,15 @@
                 }
                 
                 // Validate phone number for WhatsApp
-                let phoneNumber = formData.telephone.replace(/\s/g, ''); // Remove spaces
+                let phoneNumber = formData.telephone.replace(/\s/g, '');
                 
-                // Format du numéro Bénin pour WhatsApp - CORRIGÉ
+                // Format du numéro Bénin pour WhatsApp
                 if (phoneNumber.startsWith('0')) {
                     phoneNumber = '229' + phoneNumber.substring(1);
                 } else if (phoneNumber.length === 8 && !phoneNumber.startsWith('229')) {
-                    // Si c'est un numéro à 8 chiffres (ex: 66953934)
                     phoneNumber = '229' + phoneNumber;
                 }
                 
-                // Vérifier qu'il n'y a pas de "1" après le 229
                 if (phoneNumber.startsWith('2291')) {
                     phoneNumber = '229' + phoneNumber.substring(4);
                 }
@@ -2406,7 +2565,7 @@ ${formData.message}` : ''}
                 // Encode message for WhatsApp URL
                 const encodedMessage = encodeURIComponent(whatsappMessage);
                 
-                // CORRECTION : Utiliser le numéro fixe pour WhatsApp
+                // Utiliser le numéro fixe pour WhatsApp
                 const whatsappNumber = '22966953934';
                 
                 // Open WhatsApp directly
@@ -2472,7 +2631,7 @@ ${formData.message}` : ''}
             }
         }
 
-        // Handle window resize - CORRIGÉ
+        // Handle window resize
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 const nav = document.getElementById('main-nav');
