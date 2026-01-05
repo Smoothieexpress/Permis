@@ -1,4 +1,4 @@
-#<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Variables et reset */
+        /* Variables et reset - Contraste amélioré */
         :root {
             --beige: #F5E8D3;
             --terracotta: #D9822B;
             --rose: #F4A89C;
             --vert: #A3C4BC;
-            --chocolat: #5C3A21;
+            --chocolat: #3A2415; /* PLUS FONCÉ pour meilleur contraste */
             --blanc: #FFFFFF;
             --gris-clair: #F8F5F0;
-            --gris: #8C7E6E;
-            --shadow: 0 5px 15px rgba(92, 58, 33, 0.05);
-            --shadow-hover: 0 8px 25px rgba(92, 58, 33, 0.08);
-            --radius: 10px;
-            --radius-sm: 6px;
+            --gris: #6B5C4A; /* PLUS FONCÉ pour lisibilité */
+            --shadow: 0 5px 15px rgba(58, 36, 21, 0.08);
+            --shadow-hover: 0 8px 25px rgba(58, 36, 21, 0.12);
+            --radius: 12px;
+            --radius-sm: 8px;
             --transition: all 0.3s ease;
         }
 
@@ -73,13 +73,13 @@
             background: var(--blanc);
             z-index: 1000;
             padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(92, 58, 33, 0.03);
+            box-shadow: 0 2px 10px rgba(58, 36, 21, 0.05);
             transition: var(--transition);
         }
 
         header.scrolled {
             padding: 15px 0;
-            box-shadow: 0 4px 15px rgba(92, 58, 33, 0.05);
+            box-shadow: 0 4px 15px rgba(58, 36, 21, 0.08);
         }
 
         .header-container {
@@ -152,10 +152,10 @@
             padding: 5px;
         }
 
-        /* Hero Section - IMAGE MODIFIÉE ICI */
+        /* Hero Section - NOUVELLE PRÉSENTATION */
         .hero {
             padding: 160px 0 100px;
-            background: linear-gradient(rgba(92, 58, 33, 0.7), rgba(92, 58, 33, 0.8)), 
+            background: linear-gradient(rgba(58, 36, 21, 0.75), rgba(58, 36, 21, 0.85)), 
                         url('images/image1.jpg');
             background-size: cover;
             background-position: center;
@@ -166,10 +166,23 @@
 
         .hero h1 {
             font-size: 42px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--blanc);
             font-weight: 600;
             line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--beige);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .hero-tagline i {
+            color: #FFD166;
+            margin: 0 5px;
         }
 
         .hero-subtitle {
@@ -178,9 +191,21 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 300;
             line-height: 1.6;
+        }
+
+        .hero-note {
+            font-style: italic;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
@@ -188,7 +213,7 @@
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .btn {
@@ -245,7 +270,7 @@
             border-color: #128C7E;
         }
 
-        /* Tarifs Section */
+        /* Tarifs Section - AMÉLIORÉE */
         .tarifs-section {
             background: var(--gris-clair);
         }
@@ -316,7 +341,15 @@
         .tarif-period {
             font-size: 16px;
             color: var(--gris);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        .tarif-description {
+            font-size: 15px;
+            color: var(--gris);
+            margin: 20px 0;
+            line-height: 1.6;
+            padding: 0 10px;
         }
 
         .tarif-features {
@@ -356,6 +389,48 @@
             font-weight: 600;
         }
 
+        /* Alternative sans gourmandise */
+        .alternative-card {
+            background: var(--blanc);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 40px auto 0;
+            max-width: 600px;
+            border: 2px dashed var(--vert);
+            text-align: center;
+        }
+
+        .alternative-title {
+            color: var(--chocolat);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .alternative-prices {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .alternative-price {
+            text-align: center;
+            padding: 15px 25px;
+            background: var(--gris-clair);
+            border-radius: var(--radius-sm);
+        }
+
+        .alternative-price .price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+
+        .alternative-price .period {
+            font-size: 14px;
+            color: var(--gris);
+        }
+
         /* Calcul de prix */
         .price-calculator {
             background: var(--blanc);
@@ -380,7 +455,7 @@
             justify-content: space-between;
             margin-bottom: 10px;
             padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(92, 58, 33, 0.1);
+            border-bottom: 1px dashed rgba(58, 36, 21, 0.1);
         }
 
         .price-row.total {
@@ -393,7 +468,7 @@
             border-top: 2px solid var(--terracotta);
         }
 
-        /* Gallery Carousel - TOUTES LES IMAGES MODIFIÉES ICI */
+        /* Gallery Carousel - 8 SLIDES */
         .gallery-section {
             background: var(--blanc);
             position: relative;
@@ -481,7 +556,7 @@
             background: var(--terracotta);
         }
 
-        /* Studio Section */
+        /* Studio Section - AVEC NOUVEAUX POINTS */
         .studio-section {
             background: var(--gris-clair);
         }
@@ -521,7 +596,7 @@
             margin: 0 auto 20px;
         }
 
-        /* Partenaire Section */
+        /* Partenaire Section - TEXTE AMÉLIORÉ */
         .partenaire-section {
             background: var(--blanc);
             text-align: center;
@@ -531,7 +606,7 @@
             background: var(--gris-clair);
             border-radius: var(--radius);
             padding: 40px;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             border-left: 4px solid var(--vert);
         }
@@ -539,12 +614,47 @@
         .partenaire-logo {
             font-size: 32px;
             color: var(--terracotta);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        /* Reservation Section */
+        .partenaire-title {
+            font-size: 24px;
+            color: var(--chocolat);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .partenaire-text {
+            font-size: 17px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: var(--gris);
+        }
+
+        .partenaire-note {
+            font-style: italic;
+            font-size: 16px;
+            color: var(--terracotta);
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(217, 130, 43, 0.2);
+        }
+
+        /* Reservation Section - AVEC ACCROCHE */
         .reservation-section {
             background: var(--gris-clair);
+        }
+
+        .reservation-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .reservation-note {
+            font-size: 18px;
+            color: var(--terracotta);
+            font-weight: 500;
+            margin-top: 10px;
         }
 
         .reservation-form-container {
@@ -594,7 +704,7 @@
 
         select.form-control {
             appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C3A21' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233A2415' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 18px center;
             background-size: 16px;
@@ -681,7 +791,7 @@
             margin-top: 10px;
         }
 
-        /* Footer */
+        /* Footer - AVEC PHRASES DE CONFIANCE */
         footer {
             background: var(--chocolat);
             color: var(--blanc);
@@ -741,6 +851,18 @@
             margin-top: 3px;
         }
 
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+            color: #bdc3c7;
+        }
+
+        .footer-note .highlight {
+            color: var(--terracotta);
+            font-weight: 500;
+        }
+
         /* Floating WhatsApp */
         .whatsapp-float {
             position: fixed;
@@ -766,7 +888,7 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
 
-        /* Modal pour politique d'annulation */
+        /* Modal pour politique d'annulation - VERSION HUMAINE */
         .modal {
             display: none;
             position: fixed;
@@ -808,6 +930,76 @@
             font-size: 32px;
             margin-bottom: 20px;
             text-align: center;
+            color: var(--chocolat);
+        }
+
+        .modal-subtitle {
+            font-size: 18px;
+            color: var(--gris);
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .politique-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--gris-clair);
+        }
+
+        .politique-section:last-child {
+            border-bottom: none;
+        }
+
+        .politique-section h3 {
+            color: var(--terracotta);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .politique-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .politique-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .politique-list li:before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: var(--terracotta);
+            font-weight: bold;
+        }
+
+        .politique-note {
+            background: rgba(217, 130, 43, 0.1);
+            border-radius: var(--radius-sm);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-left: 3px solid var(--terracotta);
+        }
+
+        .politique-warning {
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: var(--radius-sm);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-left: 3px solid #e74c3c;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 30px 0;
+            color: var(--gris);
+            font-size: 20px;
+            letter-spacing: 5px;
         }
 
         /* Responsive Design */
@@ -829,6 +1021,12 @@
                 width: 95%;
                 padding: 30px;
             }
+            
+            .alternative-prices {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -842,6 +1040,10 @@
             
             .hero h1 {
                 font-size: 32px;
+            }
+            
+            .hero-tagline {
+                font-size: 16px;
             }
             
             .hero-subtitle {
@@ -952,6 +1154,10 @@
                 font-size: 28px;
             }
             
+            .hero-tagline {
+                font-size: 15px;
+            }
+            
             .hero-subtitle {
                 font-size: 16px;
             }
@@ -1023,79 +1229,112 @@
         </div>
     </header>
 
-    <!-- Modal pour politique d'annulation -->
+    <!-- Modal pour politique d'annulation - VERSION HUMAINE -->
     <div class="modal" id="politiqueModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
-            <h2 class="modal-title">Politique d'Annulation</h2>
+            <h2 class="modal-title">Politique d'annulation & de remboursement – Cosylogement</h2>
+            <p class="modal-subtitle">
+                Nous comprenons que des imprévus puissent survenir. Cette politique a pour objectif d'être claire, équitable et transparente pour tous.
+            </p>
             
-            <div class="politique-card">
-                <h3><i class="fas fa-calendar-times"></i> Délais d'annulation</h3>
+            <div class="separator">⸻</div>
+            
+            <div class="politique-section">
+                <h3><i class="fas fa-clock"></i> Délais d'annulation</h3>
                 <ul class="politique-list">
-                    <li><strong>Plus de 72h avant l'arrivée</strong> : Annulation gratuite avec remboursement à 100%</li>
-                    <li><strong>Entre 72h et 24h avant l'arrivée</strong> : Remboursement à 50% du montant payé</li>
-                    <li><strong>Moins de 24h avant l'arrivée</strong> : Aucun remboursement</li>
+                    <li><strong>Plus de 72 heures avant l'arrivée</strong><br>
+                    → Annulation gratuite avec remboursement à 100 %</li>
+                    <li><strong>Entre 72 heures et 24 heures avant l'arrivée</strong><br>
+                    → Remboursement à 50 % du montant payé</li>
+                    <li><strong>Moins de 24 heures avant l'arrivée</strong><br>
+                    → Aucun remboursement</li>
                 </ul>
             </div>
             
-            <div class="politique-card">
-                <h3><i class="fas fa-money-bill-wave"></i> Montant remboursé</h3>
+            <div class="separator">⸻</div>
+            
+            <div class="politique-section">
+                <h3><i class="fas fa-money-bill-wave"></i> Montants remboursés</h3>
                 <ul class="politique-list">
-                    <li><strong>100%</strong> si annulation plus de 72h avant l'arrivée</li>
-                    <li><strong>50%</strong> si annulation entre 72h et 24h avant l'arrivée</li>
-                    <li><strong>0%</strong> si annulation moins de 24h avant l'arrivée</li>
-                    <li><strong>Frais non remboursables</strong> : Services de ménage, frais de service, et formules smoothies/sandwichs</li>
+                    <li><strong>100 %</strong> si annulation à plus de 72h</li>
+                    <li><strong>50 %</strong> si annulation entre 72h et 24h</li>
+                    <li><strong>0 %</strong> si annulation à moins de 24h</li>
+                </ul>
+                <div class="politique-warning">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Frais non remboursables :</h4>
+                    <p>Les services de ménage, frais de service et formules smoothies/sandwichs.</p>
+                </div>
+            </div>
+            
+            <div class="separator">⸻</div>
+            
+            <div class="politique-section">
+                <h3><i class="fas fa-exclamation-circle"></i> Cas particuliers</h3>
+                <ul class="politique-list">
+                    <li><strong>No-show (absence sans prévenir)</strong><br>
+                    → Aucun remboursement</li>
+                    <li><strong>Force majeure</strong> (urgence médicale grave, décès, événement exceptionnel)<br>
+                    → Justificatif obligatoire<br>
+                    → Proposition prioritaire de report (sans remboursement automatique)</li>
+                    <li><strong>Annulation par le propriétaire</strong><br>
+                    → Remboursement intégral ou report avec avantage (smoothie offert ou remise)</li>
                 </ul>
             </div>
             
-            <div class="politique-card">
-                <h3><i class="fas fa-exclamation-triangle"></i> Cas particuliers</h3>
-                <ul class="politique-list">
-                    <li><strong>No-show (client qui ne se présente pas)</strong> : Aucun remboursement</li>
-                    <li><strong>Force majeure</strong> (urgence médicale grave, décès, événements exceptionnels) : Justificatif obligatoire. Proposition prioritaire de report, pas de remboursement automatique</li>
-                    <li><strong>Annulation par le propriétaire</strong> : Remboursement à 100% ou report avec avantage (smoothie offert / remise)</li>
-                </ul>
-            </div>
+            <div class="separator">⸻</div>
             
-            <div class="politique-card">
+            <div class="politique-section">
                 <h3><i class="fas fa-calendar-alt"></i> Report de séjour</h3>
                 <ul class="politique-list">
-                    <li><strong>Report possible une seule fois</strong>, sous 30 jours maximum</li>
+                    <li><strong>Report possible une seule fois</strong>, dans un délai maximum de 30 jours</li>
                     <li>Sous réserve de disponibilité du studio</li>
                     <li>Aucun remboursement si la nouvelle date est annulée</li>
-                    <li>Les formules smoothies et sandwichs peuvent être reportées si possible</li>
+                    <li>Les formules smoothies/sandwichs peuvent être reportées si possible</li>
                 </ul>
             </div>
             
-            <div class="warning-box">
-                <h4><i class="fas fa-exclamation-circle"></i> Important</h4>
-                <p>Les smoothies et sandwichs <strong>offerts avec certaines formules</strong> sont non remboursables en cas d'annulation. En cas de report, ils peuvent être reportés si possible.</p>
-            </div>
+            <div class="separator">⸻</div>
             
-            <div class="politique-card">
-                <h3><i class="fas fa-calendar-week"></i> Séjours longs (semaine / mois)</h3>
+            <div class="politique-section">
+                <h3><i class="fas fa-calendar-week"></i> Séjours longue durée (semaine / mois)</h3>
                 <ul class="politique-list">
-                    <li><strong>Acompte non remboursable de 30%</strong> à la réservation</li>
-                    <li>Solde payé à l'arrivée ou 24h avant</li>
-                    <li>Annulation moins de 7 jours avant → acompte conservé</li>
+                    <li><strong>Acompte de 30 % non remboursable</strong> à la réservation</li>
+                    <li>Solde à régler à l'arrivée ou 24h avant</li>
+                    <li><strong>Annulation moins de 7 jours avant l'arrivée</strong><br>
+                    → Acompte conservé</li>
                 </ul>
             </div>
             
-            <div class="important-note">
-                <h4><i class="fas fa-info-circle"></i> Note juridique</h4>
-                <p><strong>Toute réservation confirmée vaut acceptation pleine et entière de la politique d'annulation et de remboursement.</strong></p>
-                <p style="margin-top: 10px;">Dernière mise à jour : Janvier 2024</p>
+            <div class="separator">⸻</div>
+            
+            <div class="politique-note">
+                <h4><i class="fas fa-info-circle"></i> Important</h4>
+                <p>Les smoothies et sandwichs offerts avec certaines formules ne sont pas remboursables en cas d'annulation. En cas de report, ils pourront être maintenus selon disponibilité.</p>
+            </div>
+            
+            <div class="separator">⸻</div>
+            
+            <div class="politique-section">
+                <h4><i class="fas fa-gavel"></i> Note juridique</h4>
+                <p><strong>Toute réservation confirmée vaut acceptation pleine et entière de la présente politique d'annulation et de remboursement.</strong></p>
+                <p style="margin-top: 10px; font-size: 14px; color: var(--gris);">Dernière mise à jour : Janvier 2024</p>
             </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - NOUVELLE PRÉSENTATION -->
     <section class="hero" id="accueil">
         <div class="container">
-            <h1>Votre studio cosy à Akpakpa</h1>
+            <h1>Votre studio cosy à Akpakpa, Cotonou</h1>
+            <div class="hero-tagline">
+                <i class="fas fa-star"></i> Confort • Calme • Intimité • Gourmandise OFFERTE <i class="fas fa-star"></i>
+            </div>
             <p class="hero-subtitle">
-                Découvrez un espace paisible et entièrement équipé pour vos séjours à Cotonou. 
-                Confort, tranquillité et localisation idéale.
+                Offrez-vous un séjour paisible dans un studio moderne, cosy et entièrement équipé, pensé pour votre bien-être avec une touche gourmande offerte pour votre séjour.
+            </p>
+            <p class="hero-note">
+                Installez-vous, détendez-vous… on s'occupe du reste.
             </p>
             
             <div class="hero-buttons">
@@ -1111,13 +1350,13 @@
         </div>
     </section>
 
-    <!-- Tarifs Section -->
+    <!-- Tarifs Section - AMÉLIORÉE -->
     <section class="tarifs-section" id="tarifs">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Nos Tarifs</h2>
                 <p class="section-subtitle">
-                    Des formules simples et transparentes pour votre confort
+                    Des formules adaptées à chaque besoin, avec une touche gourmande incluse
                 </p>
             </div>
             
@@ -1129,10 +1368,14 @@
                     <div class="tarif-price">17 000 F</div>
                     <div class="tarif-period">par nuitée</div>
                     
+                    <p class="tarif-description">
+                        Idéale pour une nuit de repos, un déplacement rapide ou une escapade détente.
+                    </p>
+                    
                     <ul class="tarif-features">
                         <li>Studio entier de 30m²</li>
                         <li>Wi-Fi haut débit</li>
-                        <li>Climatisation</li>
+                        <li>Climatisation réglable</li>
                         <li>TV écran plat + PS4</li>
                         <li>Cuisine équipée</li>
                         <li>Arrivée 14h - Départ 12h</li>
@@ -1142,7 +1385,7 @@
                     <div class="tarif-cta">
                         <a href="#reservation" class="btn btn-primary">
                             <i class="fas fa-calendar-alt"></i>
-                            Réserver cette formule
+                            Choisir cette formule
                         </a>
                     </div>
                 </div>
@@ -1154,10 +1397,14 @@
                     <div class="tarif-price">27 000 F</div>
                     <div class="tarif-period">pour 24 heures</div>
                     
+                    <p class="tarif-description">
+                        Parfaite si vous arrivez tard ou souhaitez profiter pleinement du studio sans contrainte horaire.
+                    </p>
+                    
                     <ul class="tarif-features">
                         <li>Studio entier de 30m²</li>
                         <li>Wi-Fi haut débit</li>
-                        <li>Climatisation</li>
+                        <li>Climatisation réglable</li>
                         <li>TV écran plat + PS4</li>
                         <li>Cuisine équipée</li>
                         <li>Heure d'arrivée flexible</li>
@@ -1167,75 +1414,95 @@
                     <div class="tarif-cta">
                         <a href="#reservation" class="btn btn-primary">
                             <i class="fas fa-clock"></i>
-                            Réserver cette formule
+                            Choisir cette formule
                         </a>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center" style="margin-top: 40px;">
-                <p style="color: var(--gris); font-size: 16px;">
-                    <i class="fas fa-info-circle"></i> 
-                    <strong>Option :</strong> Sans smoothie/sandwich → 15.000 F/nuit ou 25.000 F/24h
+            <!-- Alternative sans gourmandise - MIEUX PRÉSENTÉE -->
+            <div class="alternative-card">
+                <h3 class="alternative-title">Vous préférez sans offre gourmande ?</h3>
+                <p style="color: var(--gris); margin-bottom: 20px;">
+                    Profitez simplement du studio confortable à un tarif réduit.
+                </p>
+                <div class="alternative-prices">
+                    <div class="alternative-price">
+                        <div class="price">15 000 F</div>
+                        <div class="period">par nuitée</div>
+                    </div>
+                    <div class="alternative-price">
+                        <div class="price">25 000 F</div>
+                        <div class="period">pour 24 heures</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px; font-size: 14px; color: var(--gris);">
+                    <i class="fas fa-info-circle"></i> Tous les équipements inclus, sans smoothie/sandwich
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section - CARROUSEL AVEC VOS 7 IMAGES + VIDÉO -->
+    <!-- Gallery Section - 8 SLIDES -->
     <section class="gallery-section" id="galerie">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Galerie</h2>
                 <p class="section-subtitle">
-                    Découvrez notre studio en images
+                    Découvrez le studio en images et vidéo
                 </p>
             </div>
             
             <div class="gallery-carousel">
                 <div class="carousel-container" id="carousel-container">
-                    <!-- Slide 1 : image1.jpg -->
+                    <!-- Slide 1 : image1.jpg - Vue principale -->
                     <div class="carousel-slide">
                         <img src="images/image1.jpg" 
-                             alt="Vue du studio Cosylogement à Akpakpa">
+                             alt="Vue principale du studio Cosylogement à Akpakpa">
                     </div>
                     
-                    <!-- Slide 2 : image2.jpg -->
+                    <!-- Slide 2 : image2.jpg - Espace lit -->
                     <div class="carousel-slide">
                         <img src="images/image2.jpg" 
-                             alt="Studio Cosylogement - espace de vie">
+                             alt="Espace lit cosy du studio Cosylogement">
                     </div>
                     
-                    <!-- Slide 3 : image3.jpg -->
+                    <!-- Slide 3 : image3.jpg - Coin détente -->
                     <div class="carousel-slide">
                         <img src="images/image3.jpg" 
-                             alt="Studio cosy à Akpakpa, Cotonou">
+                             alt="Coin détente du studio à Cotonou">
                     </div>
                     
-                    <!-- Slide 4 : image4.jpg -->
+                    <!-- Slide 4 : image4.jpg - Nouvelle photo cuisine -->
+                    <div class="carousel-slide">
+                        <img src="images/cuisine-equipee.jpg" 
+                             alt="Cuisine équipée du studio Cosylogement">
+                    </div>
+                    
+                    <!-- Slide 5 : image5.jpg - Salle de bain -->
                     <div class="carousel-slide">
                         <img src="images/image4.jpg" 
-                             alt="Détail du studio Cosylogement">
+                             alt="Salle de bain moderne du studio">
                     </div>
                     
-                    <!-- Slide 5 : VIDÉO avec miniature image5.jpg -->
+                    <!-- Slide 6 : image6.jpg - Détail ambiance -->
                     <div class="carousel-slide">
-                        <video controls poster="images/image5.jpg">
+                        <img src="images/image5.jpg" 
+                             alt="Détail ambiance cosy du studio">
+                    </div>
+                    
+                    <!-- Slide 7 : VIDÉO avec miniature image6.jpg -->
+                    <div class="carousel-slide">
+                        <video controls poster="images/image6.jpg">
                             <source src="images/visite-studio.mp4" type="video/mp4">
                             Votre navigateur ne supporte pas la vidéo.
                         </video>
                     </div>
                     
-                    <!-- Slide 6 : image6.jpg -->
-                    <div class="carousel-slide">
-                        <img src="images/image6.jpg" 
-                             alt="Autre perspective du studio">
-                    </div>
-                    
-                    <!-- Slide 7 : image7.jpg -->
+                    <!-- Slide 8 : image7.jpg - Photo avec flyer FreshMood -->
                     <div class="carousel-slide">
                         <img src="images/image7.jpg" 
-                             alt="Studio Cosylogement - vue d'ensemble">
+                             alt="Touche gourmande FreshMood offerte avec votre séjour">
                     </div>
                 </div>
                 
@@ -1253,13 +1520,13 @@
         </div>
     </section>
 
-    <!-- Studio Section -->
+    <!-- Studio Section - AVEC NOUVEAUX POINTS -->
     <section class="studio-section" id="studio">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Le Studio Cosy</h2>
                 <p class="section-subtitle">
-                    Un espace pensé pour votre confort et votre tranquillité
+                    Un espace pensé pour votre confort, tranquillité et bien-être
                 </p>
             </div>
             
@@ -1269,7 +1536,7 @@
                         <i class="fas fa-snowflake"></i>
                     </div>
                     <h3>Climatisation</h3>
-                    <p>Température réglable pour un confort optimal</p>
+                    <p>Température réglable pour un confort optimal toute l'année</p>
                 </div>
                 
                 <div class="feature-card">
@@ -1277,7 +1544,7 @@
                         <i class="fas fa-wifi"></i>
                     </div>
                     <h3>Wi-Fi Haut Débit</h3>
-                    <p>Connexion internet rapide et stable</p>
+                    <p>Connexion internet rapide et stable pour travailler ou se divertir</p>
                 </div>
                 
                 <div class="feature-card">
@@ -1285,7 +1552,7 @@
                         <i class="fas fa-tv"></i>
                     </div>
                     <h3>TV & PS4</h3>
-                    <p>Écran plat avec console de jeux</p>
+                    <p>Écran plat avec console de jeux pour vos moments de détente</p>
                 </div>
                 
                 <div class="feature-card">
@@ -1293,19 +1560,51 @@
                         <i class="fas fa-utensils"></i>
                     </div>
                     <h3>Cuisine équipée</h3>
-                    <p>Plaques, ustensiles et vaisselle complète</p>
+                    <p>Plaques, ustensiles et vaisselle complète pour vos préparations</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-volume-off"></i>
+                    </div>
+                    <h3>Quartier calme</h3>
+                    <p>Environnement paisible pour un séjour reposant à Akpakpa</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Propreté garantie</h3>
+                    <p>Nettoyage professionnel avant chaque arrivée pour votre tranquillité</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Studio privé</h3>
+                    <p>Espace entier et discret pour préserver votre intimité</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sécurité</h3>
+                    <p>Environnement sûr et accès sécurisé pour votre sérénité</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partenaire Section -->
+    <!-- Partenaire Section - TEXTE AMÉLIORÉ -->
     <section class="partenaire-section" id="partenaire">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Notre Partenaire</h2>
+                <h2 class="section-title">Notre Partenaire Gourmand</h2>
                 <p class="section-subtitle">
-                    Pour une expérience gustative exceptionnelle
+                    Une touche de fraîcheur pour votre séjour
                 </p>
             </div>
             
@@ -1313,12 +1612,16 @@
                 <div class="partenaire-logo">
                     <i class="fas fa-blender"></i>
                 </div>
-                <h3>FreshMood</h3>
-                <p style="margin: 20px 0; font-size: 17px; line-height: 1.6;">
-                    Découvrez les smoothies frais et sandwichs gourmands préparés avec soin par notre partenaire <strong>FreshMood</strong>. 
-                    Ces délices sont <strong>offerts avec toutes nos formules</strong> pour agrémenter votre séjour.
+                <h3 class="partenaire-title">FRESH MOOD</h3>
+                <p class="partenaire-text">
+                    Parce qu'un bon séjour passe aussi par le plaisir, nous vous proposons un smoothie frais ou un sandwich gourmand préparé par <strong>FreshMood</strong>, notre partenaire local de confiance.
                 </p>
-                <a href="https://freshmood.bj" target="_blank" class="btn btn-outline" style="color: var(--terracotta); border-color: var(--terracotta);">
+                <p class="partenaire-note">
+                    <i class="fas fa-quote-left"></i> 
+                    Une touche de fraîcheur pour bien commencer ou terminer votre journée.
+                    <i class="fas fa-quote-right"></i>
+                </p>
+                <a href="https://freshmood.bj" target="_blank" class="btn btn-outline" style="color: var(--terracotta); border-color: var(--terracotta); margin-top: 20px;">
                     <i class="fas fa-external-link-alt"></i>
                     Découvrir FreshMood
                 </a>
@@ -1326,13 +1629,16 @@
         </div>
     </section>
 
-    <!-- Reservation Section -->
+    <!-- Reservation Section - AVEC ACCROCHE -->
     <section class="reservation-section" id="reservation">
         <div class="container">
-            <div class="section-header">
+            <div class="reservation-header">
                 <h2 class="section-title">Réservation</h2>
                 <p class="section-subtitle">
                     Réservez votre séjour en quelques étapes simples
+                </p>
+                <p class="reservation-note">
+                    <i class="fas fa-bolt"></i> La réservation prend moins d'une minute.
                 </p>
             </div>
             
@@ -1382,8 +1688,8 @@
                             <label class="form-label" for="formule">Formule choisie *</label>
                             <select class="form-control" id="formule" required>
                                 <option value="">Sélectionnez une formule</option>
-                                <option value="nuit">Nuitée Cosy (smoothie/sandwich OFFERT)</option>
-                                <option value="24h">24h Flexibles (smoothie/sandwich OFFERT)</option>
+                                <option value="nuit">Nuitée Cosy (17.000 F/nuit)</option>
+                                <option value="24h">24h Flexibles (27.000 F/24h)</option>
                             </select>
                         </div>
                         
@@ -1400,13 +1706,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label" for="smoothie-sandwich">Smoothie/Sandwich FreshMood</label>
+                        <label class="form-label" for="smoothie-sandwich">Option gourmande</label>
                         <select class="form-control" id="smoothie-sandwich">
                             <option value="avec">Oui, je veux le smoothie ou sandwich OFFERT</option>
                             <option value="sans">Non, sans smoothie/sandwich (tarif réduit)</option>
                         </select>
                         <small style="color: var(--gris); display: block; margin-top: 5px;">
-                            <i class="fas fa-info-circle"></i> Sans smoothie/sandwich : 15.000 F/nuit ou 25.000 F/24h
+                            <i class="fas fa-info-circle"></i> Sans l'offre : 15.000 F/nuit ou 25.000 F/24h
                         </small>
                     </div>
                     
@@ -1459,7 +1765,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - AVEC PHRASES DE CONFIANCE -->
     <footer id="contact">
         <div class="container">
             <div class="footer-container">
@@ -1467,6 +1773,9 @@
                     <h3>Cosylogement</h3>
                     <p style="color: #bdc3c7; margin-top: 15px; line-height: 1.6;">
                         Studio cosy et confortable à Akpakpa, Cotonou. Un espace paisible pour vos séjours.
+                    </p>
+                    <p style="color: var(--terracotta); margin-top: 15px; font-weight: 500;">
+                        <i class="fas fa-check-circle"></i> Disponible 7j/7
                     </p>
                 </div>
                 
@@ -1518,6 +1827,10 @@
                 </div>
             </div>
             
+            <div class="footer-note">
+                <p><span class="highlight">Réservation rapide, réponse immédiate sur WhatsApp.</span></p>
+            </div>
+            
             <div class="copyright">
                 <p>© <span id="current-year">2024</span> Cosylogement – Studio à Akpakpa, Cotonou. Tous droits réservés.</p>
                 <p style="margin-top: 10px; font-size: 13px;">
@@ -1549,7 +1862,7 @@
             // Setup UI
             setupUI();
             
-            // Setup carousel
+            // Setup carousel (MAINTENANT 8 SLIDES)
             setupCarousel();
             
             // Setup forms
@@ -1665,10 +1978,10 @@
             const dotsContainer = document.getElementById('carousel-dots');
             
             let currentSlide = 0;
-            const totalSlides = slides.length;
+            const totalSlides = slides.length; // Maintenant 8 slides
             let autoSlideInterval;
             
-            // Create dots
+            // Create dots (8 points maintenant)
             slides.forEach((_, index) => {
                 const dot = document.createElement('button');
                 dot.classList.add('carousel-dot');
@@ -1846,7 +2159,7 @@
                 • ${formule === 'nuit' ? 'Nuitées' : 'Périodes 24h'}: ${details}<br>
                 • Caution: ${caution.toLocaleString('fr-FR')} F<br>
                 • Séjour: ${dateArriveeFormat} → ${dateDepartFormat}<br>
-                • Smoothie/Sandwich: ${smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS (-2.000 F)'}
+                • Option gourmande: ${smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS (-2.000 F)'}
             `;
             
             // Afficher le calculateur
@@ -2006,7 +2319,7 @@
                 
                 // Format du numéro Bénin
                 if (phoneNumber.startsWith('0')) {
-                    phoneNumber = '229' + phoneNumber.substring;
+                    phoneNumber = '229' + phoneNumber.substring(1);
                 } else if (!phoneNumber.startsWith('229')) {
                     phoneNumber = '229' + phoneNumber;
                 }
@@ -2085,7 +2398,7 @@
 • Départ : ${departDate.toLocaleDateString('fr-FR', options)} à 12h
 • Formule : ${formuleTexte}
 • Personnes : ${formData.personnes}
-• Smoothie/Sandwich : ${formData.smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS'}
+• Option gourmande : ${formData.smoothieOption === 'avec' ? 'INCLUS (OFFERT)' : 'NON INCLUS'}
 • Préférence : ${preferenceText}
 
 💰 TARIFS :
